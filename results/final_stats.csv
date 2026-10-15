@@ -1,0 +1,9 @@
+claim,value,ci_low,ci_high,kind
+Exp6 cell fit Pearson r (Qwen),0.9436,0.8664,0.9838,measured
+Exp6 D*S coefficient,-0.82,-1.6795,0.0813,measured
+Cross-model transfer Pearson r,0.946,0.8705,0.982,measured
+Cross-model transfer MAE,0.0801,0.0564,0.1076,measured
+Cross-model AUC (trials),0.9152,0.893,0.9373,measured
+Cross-model ECE,0.0485,,,measured
+Continuous similarity (jaccard) r,-0.9411,-0.9764,-0.8953,measured
+Intervention SIM-RANDOM accuracy gain,0.35,0.05,0.65,measured

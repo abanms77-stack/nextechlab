@@ -1,0 +1,7 @@
+id,a,b,metric,delta,ci_low,ci_high,sig,n
+E1,DROP_WEAKER,PROTECT,accuracy,0.0,-0.225,0.225,ns,40
+E2,DROP_MORE_SPECIFIC,PROTECT,accuracy,-0.05,-0.275,0.175,ns,40
+E3,ORACLE,PROTECT,accuracy,0.7,0.55,0.825,SIG,40
+E4,RANDOM,PROTECT,accuracy,-0.025,-0.225,0.2,ns,40
+E5,DROP_WEAKER,RANDOM,accuracy,0.025,-0.175,0.225,ns,40
+E6,DROP_WEAKER,PROTECT,ctx_tokens,-54.125,-59.875,-48.6494,SIG,40

@@ -1,0 +1,29 @@
+{
+  "n_queries": 40,
+  "conditions": [
+    "PROTECT",
+    "DROP_MORE_SPECIFIC",
+    "DROP_LESS_SPECIFIC",
+    "DROP_WEAKER",
+    "RANDOM",
+    "ORACLE"
+  ],
+  "n_conflicts": 4,
+  "anti_leakage": {
+    "p_correct": 0.25,
+    "by_specificity": {
+      "low": 0.24561403508771928,
+      "medium": 0.3050847457627119,
+      "high": 0.18181818181818182
+    },
+    "max_deviation": 0.06818181818181818
+  },
+  "correct_slot_counts": [
+    12,
+    13,
+    6,
+    9
+  ],
+  "injected_strings": 240,
+  "unique_strings": 240
+}

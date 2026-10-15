@@ -1,0 +1,32 @@
+{
+  "name": "contextlab-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test:engine": "node scripts/test-engine.mjs",
+    "test:invariant": "node scripts/invariant.mjs",
+    "diag": "tsx scripts/diag.ts",
+    "validate:research": "tsx scripts/validate-research.ts",
+    "validate:benchmark": "tsx scripts/benchmark-validation.ts",
+    "demo": "tsx scripts/demo-loop.ts"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.39",
+    "tailwindcss": "3.4.7",
+    "tsx": "^4.23.15",
+    "typescript": "5.5.4"
+  }
+}

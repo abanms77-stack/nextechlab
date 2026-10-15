@@ -1,0 +1,21 @@
+model=gpt2-medium filler=prose tokens=328125
+[expA3] L=   768 pos=0.5   d=0   s=medium acc=1.00 cell=172.5s elapsed=172s
+[expA3] L=   256 pos=0.5   d=1   s=medium acc=0.80 cell=59.3s elapsed=59s
+[expA3] L=   768 pos=0.5   d=1   s=medium acc=0.45 cell=261.6s elapsed=321s
+[expA3] L=   256 pos=0.5   d=2   s=medium acc=0.50 cell=73.4s elapsed=73s
+[expA3] L=   768 pos=0.5   d=2   s=medium acc=0.45 cell=201.0s elapsed=274s
+[expA3] L=   256 pos=0.5   d=4   s=medium acc=0.35 cell=90.5s elapsed=90s
+[expA3] L=   768 pos=0.5   d=4   s=medium acc=0.45 cell=336.5s elapsed=427s
+[expA3] L=   256 pos=0.5   d=8   s=medium acc=0.20 cell=69.8s elapsed=70s
+[expA3] L=   768 pos=0.5   d=8   s=medium acc=0.25 cell=192.5s elapsed=262s
+[expA3] L=   256 pos=0.5   d=0   s=high   acc=1.00 cell=63.5s elapsed=63s
+[expA3] L=   768 pos=0.5   d=0   s=high   acc=1.00 cell=171.9s elapsed=235s
+[expA3] L=   256 pos=0.5   d=1   s=high   acc=0.80 cell=78.4s elapsed=78s
+[expA3] L=   768 pos=0.5   d=1   s=high   acc=0.75 cell=241.3s elapsed=320s
+[expA3] L=   256 pos=0.5   d=2   s=high   acc=0.55 cell=81.2s elapsed=81s
+[expA3] L=   768 pos=0.5   d=2   s=high   acc=0.25 cell=201.8s elapsed=283s
+[expA3] L=   256 pos=0.5   d=4   s=high   acc=0.20 cell=64.0s elapsed=64s
+[expA3] L=   768 pos=0.5   d=4   s=high   acc=0.20 cell=197.2s elapsed=261s
+[expA3] L=   256 pos=0.5   d=8   s=high   acc=0.00 cell=75.0s elapsed=75s
+[expA3] L=   768 pos=0.5   d=8   s=high   acc=0.10 cell=208.2s elapsed=283s
+ALL DONE in 2946s

@@ -1,0 +1,14 @@
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights:  43%|####3     | 126/292 [00:00<00:00, 1259.45it/s]Loading weights: 100%|##########| 292/292 [00:00<00:00, 2160.15it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (328246 > 1024). Running this sequence through the model will result in indexing errors
+model=gpt2-medium filler=prose tokens=328125
+[expA3] L=   256 pos=0.5   d=0   s=low    acc=1.00 cell=150.1s elapsed=150s
+[expA3] L=   768 pos=0.5   d=0   s=low    acc=1.00 cell=371.5s elapsed=522s
+[expA3] L=   256 pos=0.5   d=1   s=low    acc=1.00 cell=144.5s elapsed=144s
+[expA3] L=   768 pos=0.5   d=1   s=low    acc=0.90 cell=351.6s elapsed=496s
+[expA3] L=   256 pos=0.5   d=2   s=low    acc=1.00 cell=150.8s elapsed=151s
+[expA3] L=   768 pos=0.5   d=2   s=low    acc=1.00 cell=373.4s elapsed=524s
+[expA3] L=   256 pos=0.5   d=4   s=low    acc=1.00 cell=138.8s elapsed=139s
+[expA3] L=   768 pos=0.5   d=4   s=low    acc=1.00 cell=289.4s elapsed=428s
+[expA3] L=   256 pos=0.5   d=8   s=low    acc=1.00 cell=102.7s elapsed=103s
+[expA3] L=   768 pos=0.5   d=8   s=low    acc=0.95 cell=156.3s elapsed=259s
+[expA3] L=   256 pos=0.5   d=0   s=medium acc=1.00 cell=47.1s elapsed=47s

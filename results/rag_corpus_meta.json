@@ -1,0 +1,9 @@
+{
+  "corpus": "wiki_train.txt",
+  "corpus_bytes": 10986144,
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 8,
+  "n_queries": 40,
+  "chunk_words": 80,
+  "chunk_stride": 80
+}

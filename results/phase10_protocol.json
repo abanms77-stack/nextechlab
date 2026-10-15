@@ -1,0 +1,104 @@
+{
+  "name": "phase10_cross_domain_v1",
+  "frozen": true,
+  "reference_source": "expB_dsweep_factorial.csv",
+  "reference_sha256": "d4a6f57ae2e2dd3222acc3e44c6a454e40eb81410edf9c2e2c26fcbaded66af5",
+  "reference_conditions": {
+    "domain": "wiki prose filler (data/wiki_train.txt)",
+    "length": 256,
+    "similarity": "medium",
+    "position": 0.5,
+    "D_grid": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+    ],
+    "n_per_cell": 20
+  },
+  "target_new": {
+    "file": "phase10_domainB_factorial.csv",
+    "domain": "general-English filler (data/filler_general.txt)",
+    "length": 256,
+    "similarity": "medium",
+    "position": 0.5,
+    "D_grid": [
+      0,
+      4,
+      8
+    ],
+    "n_per_cell": 10,
+    "model": "Qwen/Qwen2.5-0.5B",
+    "filler_manifest": {
+      "path": "data\\filler_general.txt",
+      "sha256": "7076c7a6889d2e510e2730590c41b03e2d0715fc78a7a59ae9174e6c0db66725",
+      "clean_tokens": 342757,
+      "reference_clean_tokens": 345590,
+      "pct_diff": 0.82,
+      "sources": "hf:NeelNanda/pile-10k (streamed from local cache, url-stripped, truncated to match reference clean-token count +/-1%)"
+    }
+  },
+  "target_cross_length": {
+    "source": "exp6_factorial.csv",
+    "sha256": "3bb47f593bf21d5297ad9e2ed4dba7c5ecdda31723175875e49405ff2c46f0ba",
+    "train": "length=256 cells",
+    "test": "length=1024 cells",
+    "D_grid": [
+      0,
+      1,
+      2,
+      4,
+      8
+    ],
+    "S_grid": [
+      "low",
+      "medium",
+      "high"
+    ]
+  },
+  "models_compared": [
+    "log",
+    "linear",
+    "min_sat",
+    "frozen_law"
+  ],
+  "model_defs": {
+    "log": "P = sigma(a + b*log(1+D)); (a,b) frozen from reference curve",
+    "linear": "P = sigma(a + b*D); (a,b) frozen from reference curve",
+    "min_sat": "P = sigma(a + b*min(1,D/k)); (a,b,k) frozen from reference",
+    "frozen_law": "7-feature ContextLab law (frozen_law_qwen.json, sha256 cf79eeae...)"
+  },
+  "primary_comparison": "log vs frozen_law on target_new (domain-B cells)",
+  "protocol": "fit on reference -> freeze -> evaluate on target (no refit)",
+  "primary_metrics": [
+    "Spearman",
+    "MAE",
+    "RMSE",
+    "ECE"
+  ],
+  "secondary_metrics": [
+    "Pearson",
+    "mono_viol",
+    "calib_slope",
+    "calib_intercept",
+    "n_params"
+  ],
+  "outcome_interpretation": {
+    "A": "cross-domain transfer works (|Spearman| >= 0.8, MAE <= 0.15)",
+    "B": "rank transfers, calibration does not (|Spearman| >= 0.8, MAE > 0.15)",
+    "C": "fails (|Spearman| < 0.8 on domain-B cells)"
+  },
+  "honesty_notes": [
+    "n=10/cell and 3 D points: Spearman verdicts are preliminary",
+    "no intercept recalibration anywhere (true zero-refit)",
+    "domain-B filler matched to reference clean tokens within 1%",
+    "cross-length target is cell-level (20 samples/cell, existing data)"
+  ]
+}

@@ -1,0 +1,10 @@
+filler=prose tokens=345590
+[exp4] L=  4096 pos=0.5   d=0   acc=1.00 cell=50.5s elapsed=50s
+[exp4] L=  4096 pos=0.5   d=1   acc=1.00 cell=68.4s elapsed=68s
+[exp4] L=  4096 pos=0.5   d=2   acc=1.00 cell=457.4s elapsed=457s
+[exp4] L=  4096 pos=0.5   d=4   acc=1.00 cell=66.9s elapsed=67s
+[exp4] L=  4096 pos=0.5   d=8   acc=1.00 cell=66.7s elapsed=67s
+[sim_low] L=  1024 pos=0.5   d=4   acc=1.00 cell=46.2s elapsed=46s
+[sim_medium] L=  1024 pos=0.5   d=4   acc=0.50 cell=1211.1s elapsed=1211s
+[sim_high] L=  1024 pos=0.5   d=4   acc=0.00 cell=31.4s elapsed=31s
+ALL DONE in 2026s

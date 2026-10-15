@@ -1,0 +1,53 @@
+{
+  "name": "phase9_cross_task_transfer_v1",
+  "frozen": true,
+  "reference": "expB_dsweep_factorial.csv",
+  "reference_sha256": "d4a6f57ae2e2dd3222acc3e44c6a454e40eb81410edf9c2e2c26fcbaded66af5",
+  "target": "expA_counting.csv",
+  "target_sha256": "5b857bd8f87298df7db823e7c34f05fa52e4a5c789e03da0fbc5008aa54dd7ee",
+  "frozen_params": {
+    "linear": {
+      "a": 1.9271476599019777,
+      "b": -0.25241554513118986
+    },
+    "min_sat": {
+      "a": 1.9271473336567722,
+      "b": -4.038647358613073,
+      "k": 16.0
+    },
+    "exp_sat": {
+      "a": 2.3278239796326883,
+      "b": -6.079022874180776,
+      "k": 14.5
+    },
+    "log": {
+      "a": 3.489541127502969,
+      "b": -1.7413441157265632
+    }
+  },
+  "forms": [
+    "linear",
+    "min_sat",
+    "exp_sat",
+    "log"
+  ],
+  "baseline": "frozen 7-feature ContextLab law",
+  "protocol": "fit on reference -> freeze -> evaluate on target (no refit)",
+  "primary_metrics": [
+    "Spearman",
+    "MAE",
+    "RMSE",
+    "ECE"
+  ],
+  "secondary_metrics": [
+    "Pearson",
+    "mono_viol",
+    "calib_slope",
+    "calib_intercept"
+  ],
+  "outcome_interpretation": {
+    "A": "transfer works (strong target rank correlation)",
+    "B": "count form transfers but coefficient would need to differ",
+    "C": "fails: competition-count structure is task-dependent"
+  }
+}

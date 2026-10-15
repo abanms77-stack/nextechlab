@@ -1,0 +1,25 @@
+{
+  "created": "2026-10-01 21:15:14",
+  "source_data": "exp6_factorial.csv",
+  "source_rows": 600,
+  "feats": [
+    "log2L",
+    "D",
+    "S",
+    "D*S",
+    "D*log2L",
+    "S*log2L",
+    "D*S*log2L"
+  ],
+  "coefs": {
+    "log2L": -0.111088,
+    "D": 0.21469,
+    "S": -0.436265,
+    "D*S": -0.820012,
+    "D*log2L": -0.002351,
+    "S*log2L": -0.033673,
+    "D*S*log2L": -0.038315
+  },
+  "intercept": 3.980019,
+  "sha256": "cf79eeae1d5b2bd1e3bff92cfc9f1d513bc1f13550cdced2d0304bc575b4b975"
+}

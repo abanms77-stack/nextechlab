@@ -1,0 +1,71 @@
+{
+  "name": "phase8_d_functional_form_v1",
+  "frozen": true,
+  "source": "expB_dsweep_factorial.csv",
+  "source_sha256": "d4a6f57ae2e2dd3222acc3e44c6a454e40eb81410edf9c2e2c26fcbaded66af5",
+  "model": "Qwen/Qwen2.5-0.5B",
+  "length": 256,
+  "similarity": "medium",
+  "S_weight": 0.5,
+  "target": "P(correct | D)",
+  "model_form": "P = sigma(a + b * f(D))",
+  "candidates": [
+    "linear",
+    "min_sat",
+    "exp_sat",
+    "log",
+    "isotonic"
+  ],
+  "candidate_defs": {
+    "linear": "f(D) = D",
+    "min_sat": "f(D) = min(1, D/k); k fit by held-out",
+    "exp_sat": "f(D) = 1 - exp(-D/k); k fit by held-out",
+    "log": "f(D) = log(1 + D)",
+    "isotonic": "f(D) = learned monotone step function (isotonic)"
+  },
+  "protocol": "leave-one-D-out; fit on all other D, predict held-out D",
+  "splits": {
+    "interpolation": "hold out each interior D (1..12), train on the rest",
+    "extrapolation": "hold out D=16 (largest), train on D<=12"
+  },
+  "metrics": [
+    "MAE",
+    "RMSE",
+    "Spearman",
+    "ECE",
+    "mono_violations",
+    "n_params"
+  ],
+  "baseline": {
+    "name": "frozen 7-feature ContextLab law",
+    "source": "results/frozen_law_qwen.json",
+    "feats": [
+      "log2L",
+      "D",
+      "S",
+      "D*S",
+      "D*log2L",
+      "S*log2L",
+      "D*S*log2L"
+    ]
+  },
+  "preregistered_questions": [
+    "Q1 which f(D) minimises held-out MAE (interpolation)?",
+    "Q2 which f(D) survives extrapolation to D=16?",
+    "Q3 does any candidate beat the frozen 7-feature law on held-out D?",
+    "Q4 how many monotonicity violations does each candidate make?"
+  ],
+  "d_grid": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16
+  ]
+}

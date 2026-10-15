@@ -1,0 +1,7 @@
+model,metric,pearson,spearman
+Qwen2.5-0.5B,cos_sim,-0.878,-0.915
+Qwen2.5-0.5B,jaccard,-0.941,-0.938
+Qwen2.5-0.5B,shared_prefix,-0.437,-0.364
+gpt2-medium,cos_sim,-0.747,-0.784
+gpt2-medium,jaccard,-0.886,-0.828
+gpt2-medium,shared_prefix,-0.433,-0.428

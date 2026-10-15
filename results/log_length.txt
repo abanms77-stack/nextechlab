@@ -1,0 +1,9 @@
+[length] L=   256 pos=0.5   d=0   acc=1.00 cell=10.3s elapsed=10s
+[length] L=   512 pos=0.5   d=0   acc=1.00 cell=19.2s elapsed=30s
+[length] L=  1024 pos=0.5   d=0   acc=1.00 cell=36.4s elapsed=66s
+[length] L=  2048 pos=0.5   d=0   acc=1.00 cell=73.5s elapsed=139s
+[length] L=   256 pos=0.5   d=4   acc=0.50 cell=9.9s elapsed=10s
+[length] L=   512 pos=0.5   d=4   acc=0.50 cell=19.2s elapsed=29s
+[length] L=  1024 pos=0.5   d=4   acc=0.75 cell=41.0s elapsed=70s
+[length] L=  2048 pos=0.5   d=4   acc=0.75 cell=1661.5s elapsed=1732s
+ALL DONE in 1912s

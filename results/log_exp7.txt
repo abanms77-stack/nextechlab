@@ -1,0 +1,32 @@
+model=meta-llama/Llama-3.2-1B filler=prose tokens=334328
+[exp7] L=   256 pos=0.5   d=0   s=low    acc=1.00 cell=117.8s elapsed=118s
+[exp7] L=  1024 pos=0.5   d=0   s=low    acc=1.00 cell=395.6s elapsed=513s
+[exp7] L=   256 pos=0.5   d=1   s=low    acc=1.00 cell=101.8s elapsed=102s
+[exp7] L=  1024 pos=0.5   d=1   s=low    acc=1.00 cell=399.4s elapsed=501s
+[exp7] L=   256 pos=0.5   d=2   s=low    acc=1.00 cell=100.6s elapsed=101s
+[exp7] L=  1024 pos=0.5   d=2   s=low    acc=1.00 cell=399.5s elapsed=500s
+[exp7] L=   256 pos=0.5   d=4   s=low    acc=1.00 cell=99.7s elapsed=100s
+[exp7] L=  1024 pos=0.5   d=4   s=low    acc=1.00 cell=394.6s elapsed=494s
+[exp7] L=   256 pos=0.5   d=8   s=low    acc=1.00 cell=99.1s elapsed=99s
+[exp7] L=  1024 pos=0.5   d=8   s=low    acc=1.00 cell=394.0s elapsed=493s
+[exp7] L=   256 pos=0.5   d=0   s=medium acc=1.00 cell=99.1s elapsed=99s
+[exp7] L=  1024 pos=0.5   d=0   s=medium acc=1.00 cell=388.5s elapsed=488s
+[exp7] L=   256 pos=0.5   d=1   s=medium acc=0.80 cell=99.9s elapsed=100s
+[exp7] L=  1024 pos=0.5   d=1   s=medium acc=0.95 cell=398.6s elapsed=499s
+[exp7] L=   256 pos=0.5   d=2   s=medium acc=0.90 cell=100.0s elapsed=100s
+[exp7] L=  1024 pos=0.5   d=2   s=medium acc=0.80 cell=389.3s elapsed=489s
+[exp7] L=   256 pos=0.5   d=4   s=medium acc=0.55 cell=100.5s elapsed=100s
+[exp7] L=  1024 pos=0.5   d=4   s=medium acc=0.65 cell=378.6s elapsed=479s
+[exp7] L=   256 pos=0.5   d=8   s=medium acc=0.40 cell=98.3s elapsed=98s
+[exp7] L=  1024 pos=0.5   d=8   s=medium acc=0.60 cell=389.0s elapsed=487s
+[exp7] L=   256 pos=0.5   d=0   s=high   acc=1.00 cell=107.2s elapsed=107s
+[exp7] L=  1024 pos=0.5   d=0   s=high   acc=1.00 cell=399.2s elapsed=506s
+[exp7] L=   256 pos=0.5   d=1   s=high   acc=0.75 cell=102.1s elapsed=102s
+[exp7] L=  1024 pos=0.5   d=1   s=high   acc=0.95 cell=402.5s elapsed=505s
+[exp7] L=   256 pos=0.5   d=2   s=high   acc=0.70 cell=102.1s elapsed=102s
+[exp7] L=  1024 pos=0.5   d=2   s=high   acc=0.55 cell=403.4s elapsed=505s
+[exp7] L=   256 pos=0.5   d=4   s=high   acc=0.25 cell=102.4s elapsed=102s
+[exp7] L=  1024 pos=0.5   d=4   s=high   acc=0.40 cell=405.0s elapsed=507s
+[exp7] L=   256 pos=0.5   d=8   s=high   acc=0.00 cell=103.2s elapsed=103s
+[exp7] L=  1024 pos=0.5   d=8   s=high   acc=0.10 cell=408.4s elapsed=512s
+ALL DONE in 7506s

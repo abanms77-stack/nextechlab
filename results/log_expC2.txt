@@ -1,0 +1,4 @@
+[pos_bank] L=  1024 pos=0.1   d=4   s=medium acc=0.83 cell=113.7s elapsed=114s
+[pos_bank] L=  1024 pos=0.5   d=4   s=medium acc=0.67 cell=109.8s elapsed=224s
+[pos_bank] L=  1024 pos=0.9   d=4   s=medium acc=0.83 cell=109.8s elapsed=333s
+ALL DONE in 350s

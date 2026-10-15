@@ -1,0 +1,109 @@
+{
+  "name": "phase11_position_v1",
+  "frozen": true,
+  "reference_source": "expB_dsweep_factorial.csv",
+  "reference_sha256": "d4a6f57ae2e2dd3222acc3e44c6a454e40eb81410edf9c2e2c26fcbaded66af5",
+  "reference_conditions": {
+    "domain": "wiki prose filler (data/wiki_train.txt)",
+    "length": 256,
+    "similarity": "medium",
+    "position": 0.5,
+    "D_grid": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+    ],
+    "n_per_cell": 20
+  },
+  "target_new": {
+    "file": "phase11_factorial.csv",
+    "domain": "wiki prose filler (same corpus as reference)",
+    "length": 256,
+    "similarity": "medium",
+    "D_grid": [
+      0,
+      4
+    ],
+    "positions": [
+      0.05,
+      0.15,
+      0.3,
+      0.5,
+      0.7,
+      0.85,
+      0.95
+    ],
+    "n_per_cell": 10,
+    "model": "Qwen/Qwen2.5-0.5B"
+  },
+  "manipulated_variable": "evidence (needle) position P only",
+  "held_fixed": [
+    "task=retrieval",
+    "query text",
+    "filler corpus + token count",
+    "length=256",
+    "similarity=medium",
+    "needle passage content"
+  ],
+  "split": {
+    "fit_positions": [
+      0.05,
+      0.3,
+      0.7,
+      0.95
+    ],
+    "test_positions": [
+      0.15,
+      0.5,
+      0.85
+    ],
+    "note": "position coefficients fit ONLY on fit_positions; test_positions never seen during fitting (zero-refit)"
+  },
+  "models_compared": [
+    "base_log",
+    "base_law",
+    "pos_edge",
+    "pos_quad"
+  ],
+  "model_defs": {
+    "base_log": "P = sigma(a + b*log(1+D)); (a,b) frozen from reference",
+    "base_law": "7-feature ContextLab law (frozen_law_qwen.json)",
+    "pos_edge": "base_log + c*|2P-1|; (a,b) frozen, c fit on fit-split",
+    "pos_quad": "base_log + c*(2P-1)^2; (a,b) frozen, c fit on fit-split"
+  },
+  "primary_comparison": "base_log vs pos-aware models on held-out positions",
+  "primary_test": "does position explain residual error after D, S, L are known?",
+  "protocol": "calibrate base on position=0.5 reference -> freeze -> evaluate position extension held-out (zero-refit on test positions)",
+  "primary_metrics": [
+    "Spearman",
+    "MAE",
+    "RMSE",
+    "ECE"
+  ],
+  "secondary_metrics": [
+    "Pearson",
+    "calib_slope",
+    "calib_intercept",
+    "delta_R2_vs_base",
+    "n_params"
+  ],
+  "outcome_interpretation": {
+    "A": "position adds information (|Spearman| >= 0.8 on held-out positions AND pos-aware beats base by >= 0.03 MAE)",
+    "B": "position ranks cells but does not improve calibration (|Spearman| >= 0.8, MAE gain < 0.03)",
+    "C": "position redundant (fails to beat base and |Spearman| < 0.8)"
+  },
+  "honesty_notes": [
+    "position = evidence (needle) position only; decoy positions independently randomized per seed, controlled as random noise",
+    "n=10/cell, 7 positions, 2 D: verdicts preliminary",
+    "position coefficients fit only on fit-split; test positions never seen during fitting (true zero-refit on position)",
+    "filler token count exact (same corpus); needle passage length identical across positions"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "corpus": "wiki_train.txt",
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "n_queries": 40,
+  "conditions": [
+    "BASELINE",
+    "RANDOM",
+    "CONTEXTLAB",
+    "ORACLE"
+  ],
+  "injected_strings": 360,
+  "unique_strings": 360
+}

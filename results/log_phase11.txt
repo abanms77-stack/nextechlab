@@ -1,0 +1,18 @@
+model=Qwen/Qwen2.5-0.5B filler=prose size=345590 path=data/wiki_train.txt
+[phase11_position] L=   256 pos=0.05  d=0   s=medium acc=1.00 cell=21.7s elapsed=22s
+[phase11_position] L=   256 pos=0.15  d=0   s=medium acc=1.00 cell=22.9s elapsed=45s
+[phase11_position] L=   256 pos=0.3   d=0   s=medium acc=1.00 cell=24.4s elapsed=69s
+[phase11_position] L=   256 pos=0.5   d=0   s=medium acc=1.00 cell=22.5s elapsed=92s
+[phase11_position] L=   256 pos=0.7   d=0   s=medium acc=1.00 cell=22.5s elapsed=114s
+[phase11_position] L=   256 pos=0.85  d=0   s=medium acc=1.00 cell=22.3s elapsed=136s
+[phase11_position] L=   256 pos=0.95  d=0   s=medium acc=1.00 cell=22.4s elapsed=159s
+  D=0 done, elapsed=170s
+[phase11_position] L=   256 pos=0.05  d=4   s=medium acc=0.70 cell=24.2s elapsed=24s
+[phase11_position] L=   256 pos=0.15  d=4   s=medium acc=0.70 cell=23.1s elapsed=47s
+[phase11_position] L=   256 pos=0.3   d=4   s=medium acc=0.70 cell=22.4s elapsed=70s
+[phase11_position] L=   256 pos=0.5   d=4   s=medium acc=0.70 cell=22.4s elapsed=92s
+[phase11_position] L=   256 pos=0.7   d=4   s=medium acc=0.70 cell=22.4s elapsed=115s
+[phase11_position] L=   256 pos=0.85  d=4   s=medium acc=0.80 cell=22.8s elapsed=137s
+[phase11_position] L=   256 pos=0.95  d=4   s=medium acc=0.80 cell=22.3s elapsed=160s
+  D=4 done, elapsed=330s
+ALL DONE in 330s

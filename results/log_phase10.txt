@@ -1,0 +1,8 @@
+model=Qwen/Qwen2.5-0.5B filler=prose size=342757 path=data/filler_general.txt
+[phase10_domainB] L=   256 pos=0.5   d=0   s=medium acc=1.00 cell=20.0s elapsed=20s
+  D=0 done, elapsed=32s
+[phase10_domainB] L=   256 pos=0.5   d=4   s=medium acc=0.50 cell=22.4s elapsed=22s
+  D=4 done, elapsed=54s
+[phase10_domainB] L=   256 pos=0.5   d=8   s=medium acc=0.20 cell=24.0s elapsed=24s
+  D=8 done, elapsed=78s
+ALL DONE in 78s

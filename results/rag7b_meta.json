@@ -1,0 +1,24 @@
+{
+  "corpus": "wiki_train.txt",
+  "corpus_bytes": 10986144,
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 8,
+  "n_queries": 40,
+  "context_types": [
+    "clean",
+    "redundant",
+    "contradictory",
+    "mixed"
+  ],
+  "conditions": [
+    "BASELINE",
+    "RANDOM",
+    "CONTEXTLAB",
+    "ORACLE"
+  ],
+  "r_redundant": 3,
+  "c_contradictory": 3,
+  "irrelevant": 2,
+  "injected_strings": 350,
+  "unique_strings": 350
+}

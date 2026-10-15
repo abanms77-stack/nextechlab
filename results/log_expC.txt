@@ -1,0 +1,4 @@
+[pos_prose] L=  1024 pos=0.1   d=4   s=medium acc=0.83 cell=121.2s elapsed=121s
+[pos_prose] L=  1024 pos=0.5   d=4   s=medium acc=0.42 cell=121.1s elapsed=242s
+[pos_prose] L=  1024 pos=0.9   d=4   s=medium acc=0.67 cell=125.5s elapsed=368s
+ALL DONE in 393s

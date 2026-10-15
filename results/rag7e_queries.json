@@ -1,0 +1,1582 @@
+{
+  "protocol": "rag_decoupled_conflict_v1",
+  "frozen": true,
+  "engine_version": "profiler-2.1",
+  "random_seed": 20261006,
+  "candidates": [
+    "apple",
+    "river",
+    "tiger",
+    "cloud",
+    "stone",
+    "candle",
+    "silver",
+    "garden",
+    "planet",
+    "forest",
+    "harbor",
+    "lantern"
+  ],
+  "conditions": [
+    "PROTECT",
+    "DROP_MORE_SPECIFIC",
+    "DROP_LESS_SPECIFIC",
+    "DROP_WEAKER",
+    "RANDOM",
+    "ORACLE"
+  ],
+  "n_conflicts": 4,
+  "specificity_levels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "specificity_pad": {
+    "low": "",
+    "medium": " This entry was revised during the routine quarterly audit.",
+    "high": " This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record."
+  },
+  "anti_leakage": {
+    "p_correct": 0.25,
+    "by_specificity": {
+      "low": 0.24561403508771928,
+      "medium": 0.3050847457627119,
+      "high": 0.18181818181818182
+    },
+    "max_deviation": 0.06818181818181818
+  },
+  "correct_slot_counts": [
+    12,
+    13,
+    6,
+    9
+  ],
+  "policy_defs": {
+    "PROTECT": "keep every conflicting passage",
+    "DROP_MORE_SPECIFIC": "keep the highest-token conflicting passage",
+    "DROP_LESS_SPECIFIC": "keep the lowest-token conflicting passage",
+    "DROP_WEAKER": "keep the conflicting passage most lexically relevant to the query (content-based)",
+    "RANDOM": "keep a random conflicting passage",
+    "ORACLE": "keep the correct passage"
+  },
+  "preregistered_comparisons": [
+    {
+      "id": "E1",
+      "a": "DROP_WEAKER",
+      "b": "PROTECT",
+      "metric": "accuracy"
+    },
+    {
+      "id": "E2",
+      "a": "DROP_MORE_SPECIFIC",
+      "b": "PROTECT",
+      "metric": "accuracy"
+    },
+    {
+      "id": "E3",
+      "a": "ORACLE",
+      "b": "PROTECT",
+      "metric": "accuracy"
+    },
+    {
+      "id": "E4",
+      "a": "RANDOM",
+      "b": "PROTECT",
+      "metric": "accuracy"
+    },
+    {
+      "id": "E5",
+      "a": "DROP_WEAKER",
+      "b": "RANDOM",
+      "metric": "accuracy"
+    },
+    {
+      "id": "E6",
+      "a": "DROP_WEAKER",
+      "b": "PROTECT",
+      "metric": "ctx_tokens"
+    }
+  ],
+  "queries": [
+    {
+      "qid": "q000",
+      "template_id": 0,
+      "noun": "vault",
+      "question": "What is the vault access code?",
+      "gold_answer": "candle",
+      "conflicts": [
+        {
+          "text": "The vault access code is tiger. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The vault access code is candle.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The vault access code is lantern.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The vault access code is apple.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The vault annexe hosted a regional fair (record 0).",
+        "The vault annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q001",
+      "template_id": 1,
+      "noun": "storage",
+      "question": "What is the storage recovery phrase?",
+      "gold_answer": "candle",
+      "conflicts": [
+        {
+          "text": "The storage recovery phrase is silver. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The storage recovery phrase is apple.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The storage recovery phrase is candle.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The storage recovery phrase is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The storage annexe hosted a regional fair (record 0).",
+        "The storage annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q002",
+      "template_id": 2,
+      "noun": "archive",
+      "question": "What is the archive backup key?",
+      "gold_answer": "silver",
+      "conflicts": [
+        {
+          "text": "The archive backup key is silver.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The archive backup key is harbor.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The archive backup key is stone. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The archive backup key is apple.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The archive annexe hosted a regional fair (record 0).",
+        "The archive annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q003",
+      "template_id": 3,
+      "noun": "gateway",
+      "question": "What is the gateway override token?",
+      "gold_answer": "planet",
+      "conflicts": [
+        {
+          "text": "The gateway override token is garden. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The gateway override token is planet. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The gateway override token is harbor. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The gateway override token is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The gateway annexe hosted a regional fair (record 0).",
+        "The gateway annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q004",
+      "template_id": 0,
+      "noun": "mailbox",
+      "question": "What is the mailbox access code?",
+      "gold_answer": "lantern",
+      "conflicts": [
+        {
+          "text": "The mailbox access code is lantern. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The mailbox access code is tiger.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The mailbox access code is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The mailbox access code is stone. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The mailbox annexe hosted a regional fair (record 0).",
+        "The mailbox annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q005",
+      "template_id": 1,
+      "noun": "intranet",
+      "question": "What is the intranet recovery phrase?",
+      "gold_answer": "river",
+      "conflicts": [
+        {
+          "text": "The intranet recovery phrase is river. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The intranet recovery phrase is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The intranet recovery phrase is harbor. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The intranet recovery phrase is planet. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The intranet annexe hosted a regional fair (record 0).",
+        "The intranet annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q006",
+      "template_id": 2,
+      "noun": "admin",
+      "question": "What is the admin backup key?",
+      "gold_answer": "garden",
+      "conflicts": [
+        {
+          "text": "The admin backup key is silver.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The admin backup key is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The admin backup key is garden. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The admin backup key is harbor. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The admin annexe hosted a regional fair (record 0).",
+        "The admin annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q007",
+      "template_id": 3,
+      "noun": "backup",
+      "question": "What is the backup override token?",
+      "gold_answer": "lantern",
+      "conflicts": [
+        {
+          "text": "The backup override token is planet. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The backup override token is stone. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The backup override token is silver. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The backup override token is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The backup annexe hosted a regional fair (record 0).",
+        "The backup annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q008",
+      "template_id": 0,
+      "noun": "guest",
+      "question": "What is the guest access code?",
+      "gold_answer": "lantern",
+      "conflicts": [
+        {
+          "text": "The guest access code is tiger.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The guest access code is lantern.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The guest access code is candle.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The guest access code is cloud. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The guest annexe hosted a regional fair (record 0).",
+        "The guest annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q009",
+      "template_id": 1,
+      "noun": "media",
+      "question": "What is the media recovery phrase?",
+      "gold_answer": "tiger",
+      "conflicts": [
+        {
+          "text": "The media recovery phrase is tiger. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The media recovery phrase is silver. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The media recovery phrase is harbor.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The media recovery phrase is apple.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The media annexe hosted a regional fair (record 0).",
+        "The media annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q010",
+      "template_id": 2,
+      "noun": "portal",
+      "question": "What is the portal backup key?",
+      "gold_answer": "forest",
+      "conflicts": [
+        {
+          "text": "The portal backup key is tiger. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The portal backup key is silver. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The portal backup key is forest. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The portal backup key is planet. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The portal annexe hosted a regional fair (record 0).",
+        "The portal annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q011",
+      "template_id": 3,
+      "noun": "ledger",
+      "question": "What is the ledger override token?",
+      "gold_answer": "apple",
+      "conflicts": [
+        {
+          "text": "The ledger override token is forest. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The ledger override token is apple. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The ledger override token is tiger.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The ledger override token is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The ledger annexe hosted a regional fair (record 0).",
+        "The ledger annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q012",
+      "template_id": 0,
+      "noun": "registry",
+      "question": "What is the registry access code?",
+      "gold_answer": "forest",
+      "conflicts": [
+        {
+          "text": "The registry access code is forest. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The registry access code is planet.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The registry access code is tiger. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The registry access code is candle. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The registry annexe hosted a regional fair (record 0).",
+        "The registry annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q013",
+      "template_id": 1,
+      "noun": "cabinet",
+      "question": "What is the cabinet recovery phrase?",
+      "gold_answer": "tiger",
+      "conflicts": [
+        {
+          "text": "The cabinet recovery phrase is tiger. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The cabinet recovery phrase is lantern.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The cabinet recovery phrase is candle. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The cabinet recovery phrase is apple. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The cabinet annexe hosted a regional fair (record 0).",
+        "The cabinet annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q014",
+      "template_id": 2,
+      "noun": "locker",
+      "question": "What is the locker backup key?",
+      "gold_answer": "forest",
+      "conflicts": [
+        {
+          "text": "The locker backup key is stone.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The locker backup key is forest.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The locker backup key is cloud. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The locker backup key is river.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The locker annexe hosted a regional fair (record 0).",
+        "The locker annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q015",
+      "template_id": 3,
+      "noun": "terminal",
+      "question": "What is the terminal override token?",
+      "gold_answer": "river",
+      "conflicts": [
+        {
+          "text": "The terminal override token is garden. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The terminal override token is candle.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The terminal override token is cloud. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The terminal override token is river.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The terminal annexe hosted a regional fair (record 0).",
+        "The terminal annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q016",
+      "template_id": 0,
+      "noun": "beacon",
+      "question": "What is the beacon access code?",
+      "gold_answer": "stone",
+      "conflicts": [
+        {
+          "text": "The beacon access code is silver. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The beacon access code is stone.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The beacon access code is garden. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The beacon access code is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The beacon annexe hosted a regional fair (record 0).",
+        "The beacon annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q017",
+      "template_id": 1,
+      "noun": "sensor",
+      "question": "What is the sensor recovery phrase?",
+      "gold_answer": "lantern",
+      "conflicts": [
+        {
+          "text": "The sensor recovery phrase is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The sensor recovery phrase is silver. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The sensor recovery phrase is planet. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The sensor recovery phrase is tiger. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The sensor annexe hosted a regional fair (record 0).",
+        "The sensor annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q018",
+      "template_id": 2,
+      "noun": "relay",
+      "question": "What is the relay backup key?",
+      "gold_answer": "stone",
+      "conflicts": [
+        {
+          "text": "The relay backup key is candle. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The relay backup key is apple. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The relay backup key is lantern. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The relay backup key is stone. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The relay annexe hosted a regional fair (record 0).",
+        "The relay annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q019",
+      "template_id": 3,
+      "noun": "tunnel",
+      "question": "What is the tunnel override token?",
+      "gold_answer": "garden",
+      "conflicts": [
+        {
+          "text": "The tunnel override token is harbor.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The tunnel override token is candle. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The tunnel override token is apple.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The tunnel override token is garden. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The tunnel annexe hosted a regional fair (record 0).",
+        "The tunnel annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q020",
+      "template_id": 0,
+      "noun": "channel",
+      "question": "What is the channel access code?",
+      "gold_answer": "garden",
+      "conflicts": [
+        {
+          "text": "The channel access code is apple. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The channel access code is candle. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The channel access code is cloud. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The channel access code is garden. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The channel annexe hosted a regional fair (record 0).",
+        "The channel annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q021",
+      "template_id": 1,
+      "noun": "matrix",
+      "question": "What is the matrix recovery phrase?",
+      "gold_answer": "tiger",
+      "conflicts": [
+        {
+          "text": "The matrix recovery phrase is river. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The matrix recovery phrase is stone. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The matrix recovery phrase is lantern.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The matrix recovery phrase is tiger.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The matrix annexe hosted a regional fair (record 0).",
+        "The matrix annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q022",
+      "template_id": 2,
+      "noun": "cluster",
+      "question": "What is the cluster backup key?",
+      "gold_answer": "stone",
+      "conflicts": [
+        {
+          "text": "The cluster backup key is stone. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The cluster backup key is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The cluster backup key is cloud.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The cluster backup key is planet.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The cluster annexe hosted a regional fair (record 0).",
+        "The cluster annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q023",
+      "template_id": 3,
+      "noun": "keyring",
+      "question": "What is the keyring override token?",
+      "gold_answer": "silver",
+      "conflicts": [
+        {
+          "text": "The keyring override token is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The keyring override token is silver.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The keyring override token is stone.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The keyring override token is river. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The keyring annexe hosted a regional fair (record 0).",
+        "The keyring annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q024",
+      "template_id": 0,
+      "noun": "keystone",
+      "question": "What is the keystone access code?",
+      "gold_answer": "tiger",
+      "conflicts": [
+        {
+          "text": "The keystone access code is planet. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The keystone access code is candle. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The keystone access code is garden.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The keystone access code is tiger. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The keystone annexe hosted a regional fair (record 0).",
+        "The keystone annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q025",
+      "template_id": 1,
+      "noun": "quorum",
+      "question": "What is the quorum recovery phrase?",
+      "gold_answer": "stone",
+      "conflicts": [
+        {
+          "text": "The quorum recovery phrase is forest. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The quorum recovery phrase is apple.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The quorum recovery phrase is cloud. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The quorum recovery phrase is stone. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The quorum annexe hosted a regional fair (record 0).",
+        "The quorum annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q026",
+      "template_id": 2,
+      "noun": "shard",
+      "question": "What is the shard backup key?",
+      "gold_answer": "river",
+      "conflicts": [
+        {
+          "text": "The shard backup key is harbor. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The shard backup key is river. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The shard backup key is garden. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The shard backup key is forest. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The shard annexe hosted a regional fair (record 0).",
+        "The shard annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q027",
+      "template_id": 3,
+      "noun": "bucket",
+      "question": "What is the bucket override token?",
+      "gold_answer": "candle",
+      "conflicts": [
+        {
+          "text": "The bucket override token is planet.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The bucket override token is garden.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The bucket override token is candle. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The bucket override token is stone.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The bucket annexe hosted a regional fair (record 0).",
+        "The bucket annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q028",
+      "template_id": 0,
+      "noun": "buffer",
+      "question": "What is the buffer access code?",
+      "gold_answer": "forest",
+      "conflicts": [
+        {
+          "text": "The buffer access code is stone. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The buffer access code is forest. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The buffer access code is tiger. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The buffer access code is lantern. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The buffer annexe hosted a regional fair (record 0).",
+        "The buffer annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q029",
+      "template_id": 1,
+      "noun": "socket",
+      "question": "What is the socket recovery phrase?",
+      "gold_answer": "river",
+      "conflicts": [
+        {
+          "text": "The socket recovery phrase is river. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The socket recovery phrase is candle. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The socket recovery phrase is cloud. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The socket recovery phrase is silver. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The socket annexe hosted a regional fair (record 0).",
+        "The socket annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q030",
+      "template_id": 2,
+      "noun": "dossier",
+      "question": "What is the dossier backup key?",
+      "gold_answer": "planet",
+      "conflicts": [
+        {
+          "text": "The dossier backup key is cloud.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The dossier backup key is candle.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The dossier backup key is planet.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The dossier backup key is harbor. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The dossier annexe hosted a regional fair (record 0).",
+        "The dossier annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q031",
+      "template_id": 3,
+      "noun": "manifest",
+      "question": "What is the manifest override token?",
+      "gold_answer": "candle",
+      "conflicts": [
+        {
+          "text": "The manifest override token is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The manifest override token is planet.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The manifest override token is candle.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The manifest override token is garden. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The manifest annexe hosted a regional fair (record 0).",
+        "The manifest annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q032",
+      "template_id": 0,
+      "noun": "catalog",
+      "question": "What is the catalog access code?",
+      "gold_answer": "cloud",
+      "conflicts": [
+        {
+          "text": "The catalog access code is silver. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The catalog access code is cloud.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The catalog access code is lantern.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The catalog access code is planet.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The catalog annexe hosted a regional fair (record 0).",
+        "The catalog annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q033",
+      "template_id": 1,
+      "noun": "index",
+      "question": "What is the index recovery phrase?",
+      "gold_answer": "tiger",
+      "conflicts": [
+        {
+          "text": "The index recovery phrase is tiger. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The index recovery phrase is stone. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The index recovery phrase is silver. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The index recovery phrase is garden. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The index annexe hosted a regional fair (record 0).",
+        "The index annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q034",
+      "template_id": 2,
+      "noun": "cache",
+      "question": "What is the cache backup key?",
+      "gold_answer": "apple",
+      "conflicts": [
+        {
+          "text": "The cache backup key is stone. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The cache backup key is apple.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The cache backup key is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The cache backup key is planet. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The cache annexe hosted a regional fair (record 0).",
+        "The cache annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q035",
+      "template_id": 3,
+      "noun": "journal",
+      "question": "What is the journal override token?",
+      "gold_answer": "river",
+      "conflicts": [
+        {
+          "text": "The journal override token is candle. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The journal override token is river. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The journal override token is garden.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The journal override token is cloud. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The journal annexe hosted a regional fair (record 0).",
+        "The journal annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q036",
+      "template_id": 0,
+      "noun": "archive2",
+      "question": "What is the archive2 access code?",
+      "gold_answer": "planet",
+      "conflicts": [
+        {
+          "text": "The archive2 access code is planet. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The archive2 access code is forest.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        },
+        {
+          "text": "The archive2 access code is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The archive2 access code is river. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        }
+      ],
+      "irrelevant": [
+        "The archive2 annexe hosted a regional fair (record 0).",
+        "The archive2 annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q037",
+      "template_id": 1,
+      "noun": "vault2",
+      "question": "What is the vault2 recovery phrase?",
+      "gold_answer": "river",
+      "conflicts": [
+        {
+          "text": "The vault2 recovery phrase is forest. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The vault2 recovery phrase is river. This entry was revised during the routine quarterly audit.",
+          "correct": true,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The vault2 recovery phrase is cloud. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The vault2 recovery phrase is harbor.",
+          "correct": false,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The vault2 annexe hosted a regional fair (record 0).",
+        "The vault2 annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q038",
+      "template_id": 2,
+      "noun": "storage2",
+      "question": "What is the storage2 backup key?",
+      "gold_answer": "garden",
+      "conflicts": [
+        {
+          "text": "The storage2 backup key is lantern. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The storage2 backup key is river. This entry was revised during the routine quarterly audit.",
+          "correct": false,
+          "specificity": "medium",
+          "tokens": 15
+        },
+        {
+          "text": "The storage2 backup key is silver. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The storage2 backup key is garden.",
+          "correct": true,
+          "specificity": "low",
+          "tokens": 6
+        }
+      ],
+      "irrelevant": [
+        "The storage2 annexe hosted a regional fair (record 0).",
+        "The storage2 annexe hosted a regional fair (record 1)."
+      ]
+    },
+    {
+      "qid": "q039",
+      "template_id": 3,
+      "noun": "gateway2",
+      "question": "What is the gateway2 override token?",
+      "gold_answer": "cloud",
+      "conflicts": [
+        {
+          "text": "The gateway2 override token is cloud. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": true,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The gateway2 override token is stone. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The gateway2 override token is tiger. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        },
+        {
+          "text": "The gateway2 override token is silver. This entry was revised during the routine quarterly audit and cross-checked against the earlier signed manuscript record.",
+          "correct": false,
+          "specificity": "high",
+          "tokens": 23
+        }
+      ],
+      "irrelevant": [
+        "The gateway2 annexe hosted a regional fair (record 0).",
+        "The gateway2 annexe hosted a regional fair (record 1)."
+      ]
+    }
+  ]
+}

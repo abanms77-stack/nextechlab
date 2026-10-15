@@ -1,0 +1,12 @@
+length,similarity,n_distractors,n,acc
+256,medium,0,20,1.0
+256,medium,1,20,0.9
+256,medium,2,20,0.8
+256,medium,3,20,0.75
+256,medium,4,20,0.65
+256,medium,5,20,0.45
+256,medium,6,20,0.6
+256,medium,8,20,0.5
+256,medium,10,20,0.4
+256,medium,12,20,0.25
+256,medium,16,20,0.15

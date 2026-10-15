@@ -1,0 +1,1922 @@
+{
+  "protocol": "rag_choice_attribution_v1",
+  "frozen": true,
+  "engine_version": "profiler-2.1",
+  "competition_floor": 0.35,
+  "relevance_floor": 0.15,
+  "competition_weight": 0.6,
+  "d_saturation": 5,
+  "near_duplicate_floor": 0.8,
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "random_seed": 20261005,
+  "candidates": [
+    "apple",
+    "river",
+    "tiger",
+    "cloud",
+    "stone",
+    "candle",
+    "silver",
+    "garden",
+    "planet",
+    "forest",
+    "harbor",
+    "lantern"
+  ],
+  "roles": [
+    "gold",
+    "gold_dup",
+    "partial",
+    "partial_dup",
+    "indirect",
+    "indirect_dup",
+    "related",
+    "distractor",
+    "irrelevant"
+  ],
+  "conditions": [
+    "BASELINE",
+    "RANDOM",
+    "CONTEXTLAB",
+    "ORACLE"
+  ],
+  "preregistered_comparisons": [
+    {
+      "id": "A1",
+      "a": "CONTEXTLAB",
+      "b": "RANDOM",
+      "metric": "accuracy",
+      "expect": "> 0 (better choice)"
+    },
+    {
+      "id": "A2",
+      "a": "CONTEXTLAB",
+      "b": "RANDOM",
+      "metric": "gold_survival",
+      "expect": "> 0"
+    },
+    {
+      "id": "A3",
+      "a": "CONTEXTLAB",
+      "b": "BASELINE",
+      "metric": "accuracy",
+      "expect": ">= 0"
+    },
+    {
+      "id": "A4",
+      "a": "CONTEXTLAB",
+      "b": "BASELINE",
+      "metric": "ctx_tokens",
+      "expect": "< 0"
+    },
+    {
+      "id": "A5",
+      "a": "RANDOM",
+      "b": "BASELINE",
+      "metric": "accuracy",
+      "expect": "<= 0"
+    }
+  ],
+  "queries": [
+    {
+      "qid": "q000",
+      "template_id": 0,
+      "noun": "vault",
+      "question": "What is the vault access code?",
+      "gold_answer": "stone",
+      "gold_fact": "The vault access code is stone.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The vault access code is stone."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The vault access code is stone (q000)"
+        },
+        {
+          "role": "partial",
+          "text": "A vault note suggests the vault code resembles st... incomplete q000"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A vault note suggests the vault code resembles st... incomplete q000 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the vault system note access is restricted but omit the value (q000)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the vault system note access is restricted but omit the value (q000 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The storage process is documented separately and is not the vault value (q000)."
+        },
+        {
+          "role": "distractor",
+          "text": "The vault access code is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The vault annexe grounds hosted a regional gardening fair last spring (q000)."
+        }
+      ]
+    },
+    {
+      "qid": "q001",
+      "template_id": 1,
+      "noun": "archive",
+      "question": "What is the archive recovery phrase?",
+      "gold_answer": "lantern",
+      "gold_fact": "The archive recovery phrase is lantern.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The archive recovery phrase is lantern."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The archive recovery phrase is lantern (q001)"
+        },
+        {
+          "role": "partial",
+          "text": "A archive note suggests the archive code resembles la... incomplete q001"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A archive note suggests the archive code resembles la... incomplete q001 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the archive system note access is restricted but omit the value (q001)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the archive system note access is restricted but omit the value (q001 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The gateway process is documented separately and is not the archive value (q001)."
+        },
+        {
+          "role": "distractor",
+          "text": "The archive recovery phrase is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The archive annexe grounds hosted a regional gardening fair last spring (q001)."
+        }
+      ]
+    },
+    {
+      "qid": "q002",
+      "template_id": 2,
+      "noun": "mailbox",
+      "question": "What is the mailbox backup key?",
+      "gold_answer": "tiger",
+      "gold_fact": "The mailbox backup key is tiger.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The mailbox backup key is tiger."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The mailbox backup key is tiger (q002)"
+        },
+        {
+          "role": "partial",
+          "text": "A mailbox note suggests the mailbox code resembles ti... incomplete q002"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A mailbox note suggests the mailbox code resembles ti... incomplete q002 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the mailbox system note access is restricted but omit the value (q002)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the mailbox system note access is restricted but omit the value (q002 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The intranet process is documented separately and is not the mailbox value (q002)."
+        },
+        {
+          "role": "distractor",
+          "text": "The mailbox backup key is harbor."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The mailbox annexe grounds hosted a regional gardening fair last spring (q002)."
+        }
+      ]
+    },
+    {
+      "qid": "q003",
+      "template_id": 3,
+      "noun": "admin",
+      "question": "What is the admin override token?",
+      "gold_answer": "tiger",
+      "gold_fact": "The admin override token is tiger.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The admin override token is tiger."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The admin override token is tiger (q003)"
+        },
+        {
+          "role": "partial",
+          "text": "A admin note suggests the admin code resembles ti... incomplete q003"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A admin note suggests the admin code resembles ti... incomplete q003 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the admin system note access is restricted but omit the value (q003)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the admin system note access is restricted but omit the value (q003 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The backup process is documented separately and is not the admin value (q003)."
+        },
+        {
+          "role": "distractor",
+          "text": "The admin override token is harbor."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The admin annexe grounds hosted a regional gardening fair last spring (q003)."
+        }
+      ]
+    },
+    {
+      "qid": "q004",
+      "template_id": 0,
+      "noun": "guest",
+      "question": "What is the guest access code?",
+      "gold_answer": "silver",
+      "gold_fact": "The guest access code is silver.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The guest access code is silver."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The guest access code is silver (q004)"
+        },
+        {
+          "role": "partial",
+          "text": "A guest note suggests the guest code resembles si... incomplete q004"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A guest note suggests the guest code resembles si... incomplete q004 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the guest system note access is restricted but omit the value (q004)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the guest system note access is restricted but omit the value (q004 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The media process is documented separately and is not the guest value (q004)."
+        },
+        {
+          "role": "distractor",
+          "text": "The guest access code is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The guest annexe grounds hosted a regional gardening fair last spring (q004)."
+        }
+      ]
+    },
+    {
+      "qid": "q005",
+      "template_id": 1,
+      "noun": "portal",
+      "question": "What is the portal recovery phrase?",
+      "gold_answer": "silver",
+      "gold_fact": "The portal recovery phrase is silver.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The portal recovery phrase is silver."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The portal recovery phrase is silver (q005)"
+        },
+        {
+          "role": "partial",
+          "text": "A portal note suggests the portal code resembles si... incomplete q005"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A portal note suggests the portal code resembles si... incomplete q005 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the portal system note access is restricted but omit the value (q005)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the portal system note access is restricted but omit the value (q005 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The ledger process is documented separately and is not the portal value (q005)."
+        },
+        {
+          "role": "distractor",
+          "text": "The portal recovery phrase is forest."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The portal annexe grounds hosted a regional gardening fair last spring (q005)."
+        }
+      ]
+    },
+    {
+      "qid": "q006",
+      "template_id": 2,
+      "noun": "registry",
+      "question": "What is the registry backup key?",
+      "gold_answer": "tiger",
+      "gold_fact": "The registry backup key is tiger.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The registry backup key is tiger."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The registry backup key is tiger (q006)"
+        },
+        {
+          "role": "partial",
+          "text": "A registry note suggests the registry code resembles ti... incomplete q006"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A registry note suggests the registry code resembles ti... incomplete q006 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the registry system note access is restricted but omit the value (q006)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the registry system note access is restricted but omit the value (q006 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The cabinet process is documented separately and is not the registry value (q006)."
+        },
+        {
+          "role": "distractor",
+          "text": "The registry backup key is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The registry annexe grounds hosted a regional gardening fair last spring (q006)."
+        }
+      ]
+    },
+    {
+      "qid": "q007",
+      "template_id": 3,
+      "noun": "locker",
+      "question": "What is the locker override token?",
+      "gold_answer": "apple",
+      "gold_fact": "The locker override token is apple.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The locker override token is apple."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The locker override token is apple (q007)"
+        },
+        {
+          "role": "partial",
+          "text": "A locker note suggests the locker code resembles ap... incomplete q007"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A locker note suggests the locker code resembles ap... incomplete q007 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the locker system note access is restricted but omit the value (q007)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the locker system note access is restricted but omit the value (q007 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The terminal process is documented separately and is not the locker value (q007)."
+        },
+        {
+          "role": "distractor",
+          "text": "The locker override token is lantern."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The locker annexe grounds hosted a regional gardening fair last spring (q007)."
+        }
+      ]
+    },
+    {
+      "qid": "q008",
+      "template_id": 0,
+      "noun": "beacon",
+      "question": "What is the beacon access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The beacon access code is cloud.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The beacon access code is cloud."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The beacon access code is cloud (q008)"
+        },
+        {
+          "role": "partial",
+          "text": "A beacon note suggests the beacon code resembles cl... incomplete q008"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A beacon note suggests the beacon code resembles cl... incomplete q008 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the beacon system note access is restricted but omit the value (q008)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the beacon system note access is restricted but omit the value (q008 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The sensor process is documented separately and is not the beacon value (q008)."
+        },
+        {
+          "role": "distractor",
+          "text": "The beacon access code is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The beacon annexe grounds hosted a regional gardening fair last spring (q008)."
+        }
+      ]
+    },
+    {
+      "qid": "q009",
+      "template_id": 1,
+      "noun": "relay",
+      "question": "What is the relay recovery phrase?",
+      "gold_answer": "forest",
+      "gold_fact": "The relay recovery phrase is forest.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The relay recovery phrase is forest."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The relay recovery phrase is forest (q009)"
+        },
+        {
+          "role": "partial",
+          "text": "A relay note suggests the relay code resembles fo... incomplete q009"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A relay note suggests the relay code resembles fo... incomplete q009 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the relay system note access is restricted but omit the value (q009)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the relay system note access is restricted but omit the value (q009 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The tunnel process is documented separately and is not the relay value (q009)."
+        },
+        {
+          "role": "distractor",
+          "text": "The relay recovery phrase is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The relay annexe grounds hosted a regional gardening fair last spring (q009)."
+        }
+      ]
+    },
+    {
+      "qid": "q010",
+      "template_id": 2,
+      "noun": "channel",
+      "question": "What is the channel backup key?",
+      "gold_answer": "harbor",
+      "gold_fact": "The channel backup key is harbor.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The channel backup key is harbor."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The channel backup key is harbor (q010)"
+        },
+        {
+          "role": "partial",
+          "text": "A channel note suggests the channel code resembles ha... incomplete q010"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A channel note suggests the channel code resembles ha... incomplete q010 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the channel system note access is restricted but omit the value (q010)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the channel system note access is restricted but omit the value (q010 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The matrix process is documented separately and is not the channel value (q010)."
+        },
+        {
+          "role": "distractor",
+          "text": "The channel backup key is cloud."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The channel annexe grounds hosted a regional gardening fair last spring (q010)."
+        }
+      ]
+    },
+    {
+      "qid": "q011",
+      "template_id": 3,
+      "noun": "cluster",
+      "question": "What is the cluster override token?",
+      "gold_answer": "cloud",
+      "gold_fact": "The cluster override token is cloud.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The cluster override token is cloud."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The cluster override token is cloud (q011)"
+        },
+        {
+          "role": "partial",
+          "text": "A cluster note suggests the cluster code resembles cl... incomplete q011"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A cluster note suggests the cluster code resembles cl... incomplete q011 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the cluster system note access is restricted but omit the value (q011)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the cluster system note access is restricted but omit the value (q011 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The keyring process is documented separately and is not the cluster value (q011)."
+        },
+        {
+          "role": "distractor",
+          "text": "The cluster override token is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The cluster annexe grounds hosted a regional gardening fair last spring (q011)."
+        }
+      ]
+    },
+    {
+      "qid": "q012",
+      "template_id": 0,
+      "noun": "keystone",
+      "question": "What is the keystone access code?",
+      "gold_answer": "lantern",
+      "gold_fact": "The keystone access code is lantern.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The keystone access code is lantern."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The keystone access code is lantern (q012)"
+        },
+        {
+          "role": "partial",
+          "text": "A keystone note suggests the keystone code resembles la... incomplete q012"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A keystone note suggests the keystone code resembles la... incomplete q012 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the keystone system note access is restricted but omit the value (q012)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the keystone system note access is restricted but omit the value (q012 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The quorum process is documented separately and is not the keystone value (q012)."
+        },
+        {
+          "role": "distractor",
+          "text": "The keystone access code is planet."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The keystone annexe grounds hosted a regional gardening fair last spring (q012)."
+        }
+      ]
+    },
+    {
+      "qid": "q013",
+      "template_id": 1,
+      "noun": "shard",
+      "question": "What is the shard recovery phrase?",
+      "gold_answer": "silver",
+      "gold_fact": "The shard recovery phrase is silver.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The shard recovery phrase is silver."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The shard recovery phrase is silver (q013)"
+        },
+        {
+          "role": "partial",
+          "text": "A shard note suggests the shard code resembles si... incomplete q013"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A shard note suggests the shard code resembles si... incomplete q013 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the shard system note access is restricted but omit the value (q013)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the shard system note access is restricted but omit the value (q013 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The bucket process is documented separately and is not the shard value (q013)."
+        },
+        {
+          "role": "distractor",
+          "text": "The shard recovery phrase is cloud."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The shard annexe grounds hosted a regional gardening fair last spring (q013)."
+        }
+      ]
+    },
+    {
+      "qid": "q014",
+      "template_id": 2,
+      "noun": "buffer",
+      "question": "What is the buffer backup key?",
+      "gold_answer": "river",
+      "gold_fact": "The buffer backup key is river.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The buffer backup key is river."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The buffer backup key is river (q014)"
+        },
+        {
+          "role": "partial",
+          "text": "A buffer note suggests the buffer code resembles ri... incomplete q014"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A buffer note suggests the buffer code resembles ri... incomplete q014 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the buffer system note access is restricted but omit the value (q014)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the buffer system note access is restricted but omit the value (q014 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The socket process is documented separately and is not the buffer value (q014)."
+        },
+        {
+          "role": "distractor",
+          "text": "The buffer backup key is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The buffer annexe grounds hosted a regional gardening fair last spring (q014)."
+        }
+      ]
+    },
+    {
+      "qid": "q015",
+      "template_id": 3,
+      "noun": "dossier",
+      "question": "What is the dossier override token?",
+      "gold_answer": "stone",
+      "gold_fact": "The dossier override token is stone.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The dossier override token is stone."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The dossier override token is stone (q015)"
+        },
+        {
+          "role": "partial",
+          "text": "A dossier note suggests the dossier code resembles st... incomplete q015"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A dossier note suggests the dossier code resembles st... incomplete q015 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the dossier system note access is restricted but omit the value (q015)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the dossier system note access is restricted but omit the value (q015 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The manifest process is documented separately and is not the dossier value (q015)."
+        },
+        {
+          "role": "distractor",
+          "text": "The dossier override token is apple."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The dossier annexe grounds hosted a regional gardening fair last spring (q015)."
+        }
+      ]
+    },
+    {
+      "qid": "q016",
+      "template_id": 0,
+      "noun": "catalog",
+      "question": "What is the catalog access code?",
+      "gold_answer": "planet",
+      "gold_fact": "The catalog access code is planet.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The catalog access code is planet."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The catalog access code is planet (q016)"
+        },
+        {
+          "role": "partial",
+          "text": "A catalog note suggests the catalog code resembles pl... incomplete q016"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A catalog note suggests the catalog code resembles pl... incomplete q016 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the catalog system note access is restricted but omit the value (q016)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the catalog system note access is restricted but omit the value (q016 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The index process is documented separately and is not the catalog value (q016)."
+        },
+        {
+          "role": "distractor",
+          "text": "The catalog access code is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The catalog annexe grounds hosted a regional gardening fair last spring (q016)."
+        }
+      ]
+    },
+    {
+      "qid": "q017",
+      "template_id": 1,
+      "noun": "cache",
+      "question": "What is the cache recovery phrase?",
+      "gold_answer": "apple",
+      "gold_fact": "The cache recovery phrase is apple.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The cache recovery phrase is apple."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The cache recovery phrase is apple (q017)"
+        },
+        {
+          "role": "partial",
+          "text": "A cache note suggests the cache code resembles ap... incomplete q017"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A cache note suggests the cache code resembles ap... incomplete q017 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the cache system note access is restricted but omit the value (q017)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the cache system note access is restricted but omit the value (q017 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The journal process is documented separately and is not the cache value (q017)."
+        },
+        {
+          "role": "distractor",
+          "text": "The cache recovery phrase is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The cache annexe grounds hosted a regional gardening fair last spring (q017)."
+        }
+      ]
+    },
+    {
+      "qid": "q018",
+      "template_id": 2,
+      "noun": "archive2",
+      "question": "What is the archive2 backup key?",
+      "gold_answer": "apple",
+      "gold_fact": "The archive2 backup key is apple.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The archive2 backup key is apple."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The archive2 backup key is apple (q018)"
+        },
+        {
+          "role": "partial",
+          "text": "A archive2 note suggests the archive2 code resembles ap... incomplete q018"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A archive2 note suggests the archive2 code resembles ap... incomplete q018 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the archive2 system note access is restricted but omit the value (q018)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the archive2 system note access is restricted but omit the value (q018 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The vault2 process is documented separately and is not the archive2 value (q018)."
+        },
+        {
+          "role": "distractor",
+          "text": "The archive2 backup key is planet."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The archive2 annexe grounds hosted a regional gardening fair last spring (q018)."
+        }
+      ]
+    },
+    {
+      "qid": "q019",
+      "template_id": 3,
+      "noun": "storage2",
+      "question": "What is the storage2 override token?",
+      "gold_answer": "silver",
+      "gold_fact": "The storage2 override token is silver.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The storage2 override token is silver."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The storage2 override token is silver (q019)"
+        },
+        {
+          "role": "partial",
+          "text": "A storage2 note suggests the storage2 code resembles si... incomplete q019"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A storage2 note suggests the storage2 code resembles si... incomplete q019 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the storage2 system note access is restricted but omit the value (q019)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the storage2 system note access is restricted but omit the value (q019 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The gateway2 process is documented separately and is not the storage2 value (q019)."
+        },
+        {
+          "role": "distractor",
+          "text": "The storage2 override token is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The storage2 annexe grounds hosted a regional gardening fair last spring (q019)."
+        }
+      ]
+    },
+    {
+      "qid": "q020",
+      "template_id": 0,
+      "noun": "primary vault",
+      "question": "What is the primary vault access code?",
+      "gold_answer": "planet",
+      "gold_fact": "The primary vault access code is planet.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary vault access code is planet."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary vault access code is planet (q020)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary vault note suggests the primary vault code resembles pl... incomplete q020"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary vault note suggests the primary vault code resembles pl... incomplete q020 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary vault system note access is restricted but omit the value (q020)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary vault system note access is restricted but omit the value (q020 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary storage process is documented separately and is not the primary vault value (q020)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary vault access code is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary vault annexe grounds hosted a regional gardening fair last spring (q020)."
+        }
+      ]
+    },
+    {
+      "qid": "q021",
+      "template_id": 1,
+      "noun": "primary archive",
+      "question": "What is the primary archive recovery phrase?",
+      "gold_answer": "apple",
+      "gold_fact": "The primary archive recovery phrase is apple.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary archive recovery phrase is apple."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary archive recovery phrase is apple (q021)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary archive note suggests the primary archive code resembles ap... incomplete q021"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary archive note suggests the primary archive code resembles ap... incomplete q021 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary archive system note access is restricted but omit the value (q021)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary archive system note access is restricted but omit the value (q021 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary gateway process is documented separately and is not the primary archive value (q021)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary archive recovery phrase is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary archive annexe grounds hosted a regional gardening fair last spring (q021)."
+        }
+      ]
+    },
+    {
+      "qid": "q022",
+      "template_id": 2,
+      "noun": "primary mailbox",
+      "question": "What is the primary mailbox backup key?",
+      "gold_answer": "silver",
+      "gold_fact": "The primary mailbox backup key is silver.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary mailbox backup key is silver."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary mailbox backup key is silver (q022)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary mailbox note suggests the primary mailbox code resembles si... incomplete q022"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary mailbox note suggests the primary mailbox code resembles si... incomplete q022 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary mailbox system note access is restricted but omit the value (q022)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary mailbox system note access is restricted but omit the value (q022 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary intranet process is documented separately and is not the primary mailbox value (q022)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary mailbox backup key is lantern."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary mailbox annexe grounds hosted a regional gardening fair last spring (q022)."
+        }
+      ]
+    },
+    {
+      "qid": "q023",
+      "template_id": 3,
+      "noun": "primary admin",
+      "question": "What is the primary admin override token?",
+      "gold_answer": "planet",
+      "gold_fact": "The primary admin override token is planet.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary admin override token is planet."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary admin override token is planet (q023)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary admin note suggests the primary admin code resembles pl... incomplete q023"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary admin note suggests the primary admin code resembles pl... incomplete q023 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary admin system note access is restricted but omit the value (q023)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary admin system note access is restricted but omit the value (q023 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary backup process is documented separately and is not the primary admin value (q023)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary admin override token is cloud."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary admin annexe grounds hosted a regional gardening fair last spring (q023)."
+        }
+      ]
+    },
+    {
+      "qid": "q024",
+      "template_id": 0,
+      "noun": "primary guest",
+      "question": "What is the primary guest access code?",
+      "gold_answer": "stone",
+      "gold_fact": "The primary guest access code is stone.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary guest access code is stone."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary guest access code is stone (q024)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary guest note suggests the primary guest code resembles st... incomplete q024"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary guest note suggests the primary guest code resembles st... incomplete q024 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary guest system note access is restricted but omit the value (q024)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary guest system note access is restricted but omit the value (q024 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary media process is documented separately and is not the primary guest value (q024)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary guest access code is apple."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary guest annexe grounds hosted a regional gardening fair last spring (q024)."
+        }
+      ]
+    },
+    {
+      "qid": "q025",
+      "template_id": 1,
+      "noun": "primary portal",
+      "question": "What is the primary portal recovery phrase?",
+      "gold_answer": "stone",
+      "gold_fact": "The primary portal recovery phrase is stone.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary portal recovery phrase is stone."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary portal recovery phrase is stone (q025)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary portal note suggests the primary portal code resembles st... incomplete q025"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary portal note suggests the primary portal code resembles st... incomplete q025 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary portal system note access is restricted but omit the value (q025)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary portal system note access is restricted but omit the value (q025 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary ledger process is documented separately and is not the primary portal value (q025)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary portal recovery phrase is garden."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary portal annexe grounds hosted a regional gardening fair last spring (q025)."
+        }
+      ]
+    },
+    {
+      "qid": "q026",
+      "template_id": 2,
+      "noun": "primary registry",
+      "question": "What is the primary registry backup key?",
+      "gold_answer": "garden",
+      "gold_fact": "The primary registry backup key is garden.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary registry backup key is garden."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary registry backup key is garden (q026)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary registry note suggests the primary registry code resembles ga... incomplete q026"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary registry note suggests the primary registry code resembles ga... incomplete q026 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary registry system note access is restricted but omit the value (q026)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary registry system note access is restricted but omit the value (q026 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary cabinet process is documented separately and is not the primary registry value (q026)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary registry backup key is tiger."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary registry annexe grounds hosted a regional gardening fair last spring (q026)."
+        }
+      ]
+    },
+    {
+      "qid": "q027",
+      "template_id": 3,
+      "noun": "primary locker",
+      "question": "What is the primary locker override token?",
+      "gold_answer": "lantern",
+      "gold_fact": "The primary locker override token is lantern.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary locker override token is lantern."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary locker override token is lantern (q027)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary locker note suggests the primary locker code resembles la... incomplete q027"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary locker note suggests the primary locker code resembles la... incomplete q027 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary locker system note access is restricted but omit the value (q027)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary locker system note access is restricted but omit the value (q027 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary terminal process is documented separately and is not the primary locker value (q027)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary locker override token is tiger."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary locker annexe grounds hosted a regional gardening fair last spring (q027)."
+        }
+      ]
+    },
+    {
+      "qid": "q028",
+      "template_id": 0,
+      "noun": "primary beacon",
+      "question": "What is the primary beacon access code?",
+      "gold_answer": "apple",
+      "gold_fact": "The primary beacon access code is apple.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary beacon access code is apple."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary beacon access code is apple (q028)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary beacon note suggests the primary beacon code resembles ap... incomplete q028"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary beacon note suggests the primary beacon code resembles ap... incomplete q028 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary beacon system note access is restricted but omit the value (q028)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary beacon system note access is restricted but omit the value (q028 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary sensor process is documented separately and is not the primary beacon value (q028)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary beacon access code is stone."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary beacon annexe grounds hosted a regional gardening fair last spring (q028)."
+        }
+      ]
+    },
+    {
+      "qid": "q029",
+      "template_id": 1,
+      "noun": "primary relay",
+      "question": "What is the primary relay recovery phrase?",
+      "gold_answer": "river",
+      "gold_fact": "The primary relay recovery phrase is river.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary relay recovery phrase is river."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary relay recovery phrase is river (q029)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary relay note suggests the primary relay code resembles ri... incomplete q029"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary relay note suggests the primary relay code resembles ri... incomplete q029 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary relay system note access is restricted but omit the value (q029)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary relay system note access is restricted but omit the value (q029 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary tunnel process is documented separately and is not the primary relay value (q029)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary relay recovery phrase is apple."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary relay annexe grounds hosted a regional gardening fair last spring (q029)."
+        }
+      ]
+    },
+    {
+      "qid": "q030",
+      "template_id": 2,
+      "noun": "primary channel",
+      "question": "What is the primary channel backup key?",
+      "gold_answer": "apple",
+      "gold_fact": "The primary channel backup key is apple.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary channel backup key is apple."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary channel backup key is apple (q030)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary channel note suggests the primary channel code resembles ap... incomplete q030"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary channel note suggests the primary channel code resembles ap... incomplete q030 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary channel system note access is restricted but omit the value (q030)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary channel system note access is restricted but omit the value (q030 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary matrix process is documented separately and is not the primary channel value (q030)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary channel backup key is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary channel annexe grounds hosted a regional gardening fair last spring (q030)."
+        }
+      ]
+    },
+    {
+      "qid": "q031",
+      "template_id": 3,
+      "noun": "primary cluster",
+      "question": "What is the primary cluster override token?",
+      "gold_answer": "lantern",
+      "gold_fact": "The primary cluster override token is lantern.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary cluster override token is lantern."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary cluster override token is lantern (q031)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary cluster note suggests the primary cluster code resembles la... incomplete q031"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary cluster note suggests the primary cluster code resembles la... incomplete q031 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary cluster system note access is restricted but omit the value (q031)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary cluster system note access is restricted but omit the value (q031 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary keyring process is documented separately and is not the primary cluster value (q031)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary cluster override token is river."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary cluster annexe grounds hosted a regional gardening fair last spring (q031)."
+        }
+      ]
+    },
+    {
+      "qid": "q032",
+      "template_id": 0,
+      "noun": "primary keystone",
+      "question": "What is the primary keystone access code?",
+      "gold_answer": "forest",
+      "gold_fact": "The primary keystone access code is forest.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary keystone access code is forest."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary keystone access code is forest (q032)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary keystone note suggests the primary keystone code resembles fo... incomplete q032"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary keystone note suggests the primary keystone code resembles fo... incomplete q032 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary keystone system note access is restricted but omit the value (q032)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary keystone system note access is restricted but omit the value (q032 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary quorum process is documented separately and is not the primary keystone value (q032)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary keystone access code is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary keystone annexe grounds hosted a regional gardening fair last spring (q032)."
+        }
+      ]
+    },
+    {
+      "qid": "q033",
+      "template_id": 1,
+      "noun": "primary shard",
+      "question": "What is the primary shard recovery phrase?",
+      "gold_answer": "silver",
+      "gold_fact": "The primary shard recovery phrase is silver.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary shard recovery phrase is silver."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary shard recovery phrase is silver (q033)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary shard note suggests the primary shard code resembles si... incomplete q033"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary shard note suggests the primary shard code resembles si... incomplete q033 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary shard system note access is restricted but omit the value (q033)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary shard system note access is restricted but omit the value (q033 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary bucket process is documented separately and is not the primary shard value (q033)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary shard recovery phrase is candle."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary shard annexe grounds hosted a regional gardening fair last spring (q033)."
+        }
+      ]
+    },
+    {
+      "qid": "q034",
+      "template_id": 2,
+      "noun": "primary buffer",
+      "question": "What is the primary buffer backup key?",
+      "gold_answer": "candle",
+      "gold_fact": "The primary buffer backup key is candle.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary buffer backup key is candle."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary buffer backup key is candle (q034)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary buffer note suggests the primary buffer code resembles ca... incomplete q034"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary buffer note suggests the primary buffer code resembles ca... incomplete q034 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary buffer system note access is restricted but omit the value (q034)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary buffer system note access is restricted but omit the value (q034 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary socket process is documented separately and is not the primary buffer value (q034)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary buffer backup key is planet."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary buffer annexe grounds hosted a regional gardening fair last spring (q034)."
+        }
+      ]
+    },
+    {
+      "qid": "q035",
+      "template_id": 3,
+      "noun": "primary dossier",
+      "question": "What is the primary dossier override token?",
+      "gold_answer": "cloud",
+      "gold_fact": "The primary dossier override token is cloud.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary dossier override token is cloud."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary dossier override token is cloud (q035)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary dossier note suggests the primary dossier code resembles cl... incomplete q035"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary dossier note suggests the primary dossier code resembles cl... incomplete q035 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary dossier system note access is restricted but omit the value (q035)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary dossier system note access is restricted but omit the value (q035 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary manifest process is documented separately and is not the primary dossier value (q035)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary dossier override token is tiger."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary dossier annexe grounds hosted a regional gardening fair last spring (q035)."
+        }
+      ]
+    },
+    {
+      "qid": "q036",
+      "template_id": 0,
+      "noun": "primary catalog",
+      "question": "What is the primary catalog access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The primary catalog access code is cloud.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary catalog access code is cloud."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary catalog access code is cloud (q036)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary catalog note suggests the primary catalog code resembles cl... incomplete q036"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary catalog note suggests the primary catalog code resembles cl... incomplete q036 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary catalog system note access is restricted but omit the value (q036)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary catalog system note access is restricted but omit the value (q036 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary index process is documented separately and is not the primary catalog value (q036)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary catalog access code is planet."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary catalog annexe grounds hosted a regional gardening fair last spring (q036)."
+        }
+      ]
+    },
+    {
+      "qid": "q037",
+      "template_id": 1,
+      "noun": "primary cache",
+      "question": "What is the primary cache recovery phrase?",
+      "gold_answer": "cloud",
+      "gold_fact": "The primary cache recovery phrase is cloud.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary cache recovery phrase is cloud."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary cache recovery phrase is cloud (q037)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary cache note suggests the primary cache code resembles cl... incomplete q037"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary cache note suggests the primary cache code resembles cl... incomplete q037 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary cache system note access is restricted but omit the value (q037)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary cache system note access is restricted but omit the value (q037 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary journal process is documented separately and is not the primary cache value (q037)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary cache recovery phrase is forest."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary cache annexe grounds hosted a regional gardening fair last spring (q037)."
+        }
+      ]
+    },
+    {
+      "qid": "q038",
+      "template_id": 2,
+      "noun": "primary archive2",
+      "question": "What is the primary archive2 backup key?",
+      "gold_answer": "cloud",
+      "gold_fact": "The primary archive2 backup key is cloud.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary archive2 backup key is cloud."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary archive2 backup key is cloud (q038)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary archive2 note suggests the primary archive2 code resembles cl... incomplete q038"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary archive2 note suggests the primary archive2 code resembles cl... incomplete q038 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary archive2 system note access is restricted but omit the value (q038)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary archive2 system note access is restricted but omit the value (q038 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary vault2 process is documented separately and is not the primary archive2 value (q038)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary archive2 backup key is apple."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary archive2 annexe grounds hosted a regional gardening fair last spring (q038)."
+        }
+      ]
+    },
+    {
+      "qid": "q039",
+      "template_id": 3,
+      "noun": "primary storage2",
+      "question": "What is the primary storage2 override token?",
+      "gold_answer": "planet",
+      "gold_fact": "The primary storage2 override token is planet.",
+      "passages": [
+        {
+          "role": "gold",
+          "text": "The primary storage2 override token is planet."
+        },
+        {
+          "role": "gold_dup",
+          "text": "The primary storage2 override token is planet (q039)"
+        },
+        {
+          "role": "partial",
+          "text": "A primary storage2 note suggests the primary storage2 code resembles pl... incomplete q039"
+        },
+        {
+          "role": "partial_dup",
+          "text": "A primary storage2 note suggests the primary storage2 code resembles pl... incomplete q039 (copy)"
+        },
+        {
+          "role": "indirect",
+          "text": "Records for the primary storage2 system note access is restricted but omit the value (q039)."
+        },
+        {
+          "role": "indirect_dup",
+          "text": "Records for the primary storage2 system note access is restricted but omit the value (q039 copy)."
+        },
+        {
+          "role": "related",
+          "text": "The primary gateway2 process is documented separately and is not the primary storage2 value (q039)."
+        },
+        {
+          "role": "distractor",
+          "text": "The primary storage2 override token is stone."
+        },
+        {
+          "role": "irrelevant",
+          "text": "The primary storage2 annexe grounds hosted a regional gardening fair last spring (q039)."
+        }
+      ]
+    }
+  ]
+}

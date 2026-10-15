@@ -1,0 +1,13 @@
+id,scope,metric,a,b,delta,ci_low,ci_high,sig,n
+P1,pooled,accuracy,DROP_WEAKER,PROTECT,0.4375,0.3375,0.55,SIG,80
+P2,pooled,accuracy,ORACLE,PROTECT,0.4375,0.3375,0.55,SIG,80
+P3,pooled,accuracy,SURFACE,PROTECT,-0.0625,-0.1625,0.0375,ns,80
+P4,pooled,ctx_tokens,DROP_WEAKER,PROTECT,-29.5125,-31.4634,-27.7125,SIG,80
+P1,contradictory,accuracy,DROP_WEAKER,PROTECT,0.65,0.5,0.8,SIG,40
+P2,contradictory,accuracy,ORACLE,PROTECT,0.65,0.5,0.8,SIG,40
+P3,contradictory,accuracy,SURFACE,PROTECT,-0.1,-0.2256,0.025,ns,40
+P4,contradictory,ctx_tokens,DROP_WEAKER,PROTECT,-26.25,-26.625,-25.8,SIG,40
+P1,mixed,accuracy,DROP_WEAKER,PROTECT,0.225,0.1,0.35,SIG,40
+P2,mixed,accuracy,ORACLE,PROTECT,0.225,0.1,0.35,SIG,40
+P3,mixed,accuracy,SURFACE,PROTECT,-0.025,-0.175,0.125,ns,40
+P4,mixed,ctx_tokens,DROP_WEAKER,PROTECT,-32.775,-36.3,-29.325,SIG,40

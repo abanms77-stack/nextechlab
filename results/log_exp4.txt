@@ -1,0 +1,22 @@
+filler=prose tokens=345590
+[exp4] L=   256 pos=0.5   d=0   acc=1.00 cell=19.4s elapsed=19s
+[exp4] L=   512 pos=0.5   d=0   acc=1.00 cell=37.3s elapsed=57s
+[exp4] L=  1024 pos=0.5   d=0   acc=1.00 cell=73.6s elapsed=130s
+[exp4] L=  2048 pos=0.5   d=0   acc=1.00 cell=353.9s elapsed=484s
+[exp4] L=   256 pos=0.5   d=1   acc=1.00 cell=9.3s elapsed=9s
+[exp4] L=   512 pos=0.5   d=1   acc=0.75 cell=18.7s elapsed=28s
+[exp4] L=  1024 pos=0.5   d=1   acc=0.75 cell=83.1s elapsed=111s
+[exp4] L=  2048 pos=0.5   d=1   acc=1.00 cell=147.0s elapsed=258s
+[exp4] L=   256 pos=0.5   d=2   acc=0.75 cell=21.2s elapsed=21s
+[exp4] L=   512 pos=0.5   d=2   acc=0.25 cell=41.4s elapsed=63s
+[exp4] L=  1024 pos=0.5   d=2   acc=0.50 cell=63.3s elapsed=126s
+[exp4] L=  2048 pos=0.5   d=2   acc=0.75 cell=68.3s elapsed=194s
+[exp4] L=   256 pos=0.5   d=4   acc=0.75 cell=8.2s elapsed=8s
+[exp4] L=   512 pos=0.5   d=4   acc=0.25 cell=15.6s elapsed=24s
+[exp4] L=  1024 pos=0.5   d=4   acc=0.25 cell=30.5s elapsed=54s
+[exp4] L=  2048 pos=0.5   d=4   acc=0.75 cell=66.6s elapsed=121s
+[exp4] L=   256 pos=0.5   d=8   acc=0.50 cell=8.6s elapsed=9s
+[exp4] L=   512 pos=0.5   d=8   acc=0.50 cell=15.4s elapsed=24s
+[exp4] L=  1024 pos=0.5   d=8   acc=0.25 cell=30.6s elapsed=55s
+[exp4] L=  2048 pos=0.5   d=8   acc=0.25 cell=64.0s elapsed=119s
+ALL DONE in 1213s

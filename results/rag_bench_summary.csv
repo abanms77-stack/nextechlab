@@ -1,0 +1,4 @@
+condition,accuracy,ctx_tokens,latency_s,n_passages,n_removed
+BASELINE,0.075,88.1,1.8271000000000002,8.0,0.0
+CONTEXTLAB,0.175,88.1,1.83385,8.0,0.0
+RANDOM,0.075,88.1,1.835025,8.0,0.0

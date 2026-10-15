@@ -1,0 +1,26 @@
+model=Qwen/Qwen2.5-0.5B task=counting
+[expA] L=   256 pos=0.5   d=0   s=low    acc=0.50 cell=12.0s elapsed=12s
+[expA] L=  1024 pos=0.5   d=0   s=low    acc=0.60 cell=79.1s elapsed=91s
+[expA] L=   256 pos=0.5   d=2   s=low    acc=0.60 cell=21.3s elapsed=21s
+[expA] L=  1024 pos=0.5   d=2   s=low    acc=0.60 cell=82.0s elapsed=103s
+[expA] L=   256 pos=0.5   d=4   s=low    acc=1.00 cell=24.8s elapsed=25s
+[expA] L=  1024 pos=0.5   d=4   s=low    acc=0.60 cell=83.5s elapsed=108s
+[expA] L=   256 pos=0.5   d=8   s=low    acc=0.80 cell=21.9s elapsed=22s
+[expA] L=  1024 pos=0.5   d=8   s=low    acc=0.50 cell=82.9s elapsed=105s
+[expA] L=   256 pos=0.5   d=0   s=medium acc=0.50 cell=22.1s elapsed=22s
+[expA] L=  1024 pos=0.5   d=0   s=medium acc=0.60 cell=88.3s elapsed=110s
+[expA] L=   256 pos=0.5   d=2   s=medium acc=0.50 cell=21.6s elapsed=22s
+[expA] L=  1024 pos=0.5   d=2   s=medium acc=0.60 cell=82.2s elapsed=104s
+[expA] L=   256 pos=0.5   d=4   s=medium acc=1.00 cell=21.6s elapsed=22s
+[expA] L=  1024 pos=0.5   d=4   s=medium acc=0.60 cell=82.2s elapsed=104s
+[expA] L=   256 pos=0.5   d=8   s=medium acc=0.80 cell=21.4s elapsed=21s
+[expA] L=  1024 pos=0.5   d=8   s=medium acc=0.60 cell=87.1s elapsed=109s
+[expA] L=   256 pos=0.5   d=0   s=high   acc=0.50 cell=22.4s elapsed=22s
+[expA] L=  1024 pos=0.5   d=0   s=high   acc=0.60 cell=82.5s elapsed=105s
+[expA] L=   256 pos=0.5   d=2   s=high   acc=0.50 cell=21.8s elapsed=22s
+[expA] L=  1024 pos=0.5   d=2   s=high   acc=0.40 cell=82.5s elapsed=104s
+[expA] L=   256 pos=0.5   d=4   s=high   acc=0.60 cell=22.6s elapsed=23s
+[expA] L=  1024 pos=0.5   d=4   s=high   acc=0.40 cell=85.8s elapsed=108s
+[expA] L=   256 pos=0.5   d=8   s=high   acc=0.80 cell=22.0s elapsed=22s
+[expA] L=  1024 pos=0.5   d=8   s=high   acc=0.30 cell=83.0s elapsed=105s
+ALL DONE in 1327s

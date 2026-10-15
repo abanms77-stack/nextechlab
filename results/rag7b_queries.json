@@ -1,0 +1,1771 @@
+{
+  "protocol": "rag_redundancy_intervention_v1",
+  "frozen": true,
+  "engine_version": "profiler-2.1",
+  "competition_floor": 0.35,
+  "relevance_floor": 0.15,
+  "competition_weight": 0.6,
+  "d_saturation": 5,
+  "near_duplicate_floor": 0.8,
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 8,
+  "random_seed": 20261004,
+  "candidates": [
+    "apple",
+    "river",
+    "tiger",
+    "cloud",
+    "stone",
+    "candle",
+    "silver",
+    "garden",
+    "planet",
+    "forest",
+    "harbor",
+    "lantern"
+  ],
+  "context_types": [
+    "clean",
+    "redundant",
+    "contradictory",
+    "mixed"
+  ],
+  "conditions": [
+    "BASELINE",
+    "RANDOM",
+    "CONTEXTLAB",
+    "ORACLE"
+  ],
+  "policy": {
+    "prune": "remove redundant near-duplicates (keep strongest); NEVER delete contradictions (surface them)",
+    "reorder": "kept sorted by (-relevance, -competition, -nearest_similarity) - strongest first",
+    "oracle": "keep gold fact + one best supporting passage only"
+  },
+  "preregistered_comparisons": [
+    {
+      "id": "C1",
+      "a": "CONTEXTLAB",
+      "b": "BASELINE",
+      "metric": "accuracy",
+      "expect": ">= 0"
+    },
+    {
+      "id": "C2",
+      "a": "CONTEXTLAB",
+      "b": "BASELINE",
+      "metric": "ctx_tokens",
+      "expect": "< 0 (fewer)"
+    },
+    {
+      "id": "C3",
+      "a": "CONTEXTLAB",
+      "b": "RANDOM",
+      "metric": "accuracy",
+      "expect": "> 0"
+    },
+    {
+      "id": "C4",
+      "a": "CONTEXTLAB",
+      "b": "ORACLE",
+      "metric": "accuracy",
+      "expect": "~ 0"
+    },
+    {
+      "id": "C5",
+      "a": "CONTEXTLAB",
+      "b": "ORACLE",
+      "metric": "ctx_tokens",
+      "expect": "> 0"
+    },
+    {
+      "id": "W",
+      "scope": "within each context type",
+      "metrics": [
+        "accuracy",
+        "ctx_tokens"
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "qid": "q000",
+      "template_id": 0,
+      "noun": "vault",
+      "question": "What is the vault access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The vault access code is tiger.",
+      "contexts": {
+        "clean": [
+          "The vault access code is tiger.",
+          "The observatory-q000 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q000 committee met to discuss routine drainage repairs."
+        ],
+        "redundant": [
+          "The vault access code is tiger.",
+          "The vault access code is tiger.",
+          "The vault access code is tiger",
+          "The vault access code is tiger!",
+          "The observatory-q000 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q000 committee met to discuss routine drainage repairs."
+        ],
+        "contradictory": [
+          "The vault access code is tiger.",
+          "The vault access code is cloud.",
+          "The vault access code is forest.",
+          "The vault access code is lantern.",
+          "The observatory-q000 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q000 committee met to discuss routine drainage repairs."
+        ],
+        "mixed": [
+          "The vault access code is tiger.",
+          "The vault access code is tiger.",
+          "The vault access code is tiger",
+          "The vault access code is tiger!",
+          "The vault access code is cloud.",
+          "The vault access code is forest.",
+          "The vault access code is lantern.",
+          "The observatory-q000 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q000 committee met to discuss routine drainage repairs."
+        ]
+      }
+    },
+    {
+      "qid": "q001",
+      "template_id": 1,
+      "noun": "mailbox",
+      "question": "What is the mailbox recovery phrase?",
+      "gold_answer": "forest",
+      "gold_fact": "The mailbox recovery phrase is forest.",
+      "contexts": {
+        "clean": [
+          "The mailbox recovery phrase is forest.",
+          "A regional drainage-q001 committee met to discuss routine drainage repairs.",
+          "The museum-q001 museum extended its weekend opening hours this season."
+        ],
+        "redundant": [
+          "The mailbox recovery phrase is forest.",
+          "The mailbox access code is forest.",
+          "The mailbox access code is forest",
+          "The mailbox access code is forest!",
+          "A regional drainage-q001 committee met to discuss routine drainage repairs.",
+          "The museum-q001 museum extended its weekend opening hours this season."
+        ],
+        "contradictory": [
+          "The mailbox recovery phrase is forest.",
+          "The mailbox recovery phrase is stone.",
+          "The mailbox recovery phrase is apple.",
+          "The mailbox recovery phrase is lantern.",
+          "A regional drainage-q001 committee met to discuss routine drainage repairs.",
+          "The museum-q001 museum extended its weekend opening hours this season."
+        ],
+        "mixed": [
+          "The mailbox recovery phrase is forest.",
+          "The mailbox access code is forest.",
+          "The mailbox access code is forest",
+          "The mailbox access code is forest!",
+          "The mailbox recovery phrase is stone.",
+          "The mailbox recovery phrase is apple.",
+          "The mailbox recovery phrase is lantern.",
+          "A regional drainage-q001 committee met to discuss routine drainage repairs.",
+          "The museum-q001 museum extended its weekend opening hours this season."
+        ]
+      }
+    },
+    {
+      "qid": "q002",
+      "template_id": 2,
+      "noun": "guest",
+      "question": "What is the guest backup key?",
+      "gold_answer": "tiger",
+      "gold_fact": "The guest backup key is tiger.",
+      "contexts": {
+        "clean": [
+          "The guest backup key is tiger.",
+          "The museum-q002 museum extended its weekend opening hours this season.",
+          "Local riverside-q002 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "redundant": [
+          "The guest backup key is tiger.",
+          "The guest access code is tiger.",
+          "The guest access code is tiger",
+          "The guest access code is tiger!",
+          "The museum-q002 museum extended its weekend opening hours this season.",
+          "Local riverside-q002 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "contradictory": [
+          "The guest backup key is tiger.",
+          "The guest backup key is candle.",
+          "The guest backup key is silver.",
+          "The guest backup key is apple.",
+          "The museum-q002 museum extended its weekend opening hours this season.",
+          "Local riverside-q002 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "mixed": [
+          "The guest backup key is tiger.",
+          "The guest access code is tiger.",
+          "The guest access code is tiger",
+          "The guest access code is tiger!",
+          "The guest backup key is candle.",
+          "The guest backup key is silver.",
+          "The guest backup key is apple.",
+          "The museum-q002 museum extended its weekend opening hours this season.",
+          "Local riverside-q002 volunteers organised a riverside clean-up on Saturday."
+        ]
+      }
+    },
+    {
+      "qid": "q003",
+      "template_id": 3,
+      "noun": "registry",
+      "question": "What is the registry override token?",
+      "gold_answer": "stone",
+      "gold_fact": "The registry override token is stone.",
+      "contexts": {
+        "clean": [
+          "The registry override token is stone.",
+          "Local riverside-q003 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q003 library added new shelves for its growing map collection."
+        ],
+        "redundant": [
+          "The registry override token is stone.",
+          "The registry access code is stone.",
+          "The registry access code is stone",
+          "The registry access code is stone!",
+          "Local riverside-q003 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q003 library added new shelves for its growing map collection."
+        ],
+        "contradictory": [
+          "The registry override token is stone.",
+          "The registry override token is cloud.",
+          "The registry override token is river.",
+          "The registry override token is harbor.",
+          "Local riverside-q003 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q003 library added new shelves for its growing map collection."
+        ],
+        "mixed": [
+          "The registry override token is stone.",
+          "The registry access code is stone.",
+          "The registry access code is stone",
+          "The registry access code is stone!",
+          "The registry override token is cloud.",
+          "The registry override token is river.",
+          "The registry override token is harbor.",
+          "Local riverside-q003 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q003 library added new shelves for its growing map collection."
+        ]
+      }
+    },
+    {
+      "qid": "q004",
+      "template_id": 0,
+      "noun": "beacon",
+      "question": "What is the beacon access code?",
+      "gold_answer": "forest",
+      "gold_fact": "The beacon access code is forest.",
+      "contexts": {
+        "clean": [
+          "The beacon access code is forest.",
+          "The library-q004 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q004 exhibition visited three coastal towns in June."
+        ],
+        "redundant": [
+          "The beacon access code is forest.",
+          "The beacon access code is forest.",
+          "The beacon access code is forest",
+          "The beacon access code is forest!",
+          "The library-q004 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q004 exhibition visited three coastal towns in June."
+        ],
+        "contradictory": [
+          "The beacon access code is forest.",
+          "The beacon access code is garden.",
+          "The beacon access code is planet.",
+          "The beacon access code is cloud.",
+          "The library-q004 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q004 exhibition visited three coastal towns in June."
+        ],
+        "mixed": [
+          "The beacon access code is forest.",
+          "The beacon access code is forest.",
+          "The beacon access code is forest",
+          "The beacon access code is forest!",
+          "The beacon access code is garden.",
+          "The beacon access code is planet.",
+          "The beacon access code is cloud.",
+          "The library-q004 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q004 exhibition visited three coastal towns in June."
+        ]
+      }
+    },
+    {
+      "qid": "q005",
+      "template_id": 1,
+      "noun": "channel",
+      "question": "What is the channel recovery phrase?",
+      "gold_answer": "garden",
+      "gold_fact": "The channel recovery phrase is garden.",
+      "contexts": {
+        "clean": [
+          "The channel recovery phrase is garden.",
+          "A travelling exhibition-q005 exhibition visited three coastal towns in June.",
+          "The ferry-q005 ferry timetable was revised after the harbour dredging."
+        ],
+        "redundant": [
+          "The channel recovery phrase is garden.",
+          "The channel access code is garden.",
+          "The channel access code is garden",
+          "The channel access code is garden!",
+          "A travelling exhibition-q005 exhibition visited three coastal towns in June.",
+          "The ferry-q005 ferry timetable was revised after the harbour dredging."
+        ],
+        "contradictory": [
+          "The channel recovery phrase is garden.",
+          "The channel recovery phrase is silver.",
+          "The channel recovery phrase is river.",
+          "The channel recovery phrase is planet.",
+          "A travelling exhibition-q005 exhibition visited three coastal towns in June.",
+          "The ferry-q005 ferry timetable was revised after the harbour dredging."
+        ],
+        "mixed": [
+          "The channel recovery phrase is garden.",
+          "The channel access code is garden.",
+          "The channel access code is garden",
+          "The channel access code is garden!",
+          "The channel recovery phrase is silver.",
+          "The channel recovery phrase is river.",
+          "The channel recovery phrase is planet.",
+          "A travelling exhibition-q005 exhibition visited three coastal towns in June.",
+          "The ferry-q005 ferry timetable was revised after the harbour dredging."
+        ]
+      }
+    },
+    {
+      "qid": "q006",
+      "template_id": 2,
+      "noun": "keystone",
+      "question": "What is the keystone backup key?",
+      "gold_answer": "planet",
+      "gold_fact": "The keystone backup key is planet.",
+      "contexts": {
+        "clean": [
+          "The keystone backup key is planet.",
+          "The ferry-q006 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q006 astronomer published a note on a faint comet."
+        ],
+        "redundant": [
+          "The keystone backup key is planet.",
+          "The keystone access code is planet.",
+          "The keystone access code is planet",
+          "The keystone access code is planet!",
+          "The ferry-q006 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q006 astronomer published a note on a faint comet."
+        ],
+        "contradictory": [
+          "The keystone backup key is planet.",
+          "The keystone backup key is apple.",
+          "The keystone backup key is river.",
+          "The keystone backup key is forest.",
+          "The ferry-q006 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q006 astronomer published a note on a faint comet."
+        ],
+        "mixed": [
+          "The keystone backup key is planet.",
+          "The keystone access code is planet.",
+          "The keystone access code is planet",
+          "The keystone access code is planet!",
+          "The keystone backup key is apple.",
+          "The keystone backup key is river.",
+          "The keystone backup key is forest.",
+          "The ferry-q006 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q006 astronomer published a note on a faint comet."
+        ]
+      }
+    },
+    {
+      "qid": "q007",
+      "template_id": 3,
+      "noun": "buffer",
+      "question": "What is the buffer override token?",
+      "gold_answer": "lantern",
+      "gold_fact": "The buffer override token is lantern.",
+      "contexts": {
+        "clean": [
+          "The buffer override token is lantern.",
+          "An amateur comet-q007 astronomer published a note on a faint comet.",
+          "The observatory-q007 observatory recorded unusually clear skies last winter."
+        ],
+        "redundant": [
+          "The buffer override token is lantern.",
+          "The buffer access code is lantern.",
+          "The buffer access code is lantern",
+          "The buffer access code is lantern!",
+          "An amateur comet-q007 astronomer published a note on a faint comet.",
+          "The observatory-q007 observatory recorded unusually clear skies last winter."
+        ],
+        "contradictory": [
+          "The buffer override token is lantern.",
+          "The buffer override token is planet.",
+          "The buffer override token is river.",
+          "The buffer override token is tiger.",
+          "An amateur comet-q007 astronomer published a note on a faint comet.",
+          "The observatory-q007 observatory recorded unusually clear skies last winter."
+        ],
+        "mixed": [
+          "The buffer override token is lantern.",
+          "The buffer access code is lantern.",
+          "The buffer access code is lantern",
+          "The buffer access code is lantern!",
+          "The buffer override token is planet.",
+          "The buffer override token is river.",
+          "The buffer override token is tiger.",
+          "An amateur comet-q007 astronomer published a note on a faint comet.",
+          "The observatory-q007 observatory recorded unusually clear skies last winter."
+        ]
+      }
+    },
+    {
+      "qid": "q008",
+      "template_id": 0,
+      "noun": "manifest",
+      "question": "What is the manifest access code?",
+      "gold_answer": "garden",
+      "gold_fact": "The manifest access code is garden.",
+      "contexts": {
+        "clean": [
+          "The manifest access code is garden.",
+          "The observatory-q008 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q008 committee met to discuss routine drainage repairs."
+        ],
+        "redundant": [
+          "The manifest access code is garden.",
+          "The manifest access code is garden.",
+          "The manifest access code is garden",
+          "The manifest access code is garden!",
+          "The observatory-q008 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q008 committee met to discuss routine drainage repairs."
+        ],
+        "contradictory": [
+          "The manifest access code is garden.",
+          "The manifest access code is harbor.",
+          "The manifest access code is silver.",
+          "The manifest access code is cloud.",
+          "The observatory-q008 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q008 committee met to discuss routine drainage repairs."
+        ],
+        "mixed": [
+          "The manifest access code is garden.",
+          "The manifest access code is garden.",
+          "The manifest access code is garden",
+          "The manifest access code is garden!",
+          "The manifest access code is harbor.",
+          "The manifest access code is silver.",
+          "The manifest access code is cloud.",
+          "The observatory-q008 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q008 committee met to discuss routine drainage repairs."
+        ]
+      }
+    },
+    {
+      "qid": "q009",
+      "template_id": 1,
+      "noun": "journal",
+      "question": "What is the journal recovery phrase?",
+      "gold_answer": "candle",
+      "gold_fact": "The journal recovery phrase is candle.",
+      "contexts": {
+        "clean": [
+          "The journal recovery phrase is candle.",
+          "A regional drainage-q009 committee met to discuss routine drainage repairs.",
+          "The museum-q009 museum extended its weekend opening hours this season."
+        ],
+        "redundant": [
+          "The journal recovery phrase is candle.",
+          "The journal access code is candle.",
+          "The journal access code is candle",
+          "The journal access code is candle!",
+          "A regional drainage-q009 committee met to discuss routine drainage repairs.",
+          "The museum-q009 museum extended its weekend opening hours this season."
+        ],
+        "contradictory": [
+          "The journal recovery phrase is candle.",
+          "The journal recovery phrase is apple.",
+          "The journal recovery phrase is forest.",
+          "The journal recovery phrase is lantern.",
+          "A regional drainage-q009 committee met to discuss routine drainage repairs.",
+          "The museum-q009 museum extended its weekend opening hours this season."
+        ],
+        "mixed": [
+          "The journal recovery phrase is candle.",
+          "The journal access code is candle.",
+          "The journal access code is candle",
+          "The journal access code is candle!",
+          "The journal recovery phrase is apple.",
+          "The journal recovery phrase is forest.",
+          "The journal recovery phrase is lantern.",
+          "A regional drainage-q009 committee met to discuss routine drainage repairs.",
+          "The museum-q009 museum extended its weekend opening hours this season."
+        ]
+      }
+    },
+    {
+      "qid": "q010",
+      "template_id": 2,
+      "noun": "primary vault",
+      "question": "What is the primary vault backup key?",
+      "gold_answer": "forest",
+      "gold_fact": "The primary vault backup key is forest.",
+      "contexts": {
+        "clean": [
+          "The primary vault backup key is forest.",
+          "The museum-q010 museum extended its weekend opening hours this season.",
+          "Local riverside-q010 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "redundant": [
+          "The primary vault backup key is forest.",
+          "The primary vault access code is forest.",
+          "The primary vault access code is forest",
+          "The primary vault access code is forest!",
+          "The museum-q010 museum extended its weekend opening hours this season.",
+          "Local riverside-q010 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "contradictory": [
+          "The primary vault backup key is forest.",
+          "The primary vault backup key is stone.",
+          "The primary vault backup key is harbor.",
+          "The primary vault backup key is lantern.",
+          "The museum-q010 museum extended its weekend opening hours this season.",
+          "Local riverside-q010 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "mixed": [
+          "The primary vault backup key is forest.",
+          "The primary vault access code is forest.",
+          "The primary vault access code is forest",
+          "The primary vault access code is forest!",
+          "The primary vault backup key is stone.",
+          "The primary vault backup key is harbor.",
+          "The primary vault backup key is lantern.",
+          "The museum-q010 museum extended its weekend opening hours this season.",
+          "Local riverside-q010 volunteers organised a riverside clean-up on Saturday."
+        ]
+      }
+    },
+    {
+      "qid": "q011",
+      "template_id": 3,
+      "noun": "primary mailbox",
+      "question": "What is the primary mailbox override token?",
+      "gold_answer": "lantern",
+      "gold_fact": "The primary mailbox override token is lantern.",
+      "contexts": {
+        "clean": [
+          "The primary mailbox override token is lantern.",
+          "Local riverside-q011 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q011 library added new shelves for its growing map collection."
+        ],
+        "redundant": [
+          "The primary mailbox override token is lantern.",
+          "The primary mailbox access code is lantern.",
+          "The primary mailbox access code is lantern",
+          "The primary mailbox access code is lantern!",
+          "Local riverside-q011 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q011 library added new shelves for its growing map collection."
+        ],
+        "contradictory": [
+          "The primary mailbox override token is lantern.",
+          "The primary mailbox override token is forest.",
+          "The primary mailbox override token is garden.",
+          "The primary mailbox override token is silver.",
+          "Local riverside-q011 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q011 library added new shelves for its growing map collection."
+        ],
+        "mixed": [
+          "The primary mailbox override token is lantern.",
+          "The primary mailbox access code is lantern.",
+          "The primary mailbox access code is lantern",
+          "The primary mailbox access code is lantern!",
+          "The primary mailbox override token is forest.",
+          "The primary mailbox override token is garden.",
+          "The primary mailbox override token is silver.",
+          "Local riverside-q011 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q011 library added new shelves for its growing map collection."
+        ]
+      }
+    },
+    {
+      "qid": "q012",
+      "template_id": 0,
+      "noun": "primary guest",
+      "question": "What is the primary guest access code?",
+      "gold_answer": "harbor",
+      "gold_fact": "The primary guest access code is harbor.",
+      "contexts": {
+        "clean": [
+          "The primary guest access code is harbor.",
+          "The library-q012 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q012 exhibition visited three coastal towns in June."
+        ],
+        "redundant": [
+          "The primary guest access code is harbor.",
+          "The primary guest access code is harbor.",
+          "The primary guest access code is harbor",
+          "The primary guest access code is harbor!",
+          "The library-q012 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q012 exhibition visited three coastal towns in June."
+        ],
+        "contradictory": [
+          "The primary guest access code is harbor.",
+          "The primary guest access code is candle.",
+          "The primary guest access code is cloud.",
+          "The primary guest access code is river.",
+          "The library-q012 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q012 exhibition visited three coastal towns in June."
+        ],
+        "mixed": [
+          "The primary guest access code is harbor.",
+          "The primary guest access code is harbor.",
+          "The primary guest access code is harbor",
+          "The primary guest access code is harbor!",
+          "The primary guest access code is candle.",
+          "The primary guest access code is cloud.",
+          "The primary guest access code is river.",
+          "The library-q012 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q012 exhibition visited three coastal towns in June."
+        ]
+      }
+    },
+    {
+      "qid": "q013",
+      "template_id": 1,
+      "noun": "primary registry",
+      "question": "What is the primary registry recovery phrase?",
+      "gold_answer": "candle",
+      "gold_fact": "The primary registry recovery phrase is candle.",
+      "contexts": {
+        "clean": [
+          "The primary registry recovery phrase is candle.",
+          "A travelling exhibition-q013 exhibition visited three coastal towns in June.",
+          "The ferry-q013 ferry timetable was revised after the harbour dredging."
+        ],
+        "redundant": [
+          "The primary registry recovery phrase is candle.",
+          "The primary registry access code is candle.",
+          "The primary registry access code is candle",
+          "The primary registry access code is candle!",
+          "A travelling exhibition-q013 exhibition visited three coastal towns in June.",
+          "The ferry-q013 ferry timetable was revised after the harbour dredging."
+        ],
+        "contradictory": [
+          "The primary registry recovery phrase is candle.",
+          "The primary registry recovery phrase is silver.",
+          "The primary registry recovery phrase is tiger.",
+          "The primary registry recovery phrase is garden.",
+          "A travelling exhibition-q013 exhibition visited three coastal towns in June.",
+          "The ferry-q013 ferry timetable was revised after the harbour dredging."
+        ],
+        "mixed": [
+          "The primary registry recovery phrase is candle.",
+          "The primary registry access code is candle.",
+          "The primary registry access code is candle",
+          "The primary registry access code is candle!",
+          "The primary registry recovery phrase is silver.",
+          "The primary registry recovery phrase is tiger.",
+          "The primary registry recovery phrase is garden.",
+          "A travelling exhibition-q013 exhibition visited three coastal towns in June.",
+          "The ferry-q013 ferry timetable was revised after the harbour dredging."
+        ]
+      }
+    },
+    {
+      "qid": "q014",
+      "template_id": 2,
+      "noun": "primary beacon",
+      "question": "What is the primary beacon backup key?",
+      "gold_answer": "lantern",
+      "gold_fact": "The primary beacon backup key is lantern.",
+      "contexts": {
+        "clean": [
+          "The primary beacon backup key is lantern.",
+          "The ferry-q014 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q014 astronomer published a note on a faint comet."
+        ],
+        "redundant": [
+          "The primary beacon backup key is lantern.",
+          "The primary beacon access code is lantern.",
+          "The primary beacon access code is lantern",
+          "The primary beacon access code is lantern!",
+          "The ferry-q014 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q014 astronomer published a note on a faint comet."
+        ],
+        "contradictory": [
+          "The primary beacon backup key is lantern.",
+          "The primary beacon backup key is apple.",
+          "The primary beacon backup key is cloud.",
+          "The primary beacon backup key is silver.",
+          "The ferry-q014 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q014 astronomer published a note on a faint comet."
+        ],
+        "mixed": [
+          "The primary beacon backup key is lantern.",
+          "The primary beacon access code is lantern.",
+          "The primary beacon access code is lantern",
+          "The primary beacon access code is lantern!",
+          "The primary beacon backup key is apple.",
+          "The primary beacon backup key is cloud.",
+          "The primary beacon backup key is silver.",
+          "The ferry-q014 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q014 astronomer published a note on a faint comet."
+        ]
+      }
+    },
+    {
+      "qid": "q015",
+      "template_id": 3,
+      "noun": "primary channel",
+      "question": "What is the primary channel override token?",
+      "gold_answer": "harbor",
+      "gold_fact": "The primary channel override token is harbor.",
+      "contexts": {
+        "clean": [
+          "The primary channel override token is harbor.",
+          "An amateur comet-q015 astronomer published a note on a faint comet.",
+          "The observatory-q015 observatory recorded unusually clear skies last winter."
+        ],
+        "redundant": [
+          "The primary channel override token is harbor.",
+          "The primary channel access code is harbor.",
+          "The primary channel access code is harbor",
+          "The primary channel access code is harbor!",
+          "An amateur comet-q015 astronomer published a note on a faint comet.",
+          "The observatory-q015 observatory recorded unusually clear skies last winter."
+        ],
+        "contradictory": [
+          "The primary channel override token is harbor.",
+          "The primary channel override token is tiger.",
+          "The primary channel override token is stone.",
+          "The primary channel override token is river.",
+          "An amateur comet-q015 astronomer published a note on a faint comet.",
+          "The observatory-q015 observatory recorded unusually clear skies last winter."
+        ],
+        "mixed": [
+          "The primary channel override token is harbor.",
+          "The primary channel access code is harbor.",
+          "The primary channel access code is harbor",
+          "The primary channel access code is harbor!",
+          "The primary channel override token is tiger.",
+          "The primary channel override token is stone.",
+          "The primary channel override token is river.",
+          "An amateur comet-q015 astronomer published a note on a faint comet.",
+          "The observatory-q015 observatory recorded unusually clear skies last winter."
+        ]
+      }
+    },
+    {
+      "qid": "q016",
+      "template_id": 0,
+      "noun": "primary keystone",
+      "question": "What is the primary keystone access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The primary keystone access code is cloud.",
+      "contexts": {
+        "clean": [
+          "The primary keystone access code is cloud.",
+          "The observatory-q016 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q016 committee met to discuss routine drainage repairs."
+        ],
+        "redundant": [
+          "The primary keystone access code is cloud.",
+          "The primary keystone access code is cloud.",
+          "The primary keystone access code is cloud",
+          "The primary keystone access code is cloud!",
+          "The observatory-q016 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q016 committee met to discuss routine drainage repairs."
+        ],
+        "contradictory": [
+          "The primary keystone access code is cloud.",
+          "The primary keystone access code is apple.",
+          "The primary keystone access code is planet.",
+          "The primary keystone access code is forest.",
+          "The observatory-q016 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q016 committee met to discuss routine drainage repairs."
+        ],
+        "mixed": [
+          "The primary keystone access code is cloud.",
+          "The primary keystone access code is cloud.",
+          "The primary keystone access code is cloud",
+          "The primary keystone access code is cloud!",
+          "The primary keystone access code is apple.",
+          "The primary keystone access code is planet.",
+          "The primary keystone access code is forest.",
+          "The observatory-q016 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q016 committee met to discuss routine drainage repairs."
+        ]
+      }
+    },
+    {
+      "qid": "q017",
+      "template_id": 1,
+      "noun": "primary buffer",
+      "question": "What is the primary buffer recovery phrase?",
+      "gold_answer": "planet",
+      "gold_fact": "The primary buffer recovery phrase is planet.",
+      "contexts": {
+        "clean": [
+          "The primary buffer recovery phrase is planet.",
+          "A regional drainage-q017 committee met to discuss routine drainage repairs.",
+          "The museum-q017 museum extended its weekend opening hours this season."
+        ],
+        "redundant": [
+          "The primary buffer recovery phrase is planet.",
+          "The primary buffer access code is planet.",
+          "The primary buffer access code is planet",
+          "The primary buffer access code is planet!",
+          "A regional drainage-q017 committee met to discuss routine drainage repairs.",
+          "The museum-q017 museum extended its weekend opening hours this season."
+        ],
+        "contradictory": [
+          "The primary buffer recovery phrase is planet.",
+          "The primary buffer recovery phrase is stone.",
+          "The primary buffer recovery phrase is harbor.",
+          "The primary buffer recovery phrase is forest.",
+          "A regional drainage-q017 committee met to discuss routine drainage repairs.",
+          "The museum-q017 museum extended its weekend opening hours this season."
+        ],
+        "mixed": [
+          "The primary buffer recovery phrase is planet.",
+          "The primary buffer access code is planet.",
+          "The primary buffer access code is planet",
+          "The primary buffer access code is planet!",
+          "The primary buffer recovery phrase is stone.",
+          "The primary buffer recovery phrase is harbor.",
+          "The primary buffer recovery phrase is forest.",
+          "A regional drainage-q017 committee met to discuss routine drainage repairs.",
+          "The museum-q017 museum extended its weekend opening hours this season."
+        ]
+      }
+    },
+    {
+      "qid": "q018",
+      "template_id": 2,
+      "noun": "primary manifest",
+      "question": "What is the primary manifest backup key?",
+      "gold_answer": "river",
+      "gold_fact": "The primary manifest backup key is river.",
+      "contexts": {
+        "clean": [
+          "The primary manifest backup key is river.",
+          "The museum-q018 museum extended its weekend opening hours this season.",
+          "Local riverside-q018 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "redundant": [
+          "The primary manifest backup key is river.",
+          "The primary manifest access code is river.",
+          "The primary manifest access code is river",
+          "The primary manifest access code is river!",
+          "The museum-q018 museum extended its weekend opening hours this season.",
+          "Local riverside-q018 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "contradictory": [
+          "The primary manifest backup key is river.",
+          "The primary manifest backup key is planet.",
+          "The primary manifest backup key is lantern.",
+          "The primary manifest backup key is stone.",
+          "The museum-q018 museum extended its weekend opening hours this season.",
+          "Local riverside-q018 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "mixed": [
+          "The primary manifest backup key is river.",
+          "The primary manifest access code is river.",
+          "The primary manifest access code is river",
+          "The primary manifest access code is river!",
+          "The primary manifest backup key is planet.",
+          "The primary manifest backup key is lantern.",
+          "The primary manifest backup key is stone.",
+          "The museum-q018 museum extended its weekend opening hours this season.",
+          "Local riverside-q018 volunteers organised a riverside clean-up on Saturday."
+        ]
+      }
+    },
+    {
+      "qid": "q019",
+      "template_id": 3,
+      "noun": "primary journal",
+      "question": "What is the primary journal override token?",
+      "gold_answer": "garden",
+      "gold_fact": "The primary journal override token is garden.",
+      "contexts": {
+        "clean": [
+          "The primary journal override token is garden.",
+          "Local riverside-q019 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q019 library added new shelves for its growing map collection."
+        ],
+        "redundant": [
+          "The primary journal override token is garden.",
+          "The primary journal access code is garden.",
+          "The primary journal access code is garden",
+          "The primary journal access code is garden!",
+          "Local riverside-q019 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q019 library added new shelves for its growing map collection."
+        ],
+        "contradictory": [
+          "The primary journal override token is garden.",
+          "The primary journal override token is stone.",
+          "The primary journal override token is apple.",
+          "The primary journal override token is lantern.",
+          "Local riverside-q019 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q019 library added new shelves for its growing map collection."
+        ],
+        "mixed": [
+          "The primary journal override token is garden.",
+          "The primary journal access code is garden.",
+          "The primary journal access code is garden",
+          "The primary journal access code is garden!",
+          "The primary journal override token is stone.",
+          "The primary journal override token is apple.",
+          "The primary journal override token is lantern.",
+          "Local riverside-q019 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q019 library added new shelves for its growing map collection."
+        ]
+      }
+    },
+    {
+      "qid": "q020",
+      "template_id": 0,
+      "noun": "secondary vault",
+      "question": "What is the secondary vault access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The secondary vault access code is tiger.",
+      "contexts": {
+        "clean": [
+          "The secondary vault access code is tiger.",
+          "The library-q020 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q020 exhibition visited three coastal towns in June."
+        ],
+        "redundant": [
+          "The secondary vault access code is tiger.",
+          "The secondary vault access code is tiger.",
+          "The secondary vault access code is tiger",
+          "The secondary vault access code is tiger!",
+          "The library-q020 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q020 exhibition visited three coastal towns in June."
+        ],
+        "contradictory": [
+          "The secondary vault access code is tiger.",
+          "The secondary vault access code is candle.",
+          "The secondary vault access code is apple.",
+          "The secondary vault access code is silver.",
+          "The library-q020 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q020 exhibition visited three coastal towns in June."
+        ],
+        "mixed": [
+          "The secondary vault access code is tiger.",
+          "The secondary vault access code is tiger.",
+          "The secondary vault access code is tiger",
+          "The secondary vault access code is tiger!",
+          "The secondary vault access code is candle.",
+          "The secondary vault access code is apple.",
+          "The secondary vault access code is silver.",
+          "The library-q020 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q020 exhibition visited three coastal towns in June."
+        ]
+      }
+    },
+    {
+      "qid": "q021",
+      "template_id": 1,
+      "noun": "secondary mailbox",
+      "question": "What is the secondary mailbox recovery phrase?",
+      "gold_answer": "planet",
+      "gold_fact": "The secondary mailbox recovery phrase is planet.",
+      "contexts": {
+        "clean": [
+          "The secondary mailbox recovery phrase is planet.",
+          "A travelling exhibition-q021 exhibition visited three coastal towns in June.",
+          "The ferry-q021 ferry timetable was revised after the harbour dredging."
+        ],
+        "redundant": [
+          "The secondary mailbox recovery phrase is planet.",
+          "The secondary mailbox access code is planet.",
+          "The secondary mailbox access code is planet",
+          "The secondary mailbox access code is planet!",
+          "A travelling exhibition-q021 exhibition visited three coastal towns in June.",
+          "The ferry-q021 ferry timetable was revised after the harbour dredging."
+        ],
+        "contradictory": [
+          "The secondary mailbox recovery phrase is planet.",
+          "The secondary mailbox recovery phrase is silver.",
+          "The secondary mailbox recovery phrase is river.",
+          "The secondary mailbox recovery phrase is forest.",
+          "A travelling exhibition-q021 exhibition visited three coastal towns in June.",
+          "The ferry-q021 ferry timetable was revised after the harbour dredging."
+        ],
+        "mixed": [
+          "The secondary mailbox recovery phrase is planet.",
+          "The secondary mailbox access code is planet.",
+          "The secondary mailbox access code is planet",
+          "The secondary mailbox access code is planet!",
+          "The secondary mailbox recovery phrase is silver.",
+          "The secondary mailbox recovery phrase is river.",
+          "The secondary mailbox recovery phrase is forest.",
+          "A travelling exhibition-q021 exhibition visited three coastal towns in June.",
+          "The ferry-q021 ferry timetable was revised after the harbour dredging."
+        ]
+      }
+    },
+    {
+      "qid": "q022",
+      "template_id": 2,
+      "noun": "secondary guest",
+      "question": "What is the secondary guest backup key?",
+      "gold_answer": "tiger",
+      "gold_fact": "The secondary guest backup key is tiger.",
+      "contexts": {
+        "clean": [
+          "The secondary guest backup key is tiger.",
+          "The ferry-q022 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q022 astronomer published a note on a faint comet."
+        ],
+        "redundant": [
+          "The secondary guest backup key is tiger.",
+          "The secondary guest access code is tiger.",
+          "The secondary guest access code is tiger",
+          "The secondary guest access code is tiger!",
+          "The ferry-q022 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q022 astronomer published a note on a faint comet."
+        ],
+        "contradictory": [
+          "The secondary guest backup key is tiger.",
+          "The secondary guest backup key is garden.",
+          "The secondary guest backup key is forest.",
+          "The secondary guest backup key is lantern.",
+          "The ferry-q022 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q022 astronomer published a note on a faint comet."
+        ],
+        "mixed": [
+          "The secondary guest backup key is tiger.",
+          "The secondary guest access code is tiger.",
+          "The secondary guest access code is tiger",
+          "The secondary guest access code is tiger!",
+          "The secondary guest backup key is garden.",
+          "The secondary guest backup key is forest.",
+          "The secondary guest backup key is lantern.",
+          "The ferry-q022 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q022 astronomer published a note on a faint comet."
+        ]
+      }
+    },
+    {
+      "qid": "q023",
+      "template_id": 3,
+      "noun": "secondary registry",
+      "question": "What is the secondary registry override token?",
+      "gold_answer": "apple",
+      "gold_fact": "The secondary registry override token is apple.",
+      "contexts": {
+        "clean": [
+          "The secondary registry override token is apple.",
+          "An amateur comet-q023 astronomer published a note on a faint comet.",
+          "The observatory-q023 observatory recorded unusually clear skies last winter."
+        ],
+        "redundant": [
+          "The secondary registry override token is apple.",
+          "The secondary registry access code is apple.",
+          "The secondary registry access code is apple",
+          "The secondary registry access code is apple!",
+          "An amateur comet-q023 astronomer published a note on a faint comet.",
+          "The observatory-q023 observatory recorded unusually clear skies last winter."
+        ],
+        "contradictory": [
+          "The secondary registry override token is apple.",
+          "The secondary registry override token is harbor.",
+          "The secondary registry override token is garden.",
+          "The secondary registry override token is river.",
+          "An amateur comet-q023 astronomer published a note on a faint comet.",
+          "The observatory-q023 observatory recorded unusually clear skies last winter."
+        ],
+        "mixed": [
+          "The secondary registry override token is apple.",
+          "The secondary registry access code is apple.",
+          "The secondary registry access code is apple",
+          "The secondary registry access code is apple!",
+          "The secondary registry override token is harbor.",
+          "The secondary registry override token is garden.",
+          "The secondary registry override token is river.",
+          "An amateur comet-q023 astronomer published a note on a faint comet.",
+          "The observatory-q023 observatory recorded unusually clear skies last winter."
+        ]
+      }
+    },
+    {
+      "qid": "q024",
+      "template_id": 0,
+      "noun": "secondary beacon",
+      "question": "What is the secondary beacon access code?",
+      "gold_answer": "candle",
+      "gold_fact": "The secondary beacon access code is candle.",
+      "contexts": {
+        "clean": [
+          "The secondary beacon access code is candle.",
+          "The observatory-q024 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q024 committee met to discuss routine drainage repairs."
+        ],
+        "redundant": [
+          "The secondary beacon access code is candle.",
+          "The secondary beacon access code is candle.",
+          "The secondary beacon access code is candle",
+          "The secondary beacon access code is candle!",
+          "The observatory-q024 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q024 committee met to discuss routine drainage repairs."
+        ],
+        "contradictory": [
+          "The secondary beacon access code is candle.",
+          "The secondary beacon access code is apple.",
+          "The secondary beacon access code is river.",
+          "The secondary beacon access code is forest.",
+          "The observatory-q024 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q024 committee met to discuss routine drainage repairs."
+        ],
+        "mixed": [
+          "The secondary beacon access code is candle.",
+          "The secondary beacon access code is candle.",
+          "The secondary beacon access code is candle",
+          "The secondary beacon access code is candle!",
+          "The secondary beacon access code is apple.",
+          "The secondary beacon access code is river.",
+          "The secondary beacon access code is forest.",
+          "The observatory-q024 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q024 committee met to discuss routine drainage repairs."
+        ]
+      }
+    },
+    {
+      "qid": "q025",
+      "template_id": 1,
+      "noun": "secondary channel",
+      "question": "What is the secondary channel recovery phrase?",
+      "gold_answer": "harbor",
+      "gold_fact": "The secondary channel recovery phrase is harbor.",
+      "contexts": {
+        "clean": [
+          "The secondary channel recovery phrase is harbor.",
+          "A regional drainage-q025 committee met to discuss routine drainage repairs.",
+          "The museum-q025 museum extended its weekend opening hours this season."
+        ],
+        "redundant": [
+          "The secondary channel recovery phrase is harbor.",
+          "The secondary channel access code is harbor.",
+          "The secondary channel access code is harbor",
+          "The secondary channel access code is harbor!",
+          "A regional drainage-q025 committee met to discuss routine drainage repairs.",
+          "The museum-q025 museum extended its weekend opening hours this season."
+        ],
+        "contradictory": [
+          "The secondary channel recovery phrase is harbor.",
+          "The secondary channel recovery phrase is planet.",
+          "The secondary channel recovery phrase is cloud.",
+          "The secondary channel recovery phrase is garden.",
+          "A regional drainage-q025 committee met to discuss routine drainage repairs.",
+          "The museum-q025 museum extended its weekend opening hours this season."
+        ],
+        "mixed": [
+          "The secondary channel recovery phrase is harbor.",
+          "The secondary channel access code is harbor.",
+          "The secondary channel access code is harbor",
+          "The secondary channel access code is harbor!",
+          "The secondary channel recovery phrase is planet.",
+          "The secondary channel recovery phrase is cloud.",
+          "The secondary channel recovery phrase is garden.",
+          "A regional drainage-q025 committee met to discuss routine drainage repairs.",
+          "The museum-q025 museum extended its weekend opening hours this season."
+        ]
+      }
+    },
+    {
+      "qid": "q026",
+      "template_id": 2,
+      "noun": "secondary keystone",
+      "question": "What is the secondary keystone backup key?",
+      "gold_answer": "silver",
+      "gold_fact": "The secondary keystone backup key is silver.",
+      "contexts": {
+        "clean": [
+          "The secondary keystone backup key is silver.",
+          "The museum-q026 museum extended its weekend opening hours this season.",
+          "Local riverside-q026 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "redundant": [
+          "The secondary keystone backup key is silver.",
+          "The secondary keystone access code is silver.",
+          "The secondary keystone access code is silver",
+          "The secondary keystone access code is silver!",
+          "The museum-q026 museum extended its weekend opening hours this season.",
+          "Local riverside-q026 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "contradictory": [
+          "The secondary keystone backup key is silver.",
+          "The secondary keystone backup key is candle.",
+          "The secondary keystone backup key is river.",
+          "The secondary keystone backup key is tiger.",
+          "The museum-q026 museum extended its weekend opening hours this season.",
+          "Local riverside-q026 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "mixed": [
+          "The secondary keystone backup key is silver.",
+          "The secondary keystone access code is silver.",
+          "The secondary keystone access code is silver",
+          "The secondary keystone access code is silver!",
+          "The secondary keystone backup key is candle.",
+          "The secondary keystone backup key is river.",
+          "The secondary keystone backup key is tiger.",
+          "The museum-q026 museum extended its weekend opening hours this season.",
+          "Local riverside-q026 volunteers organised a riverside clean-up on Saturday."
+        ]
+      }
+    },
+    {
+      "qid": "q027",
+      "template_id": 3,
+      "noun": "secondary buffer",
+      "question": "What is the secondary buffer override token?",
+      "gold_answer": "apple",
+      "gold_fact": "The secondary buffer override token is apple.",
+      "contexts": {
+        "clean": [
+          "The secondary buffer override token is apple.",
+          "Local riverside-q027 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q027 library added new shelves for its growing map collection."
+        ],
+        "redundant": [
+          "The secondary buffer override token is apple.",
+          "The secondary buffer access code is apple.",
+          "The secondary buffer access code is apple",
+          "The secondary buffer access code is apple!",
+          "Local riverside-q027 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q027 library added new shelves for its growing map collection."
+        ],
+        "contradictory": [
+          "The secondary buffer override token is apple.",
+          "The secondary buffer override token is stone.",
+          "The secondary buffer override token is planet.",
+          "The secondary buffer override token is tiger.",
+          "Local riverside-q027 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q027 library added new shelves for its growing map collection."
+        ],
+        "mixed": [
+          "The secondary buffer override token is apple.",
+          "The secondary buffer access code is apple.",
+          "The secondary buffer access code is apple",
+          "The secondary buffer access code is apple!",
+          "The secondary buffer override token is stone.",
+          "The secondary buffer override token is planet.",
+          "The secondary buffer override token is tiger.",
+          "Local riverside-q027 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q027 library added new shelves for its growing map collection."
+        ]
+      }
+    },
+    {
+      "qid": "q028",
+      "template_id": 0,
+      "noun": "secondary manifest",
+      "question": "What is the secondary manifest access code?",
+      "gold_answer": "harbor",
+      "gold_fact": "The secondary manifest access code is harbor.",
+      "contexts": {
+        "clean": [
+          "The secondary manifest access code is harbor.",
+          "The library-q028 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q028 exhibition visited three coastal towns in June."
+        ],
+        "redundant": [
+          "The secondary manifest access code is harbor.",
+          "The secondary manifest access code is harbor.",
+          "The secondary manifest access code is harbor",
+          "The secondary manifest access code is harbor!",
+          "The library-q028 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q028 exhibition visited three coastal towns in June."
+        ],
+        "contradictory": [
+          "The secondary manifest access code is harbor.",
+          "The secondary manifest access code is lantern.",
+          "The secondary manifest access code is river.",
+          "The secondary manifest access code is apple.",
+          "The library-q028 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q028 exhibition visited three coastal towns in June."
+        ],
+        "mixed": [
+          "The secondary manifest access code is harbor.",
+          "The secondary manifest access code is harbor.",
+          "The secondary manifest access code is harbor",
+          "The secondary manifest access code is harbor!",
+          "The secondary manifest access code is lantern.",
+          "The secondary manifest access code is river.",
+          "The secondary manifest access code is apple.",
+          "The library-q028 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q028 exhibition visited three coastal towns in June."
+        ]
+      }
+    },
+    {
+      "qid": "q029",
+      "template_id": 1,
+      "noun": "secondary journal",
+      "question": "What is the secondary journal recovery phrase?",
+      "gold_answer": "river",
+      "gold_fact": "The secondary journal recovery phrase is river.",
+      "contexts": {
+        "clean": [
+          "The secondary journal recovery phrase is river.",
+          "A travelling exhibition-q029 exhibition visited three coastal towns in June.",
+          "The ferry-q029 ferry timetable was revised after the harbour dredging."
+        ],
+        "redundant": [
+          "The secondary journal recovery phrase is river.",
+          "The secondary journal access code is river.",
+          "The secondary journal access code is river",
+          "The secondary journal access code is river!",
+          "A travelling exhibition-q029 exhibition visited three coastal towns in June.",
+          "The ferry-q029 ferry timetable was revised after the harbour dredging."
+        ],
+        "contradictory": [
+          "The secondary journal recovery phrase is river.",
+          "The secondary journal recovery phrase is harbor.",
+          "The secondary journal recovery phrase is candle.",
+          "The secondary journal recovery phrase is silver.",
+          "A travelling exhibition-q029 exhibition visited three coastal towns in June.",
+          "The ferry-q029 ferry timetable was revised after the harbour dredging."
+        ],
+        "mixed": [
+          "The secondary journal recovery phrase is river.",
+          "The secondary journal access code is river.",
+          "The secondary journal access code is river",
+          "The secondary journal access code is river!",
+          "The secondary journal recovery phrase is harbor.",
+          "The secondary journal recovery phrase is candle.",
+          "The secondary journal recovery phrase is silver.",
+          "A travelling exhibition-q029 exhibition visited three coastal towns in June.",
+          "The ferry-q029 ferry timetable was revised after the harbour dredging."
+        ]
+      }
+    },
+    {
+      "qid": "q030",
+      "template_id": 2,
+      "noun": "backup vault",
+      "question": "What is the backup vault backup key?",
+      "gold_answer": "candle",
+      "gold_fact": "The backup vault backup key is candle.",
+      "contexts": {
+        "clean": [
+          "The backup vault backup key is candle.",
+          "The ferry-q030 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q030 astronomer published a note on a faint comet."
+        ],
+        "redundant": [
+          "The backup vault backup key is candle.",
+          "The backup vault access code is candle.",
+          "The backup vault access code is candle",
+          "The backup vault access code is candle!",
+          "The ferry-q030 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q030 astronomer published a note on a faint comet."
+        ],
+        "contradictory": [
+          "The backup vault backup key is candle.",
+          "The backup vault backup key is apple.",
+          "The backup vault backup key is silver.",
+          "The backup vault backup key is planet.",
+          "The ferry-q030 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q030 astronomer published a note on a faint comet."
+        ],
+        "mixed": [
+          "The backup vault backup key is candle.",
+          "The backup vault access code is candle.",
+          "The backup vault access code is candle",
+          "The backup vault access code is candle!",
+          "The backup vault backup key is apple.",
+          "The backup vault backup key is silver.",
+          "The backup vault backup key is planet.",
+          "The ferry-q030 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q030 astronomer published a note on a faint comet."
+        ]
+      }
+    },
+    {
+      "qid": "q031",
+      "template_id": 3,
+      "noun": "backup mailbox",
+      "question": "What is the backup mailbox override token?",
+      "gold_answer": "cloud",
+      "gold_fact": "The backup mailbox override token is cloud.",
+      "contexts": {
+        "clean": [
+          "The backup mailbox override token is cloud.",
+          "An amateur comet-q031 astronomer published a note on a faint comet.",
+          "The observatory-q031 observatory recorded unusually clear skies last winter."
+        ],
+        "redundant": [
+          "The backup mailbox override token is cloud.",
+          "The backup mailbox access code is cloud.",
+          "The backup mailbox access code is cloud",
+          "The backup mailbox access code is cloud!",
+          "An amateur comet-q031 astronomer published a note on a faint comet.",
+          "The observatory-q031 observatory recorded unusually clear skies last winter."
+        ],
+        "contradictory": [
+          "The backup mailbox override token is cloud.",
+          "The backup mailbox override token is stone.",
+          "The backup mailbox override token is planet.",
+          "The backup mailbox override token is lantern.",
+          "An amateur comet-q031 astronomer published a note on a faint comet.",
+          "The observatory-q031 observatory recorded unusually clear skies last winter."
+        ],
+        "mixed": [
+          "The backup mailbox override token is cloud.",
+          "The backup mailbox access code is cloud.",
+          "The backup mailbox access code is cloud",
+          "The backup mailbox access code is cloud!",
+          "The backup mailbox override token is stone.",
+          "The backup mailbox override token is planet.",
+          "The backup mailbox override token is lantern.",
+          "An amateur comet-q031 astronomer published a note on a faint comet.",
+          "The observatory-q031 observatory recorded unusually clear skies last winter."
+        ]
+      }
+    },
+    {
+      "qid": "q032",
+      "template_id": 0,
+      "noun": "backup guest",
+      "question": "What is the backup guest access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The backup guest access code is cloud.",
+      "contexts": {
+        "clean": [
+          "The backup guest access code is cloud.",
+          "The observatory-q032 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q032 committee met to discuss routine drainage repairs."
+        ],
+        "redundant": [
+          "The backup guest access code is cloud.",
+          "The backup guest access code is cloud.",
+          "The backup guest access code is cloud",
+          "The backup guest access code is cloud!",
+          "The observatory-q032 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q032 committee met to discuss routine drainage repairs."
+        ],
+        "contradictory": [
+          "The backup guest access code is cloud.",
+          "The backup guest access code is lantern.",
+          "The backup guest access code is stone.",
+          "The backup guest access code is forest.",
+          "The observatory-q032 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q032 committee met to discuss routine drainage repairs."
+        ],
+        "mixed": [
+          "The backup guest access code is cloud.",
+          "The backup guest access code is cloud.",
+          "The backup guest access code is cloud",
+          "The backup guest access code is cloud!",
+          "The backup guest access code is lantern.",
+          "The backup guest access code is stone.",
+          "The backup guest access code is forest.",
+          "The observatory-q032 observatory recorded unusually clear skies last winter.",
+          "A regional drainage-q032 committee met to discuss routine drainage repairs."
+        ]
+      }
+    },
+    {
+      "qid": "q033",
+      "template_id": 1,
+      "noun": "backup registry",
+      "question": "What is the backup registry recovery phrase?",
+      "gold_answer": "apple",
+      "gold_fact": "The backup registry recovery phrase is apple.",
+      "contexts": {
+        "clean": [
+          "The backup registry recovery phrase is apple.",
+          "A regional drainage-q033 committee met to discuss routine drainage repairs.",
+          "The museum-q033 museum extended its weekend opening hours this season."
+        ],
+        "redundant": [
+          "The backup registry recovery phrase is apple.",
+          "The backup registry access code is apple.",
+          "The backup registry access code is apple",
+          "The backup registry access code is apple!",
+          "A regional drainage-q033 committee met to discuss routine drainage repairs.",
+          "The museum-q033 museum extended its weekend opening hours this season."
+        ],
+        "contradictory": [
+          "The backup registry recovery phrase is apple.",
+          "The backup registry recovery phrase is tiger.",
+          "The backup registry recovery phrase is river.",
+          "The backup registry recovery phrase is silver.",
+          "A regional drainage-q033 committee met to discuss routine drainage repairs.",
+          "The museum-q033 museum extended its weekend opening hours this season."
+        ],
+        "mixed": [
+          "The backup registry recovery phrase is apple.",
+          "The backup registry access code is apple.",
+          "The backup registry access code is apple",
+          "The backup registry access code is apple!",
+          "The backup registry recovery phrase is tiger.",
+          "The backup registry recovery phrase is river.",
+          "The backup registry recovery phrase is silver.",
+          "A regional drainage-q033 committee met to discuss routine drainage repairs.",
+          "The museum-q033 museum extended its weekend opening hours this season."
+        ]
+      }
+    },
+    {
+      "qid": "q034",
+      "template_id": 2,
+      "noun": "backup beacon",
+      "question": "What is the backup beacon backup key?",
+      "gold_answer": "apple",
+      "gold_fact": "The backup beacon backup key is apple.",
+      "contexts": {
+        "clean": [
+          "The backup beacon backup key is apple.",
+          "The museum-q034 museum extended its weekend opening hours this season.",
+          "Local riverside-q034 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "redundant": [
+          "The backup beacon backup key is apple.",
+          "The backup beacon access code is apple.",
+          "The backup beacon access code is apple",
+          "The backup beacon access code is apple!",
+          "The museum-q034 museum extended its weekend opening hours this season.",
+          "Local riverside-q034 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "contradictory": [
+          "The backup beacon backup key is apple.",
+          "The backup beacon backup key is harbor.",
+          "The backup beacon backup key is cloud.",
+          "The backup beacon backup key is forest.",
+          "The museum-q034 museum extended its weekend opening hours this season.",
+          "Local riverside-q034 volunteers organised a riverside clean-up on Saturday."
+        ],
+        "mixed": [
+          "The backup beacon backup key is apple.",
+          "The backup beacon access code is apple.",
+          "The backup beacon access code is apple",
+          "The backup beacon access code is apple!",
+          "The backup beacon backup key is harbor.",
+          "The backup beacon backup key is cloud.",
+          "The backup beacon backup key is forest.",
+          "The museum-q034 museum extended its weekend opening hours this season.",
+          "Local riverside-q034 volunteers organised a riverside clean-up on Saturday."
+        ]
+      }
+    },
+    {
+      "qid": "q035",
+      "template_id": 3,
+      "noun": "backup channel",
+      "question": "What is the backup channel override token?",
+      "gold_answer": "harbor",
+      "gold_fact": "The backup channel override token is harbor.",
+      "contexts": {
+        "clean": [
+          "The backup channel override token is harbor.",
+          "Local riverside-q035 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q035 library added new shelves for its growing map collection."
+        ],
+        "redundant": [
+          "The backup channel override token is harbor.",
+          "The backup channel access code is harbor.",
+          "The backup channel access code is harbor",
+          "The backup channel access code is harbor!",
+          "Local riverside-q035 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q035 library added new shelves for its growing map collection."
+        ],
+        "contradictory": [
+          "The backup channel override token is harbor.",
+          "The backup channel override token is forest.",
+          "The backup channel override token is apple.",
+          "The backup channel override token is candle.",
+          "Local riverside-q035 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q035 library added new shelves for its growing map collection."
+        ],
+        "mixed": [
+          "The backup channel override token is harbor.",
+          "The backup channel access code is harbor.",
+          "The backup channel access code is harbor",
+          "The backup channel access code is harbor!",
+          "The backup channel override token is forest.",
+          "The backup channel override token is apple.",
+          "The backup channel override token is candle.",
+          "Local riverside-q035 volunteers organised a riverside clean-up on Saturday.",
+          "The library-q035 library added new shelves for its growing map collection."
+        ]
+      }
+    },
+    {
+      "qid": "q036",
+      "template_id": 0,
+      "noun": "backup keystone",
+      "question": "What is the backup keystone access code?",
+      "gold_answer": "lantern",
+      "gold_fact": "The backup keystone access code is lantern.",
+      "contexts": {
+        "clean": [
+          "The backup keystone access code is lantern.",
+          "The library-q036 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q036 exhibition visited three coastal towns in June."
+        ],
+        "redundant": [
+          "The backup keystone access code is lantern.",
+          "The backup keystone access code is lantern.",
+          "The backup keystone access code is lantern",
+          "The backup keystone access code is lantern!",
+          "The library-q036 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q036 exhibition visited three coastal towns in June."
+        ],
+        "contradictory": [
+          "The backup keystone access code is lantern.",
+          "The backup keystone access code is stone.",
+          "The backup keystone access code is garden.",
+          "The backup keystone access code is candle.",
+          "The library-q036 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q036 exhibition visited three coastal towns in June."
+        ],
+        "mixed": [
+          "The backup keystone access code is lantern.",
+          "The backup keystone access code is lantern.",
+          "The backup keystone access code is lantern",
+          "The backup keystone access code is lantern!",
+          "The backup keystone access code is stone.",
+          "The backup keystone access code is garden.",
+          "The backup keystone access code is candle.",
+          "The library-q036 library added new shelves for its growing map collection.",
+          "A travelling exhibition-q036 exhibition visited three coastal towns in June."
+        ]
+      }
+    },
+    {
+      "qid": "q037",
+      "template_id": 1,
+      "noun": "backup buffer",
+      "question": "What is the backup buffer recovery phrase?",
+      "gold_answer": "candle",
+      "gold_fact": "The backup buffer recovery phrase is candle.",
+      "contexts": {
+        "clean": [
+          "The backup buffer recovery phrase is candle.",
+          "A travelling exhibition-q037 exhibition visited three coastal towns in June.",
+          "The ferry-q037 ferry timetable was revised after the harbour dredging."
+        ],
+        "redundant": [
+          "The backup buffer recovery phrase is candle.",
+          "The backup buffer access code is candle.",
+          "The backup buffer access code is candle",
+          "The backup buffer access code is candle!",
+          "A travelling exhibition-q037 exhibition visited three coastal towns in June.",
+          "The ferry-q037 ferry timetable was revised after the harbour dredging."
+        ],
+        "contradictory": [
+          "The backup buffer recovery phrase is candle.",
+          "The backup buffer recovery phrase is stone.",
+          "The backup buffer recovery phrase is silver.",
+          "The backup buffer recovery phrase is apple.",
+          "A travelling exhibition-q037 exhibition visited three coastal towns in June.",
+          "The ferry-q037 ferry timetable was revised after the harbour dredging."
+        ],
+        "mixed": [
+          "The backup buffer recovery phrase is candle.",
+          "The backup buffer access code is candle.",
+          "The backup buffer access code is candle",
+          "The backup buffer access code is candle!",
+          "The backup buffer recovery phrase is stone.",
+          "The backup buffer recovery phrase is silver.",
+          "The backup buffer recovery phrase is apple.",
+          "A travelling exhibition-q037 exhibition visited three coastal towns in June.",
+          "The ferry-q037 ferry timetable was revised after the harbour dredging."
+        ]
+      }
+    },
+    {
+      "qid": "q038",
+      "template_id": 2,
+      "noun": "backup manifest",
+      "question": "What is the backup manifest backup key?",
+      "gold_answer": "harbor",
+      "gold_fact": "The backup manifest backup key is harbor.",
+      "contexts": {
+        "clean": [
+          "The backup manifest backup key is harbor.",
+          "The ferry-q038 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q038 astronomer published a note on a faint comet."
+        ],
+        "redundant": [
+          "The backup manifest backup key is harbor.",
+          "The backup manifest access code is harbor.",
+          "The backup manifest access code is harbor",
+          "The backup manifest access code is harbor!",
+          "The ferry-q038 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q038 astronomer published a note on a faint comet."
+        ],
+        "contradictory": [
+          "The backup manifest backup key is harbor.",
+          "The backup manifest backup key is silver.",
+          "The backup manifest backup key is garden.",
+          "The backup manifest backup key is planet.",
+          "The ferry-q038 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q038 astronomer published a note on a faint comet."
+        ],
+        "mixed": [
+          "The backup manifest backup key is harbor.",
+          "The backup manifest access code is harbor.",
+          "The backup manifest access code is harbor",
+          "The backup manifest access code is harbor!",
+          "The backup manifest backup key is silver.",
+          "The backup manifest backup key is garden.",
+          "The backup manifest backup key is planet.",
+          "The ferry-q038 ferry timetable was revised after the harbour dredging.",
+          "An amateur comet-q038 astronomer published a note on a faint comet."
+        ]
+      }
+    },
+    {
+      "qid": "q039",
+      "template_id": 3,
+      "noun": "backup journal",
+      "question": "What is the backup journal override token?",
+      "gold_answer": "forest",
+      "gold_fact": "The backup journal override token is forest.",
+      "contexts": {
+        "clean": [
+          "The backup journal override token is forest.",
+          "An amateur comet-q039 astronomer published a note on a faint comet.",
+          "The observatory-q039 observatory recorded unusually clear skies last winter."
+        ],
+        "redundant": [
+          "The backup journal override token is forest.",
+          "The backup journal access code is forest.",
+          "The backup journal access code is forest",
+          "The backup journal access code is forest!",
+          "An amateur comet-q039 astronomer published a note on a faint comet.",
+          "The observatory-q039 observatory recorded unusually clear skies last winter."
+        ],
+        "contradictory": [
+          "The backup journal override token is forest.",
+          "The backup journal override token is stone.",
+          "The backup journal override token is candle.",
+          "The backup journal override token is river.",
+          "An amateur comet-q039 astronomer published a note on a faint comet.",
+          "The observatory-q039 observatory recorded unusually clear skies last winter."
+        ],
+        "mixed": [
+          "The backup journal override token is forest.",
+          "The backup journal access code is forest.",
+          "The backup journal access code is forest",
+          "The backup journal access code is forest!",
+          "The backup journal override token is stone.",
+          "The backup journal override token is candle.",
+          "The backup journal override token is river.",
+          "An amateur comet-q039 astronomer published a note on a faint comet.",
+          "The observatory-q039 observatory recorded unusually clear skies last winter."
+        ]
+      }
+    }
+  ]
+}

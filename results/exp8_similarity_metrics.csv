@@ -1,0 +1,21 @@
+label,template,cos_sim,jaccard,shared_prefix
+unrelated_weather, The weather was warm today.,-0.0436,0.1,0.0
+unrelated_market, The market opened early on Monday.,0.0098,0.0909,0.0
+login_reminder, A reminder about logging in was sent.,0.3129,0.0,0.0
+email_password, The email password is reset every month.,0.4223,0.3,0.0
+topic_password, The topic of the meeting was passwords.,0.4367,0.0909,0.0
+portal_password, The portal password is changed on Fridays.,0.4488,0.3,0.0
+database_password, The database password is very long.,0.4572,0.3333,0.0
+password_policy, The password policy was updated last week.,0.5042,0.1818,0.0
+admin_password, The admin password is known to the team.,0.5133,0.3,0.0
+network_password, The network password is written on a card.,0.5134,0.2727,0.0
+backup_password, The backup password is kept in a drawer.,0.5322,0.2727,0.0
+system_password, The system password is stored elsewhere.,0.5726,0.3333,0.0
+account_password, The account password is hidden for safety.,0.5933,0.3,0.0
+security_password, The security password is updated often.,0.5982,0.3333,0.0
+strongbox_password, The strongbox password is {word}.,0.6863,0.5714,0.0
+archive_password, The archive password is {word}.,0.7203,0.5714,0.0
+safe_password, The safe password is {word}.,0.7583,0.5714,0.0
+storage_password, The storage password is {word}.,0.7642,0.5714,0.0
+case_note_similar, Note: the vault password is {word}.,0.9562,0.7143,0.0
+case_important_identical, Important: the vault password is {word}.,1.0,1.0,6.0

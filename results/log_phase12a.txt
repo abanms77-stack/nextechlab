@@ -1,0 +1,17 @@
+[2026-10-06 20:23:48] START model=Qwen/Qwen2.5-0.5B expected=45 existing=0
+[2026-10-06 20:25:01] model=Qwen/Qwen2.5-0.5B filler=prose size=345590 path=data/wiki_train.txt max_context=8192
+[phase12a_screen] L=  2048 pos=0.5   d=0   s=medium acc=1.00 cell=194.6s elapsed=195s
+[phase12a_screen] L=  2048 pos=0.5   d=4   s=medium acc=0.80 cell=199.9s elapsed=200s
+[phase12a_screen] L=  2048 pos=0.5   d=8   s=medium acc=0.40 cell=188.2s elapsed=188s
+[2026-10-06 20:34:44] BATCH L=2048 done in 583s (cumulative rows=15/45)
+[phase12a_screen] L=  4096 pos=0.5   d=0   s=medium acc=1.00 cell=351.9s elapsed=352s
+[phase12a_screen] L=  4096 pos=0.5   d=4   s=medium acc=0.40 cell=413.6s elapsed=414s
+[phase12a_screen] L=  4096 pos=0.5   d=8   s=medium acc=0.40 cell=419.6s elapsed=420s
+[2026-10-06 20:54:30] BATCH L=4096 done in 1185s (cumulative rows=30/45)
+[phase12a_screen] L=  8192 pos=0.5   d=0   s=medium acc=1.00 cell=965.1s elapsed=965s
+[phase12a_screen] L=  8192 pos=0.5   d=4   s=medium acc=0.00 cell=895.3s elapsed=895s
+[phase12a_screen] L=  8192 pos=0.5   d=8   s=medium acc=0.40 cell=880.2s elapsed=880s
+[2026-10-06 21:40:10] BATCH L=8192 done in 2741s (cumulative rows=45/45)
+[2026-10-06 21:40:10] ALL DONE rows=45/45 in 4582s (verified)
+ws=45/45)
+[2026-10-06 21:40:10] ALL DONE rows=45/45 in 4582s (verified)

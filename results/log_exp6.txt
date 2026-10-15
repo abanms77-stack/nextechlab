@@ -1,0 +1,26 @@
+filler=prose tokens=345590
+[exp6] L=   256 pos=0.5   d=0   s=low    acc=1.00 cell=44.3s elapsed=44s
+[exp6] L=  1024 pos=0.5   d=0   s=low    acc=1.00 cell=157.0s elapsed=201s
+[exp6] L=   256 pos=0.5   d=1   s=low    acc=1.00 cell=44.4s elapsed=44s
+[exp6] L=  1024 pos=0.5   d=1   s=low    acc=1.00 cell=158.6s elapsed=203s
+[exp6] L=   256 pos=0.5   d=2   s=low    acc=1.00 cell=42.9s elapsed=43s
+[exp6] L=  1024 pos=0.5   d=2   s=low    acc=1.00 cell=164.4s elapsed=207s
+[exp6] L=   256 pos=0.5   d=4   s=low    acc=1.00 cell=43.2s elapsed=43s
+[exp6] L=  1024 pos=0.5   d=4   s=low    acc=1.00 cell=166.5s elapsed=210s
+[exp6] L=   256 pos=0.5   d=8   s=low    acc=1.00 cell=45.6s elapsed=46s
+[exp6] L=  1024 pos=0.5   d=8   s=low    acc=1.00 cell=162.7s elapsed=208s
+[exp6] L=   256 pos=0.5   d=0   s=medium acc=1.00 cell=44.3s elapsed=44s
+[exp6] L=  1024 pos=0.5   d=0   s=medium acc=1.00 cell=163.2s elapsed=208s
+[exp6] L=   256 pos=0.5   d=1   s=medium acc=0.90 cell=43.4s elapsed=43s
+[exp6] L=  1024 pos=0.5   d=1   s=medium acc=0.75 cell=163.9s elapsed=207s
+[exp6] L=   256 pos=0.5   d=2   s=medium acc=0.80 cell=44.2s elapsed=44s
+[exp6] L=  1024 pos=0.5   d=2   s=medium acc=0.50 cell=163.9s elapsed=208s
+[exp6] L=   256 pos=0.5   d=4   s=medium acc=0.65 cell=44.3s elapsed=44s
+[exp6] L=  1024 pos=0.5   d=4   s=medium acc=0.45 cell=164.3s elapsed=209s
+[exp6] L=   256 pos=0.5   d=8   s=medium acc=0.50 cell=44.1s elapsed=44s
+[exp6] L=  1024 pos=0.5   d=8   s=medium acc=0.35 cell=164.2s elapsed=208s
+[exp6] L=   256 pos=0.5   d=0   s=high   acc=1.00 cell=44.1s elapsed=44s
+[exp6] L=  1024 pos=0.5   d=0   s=high   acc=1.00 cell=162.4s elapsed=207s
+[exp6] L=   256 pos=0.5   d=1   s=high   acc=0.75 cell=43.5s elapsed=43s
+[exp6] L=  1024 pos=0.5   d=1   s=high   acc=0.75 cell=161.1s elapsed=205s
+[exp6] L=   256 pos=0.5   d=2   s=high   acc=0.55 cell=43.5s elapsed=43s

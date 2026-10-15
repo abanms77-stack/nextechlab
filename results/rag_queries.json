@@ -1,0 +1,1718 @@
+{
+  "protocol": "rag_intervention_v1",
+  "frozen": true,
+  "engine_version": "profiler-2.1",
+  "competition_floor": 0.35,
+  "relevance_floor": 0.15,
+  "competition_weight": 0.6,
+  "d_saturation": 5,
+  "near_duplicate_floor": 0.8,
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 8,
+  "random_seed": 20261004,
+  "candidates": [
+    "apple",
+    "river",
+    "tiger",
+    "cloud",
+    "stone",
+    "candle",
+    "silver",
+    "garden",
+    "planet",
+    "forest",
+    "harbor",
+    "lantern"
+  ],
+  "conditions": [
+    "BASELINE",
+    "CONTEXTLAB",
+    "RANDOM"
+  ],
+  "contextlab_policy": {
+    "prune": "remove redundant near-duplicates (keep strongest); NEVER delete contradictions (surface them)",
+    "reorder": "kept passages sorted by (-relevance, -competition, -nearest_similarity) - strongest evidence first"
+  },
+  "queries": [
+    {
+      "qid": "q000",
+      "template_id": 0,
+      "noun": "vault",
+      "question": "What is the vault access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The vault access code is tiger.",
+      "decoys": [
+        {
+          "noun": "primary vault",
+          "text": "The primary vault access code is apple."
+        },
+        {
+          "noun": "primary storage",
+          "text": "The primary storage access code is river."
+        },
+        {
+          "noun": "primary archive",
+          "text": "The primary archive access code is cloud."
+        },
+        {
+          "noun": "primary gateway",
+          "text": "The primary gateway access code is stone."
+        },
+        {
+          "noun": "primary mailbox",
+          "text": "The primary mailbox access code is candle."
+        },
+        {
+          "noun": "primary intranet",
+          "text": "The primary intranet access code is silver."
+        },
+        {
+          "noun": "primary admin",
+          "text": "The primary admin access code is garden."
+        },
+        {
+          "noun": "primary backup",
+          "text": "The primary backup access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q001",
+      "template_id": 0,
+      "noun": "storage",
+      "question": "What is the storage access code?",
+      "gold_answer": "apple",
+      "gold_fact": "The storage access code is apple.",
+      "decoys": [
+        {
+          "noun": "primary guest",
+          "text": "The primary guest access code is river."
+        },
+        {
+          "noun": "primary media",
+          "text": "The primary media access code is tiger."
+        },
+        {
+          "noun": "primary portal",
+          "text": "The primary portal access code is cloud."
+        },
+        {
+          "noun": "primary ledger",
+          "text": "The primary ledger access code is stone."
+        },
+        {
+          "noun": "primary registry",
+          "text": "The primary registry access code is candle."
+        },
+        {
+          "noun": "primary cabinet",
+          "text": "The primary cabinet access code is silver."
+        },
+        {
+          "noun": "primary locker",
+          "text": "The primary locker access code is garden."
+        },
+        {
+          "noun": "primary terminal",
+          "text": "The primary terminal access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q002",
+      "template_id": 0,
+      "noun": "archive",
+      "question": "What is the archive access code?",
+      "gold_answer": "stone",
+      "gold_fact": "The archive access code is stone.",
+      "decoys": [
+        {
+          "noun": "primary beacon",
+          "text": "The primary beacon access code is apple."
+        },
+        {
+          "noun": "primary sensor",
+          "text": "The primary sensor access code is river."
+        },
+        {
+          "noun": "primary relay",
+          "text": "The primary relay access code is tiger."
+        },
+        {
+          "noun": "primary tunnel",
+          "text": "The primary tunnel access code is cloud."
+        },
+        {
+          "noun": "primary channel",
+          "text": "The primary channel access code is candle."
+        },
+        {
+          "noun": "primary matrix",
+          "text": "The primary matrix access code is silver."
+        },
+        {
+          "noun": "primary cluster",
+          "text": "The primary cluster access code is garden."
+        },
+        {
+          "noun": "primary keyring",
+          "text": "The primary keyring access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q003",
+      "template_id": 0,
+      "noun": "gateway",
+      "question": "What is the gateway access code?",
+      "gold_answer": "silver",
+      "gold_fact": "The gateway access code is silver.",
+      "decoys": [
+        {
+          "noun": "primary keystone",
+          "text": "The primary keystone access code is apple."
+        },
+        {
+          "noun": "primary quorum",
+          "text": "The primary quorum access code is river."
+        },
+        {
+          "noun": "primary shard",
+          "text": "The primary shard access code is tiger."
+        },
+        {
+          "noun": "primary bucket",
+          "text": "The primary bucket access code is cloud."
+        },
+        {
+          "noun": "primary buffer",
+          "text": "The primary buffer access code is stone."
+        },
+        {
+          "noun": "primary socket",
+          "text": "The primary socket access code is candle."
+        },
+        {
+          "noun": "primary socket2",
+          "text": "The primary socket2 access code is garden."
+        },
+        {
+          "noun": "primary dossier",
+          "text": "The primary dossier access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q004",
+      "template_id": 0,
+      "noun": "mailbox",
+      "question": "What is the mailbox access code?",
+      "gold_answer": "stone",
+      "gold_fact": "The mailbox access code is stone.",
+      "decoys": [
+        {
+          "noun": "primary manifest",
+          "text": "The primary manifest access code is apple."
+        },
+        {
+          "noun": "primary catalog",
+          "text": "The primary catalog access code is river."
+        },
+        {
+          "noun": "primary index",
+          "text": "The primary index access code is tiger."
+        },
+        {
+          "noun": "primary cache",
+          "text": "The primary cache access code is cloud."
+        },
+        {
+          "noun": "primary journal",
+          "text": "The primary journal access code is candle."
+        },
+        {
+          "noun": "primary archive2",
+          "text": "The primary archive2 access code is silver."
+        },
+        {
+          "noun": "primary vault2",
+          "text": "The primary vault2 access code is garden."
+        },
+        {
+          "noun": "primary storage2",
+          "text": "The primary storage2 access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q005",
+      "template_id": 0,
+      "noun": "intranet",
+      "question": "What is the intranet access code?",
+      "gold_answer": "planet",
+      "gold_fact": "The intranet access code is planet.",
+      "decoys": [
+        {
+          "noun": "secondary vault",
+          "text": "The secondary vault access code is apple."
+        },
+        {
+          "noun": "secondary storage",
+          "text": "The secondary storage access code is river."
+        },
+        {
+          "noun": "secondary archive",
+          "text": "The secondary archive access code is tiger."
+        },
+        {
+          "noun": "secondary gateway",
+          "text": "The secondary gateway access code is cloud."
+        },
+        {
+          "noun": "secondary mailbox",
+          "text": "The secondary mailbox access code is stone."
+        },
+        {
+          "noun": "secondary intranet",
+          "text": "The secondary intranet access code is candle."
+        },
+        {
+          "noun": "secondary admin",
+          "text": "The secondary admin access code is silver."
+        },
+        {
+          "noun": "secondary backup",
+          "text": "The secondary backup access code is garden."
+        }
+      ]
+    },
+    {
+      "qid": "q006",
+      "template_id": 0,
+      "noun": "admin",
+      "question": "What is the admin access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The admin access code is cloud.",
+      "decoys": [
+        {
+          "noun": "secondary guest",
+          "text": "The secondary guest access code is apple."
+        },
+        {
+          "noun": "secondary media",
+          "text": "The secondary media access code is river."
+        },
+        {
+          "noun": "secondary portal",
+          "text": "The secondary portal access code is tiger."
+        },
+        {
+          "noun": "secondary ledger",
+          "text": "The secondary ledger access code is stone."
+        },
+        {
+          "noun": "secondary registry",
+          "text": "The secondary registry access code is candle."
+        },
+        {
+          "noun": "secondary cabinet",
+          "text": "The secondary cabinet access code is silver."
+        },
+        {
+          "noun": "secondary locker",
+          "text": "The secondary locker access code is garden."
+        },
+        {
+          "noun": "secondary terminal",
+          "text": "The secondary terminal access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q007",
+      "template_id": 0,
+      "noun": "backup",
+      "question": "What is the backup access code?",
+      "gold_answer": "lantern",
+      "gold_fact": "The backup access code is lantern.",
+      "decoys": [
+        {
+          "noun": "secondary beacon",
+          "text": "The secondary beacon access code is apple."
+        },
+        {
+          "noun": "secondary sensor",
+          "text": "The secondary sensor access code is river."
+        },
+        {
+          "noun": "secondary relay",
+          "text": "The secondary relay access code is tiger."
+        },
+        {
+          "noun": "secondary tunnel",
+          "text": "The secondary tunnel access code is cloud."
+        },
+        {
+          "noun": "secondary channel",
+          "text": "The secondary channel access code is stone."
+        },
+        {
+          "noun": "secondary matrix",
+          "text": "The secondary matrix access code is candle."
+        },
+        {
+          "noun": "secondary cluster",
+          "text": "The secondary cluster access code is silver."
+        },
+        {
+          "noun": "secondary keyring",
+          "text": "The secondary keyring access code is garden."
+        }
+      ]
+    },
+    {
+      "qid": "q008",
+      "template_id": 0,
+      "noun": "guest",
+      "question": "What is the guest access code?",
+      "gold_answer": "lantern",
+      "gold_fact": "The guest access code is lantern.",
+      "decoys": [
+        {
+          "noun": "secondary keystone",
+          "text": "The secondary keystone access code is apple."
+        },
+        {
+          "noun": "secondary quorum",
+          "text": "The secondary quorum access code is river."
+        },
+        {
+          "noun": "secondary shard",
+          "text": "The secondary shard access code is tiger."
+        },
+        {
+          "noun": "secondary bucket",
+          "text": "The secondary bucket access code is cloud."
+        },
+        {
+          "noun": "secondary buffer",
+          "text": "The secondary buffer access code is stone."
+        },
+        {
+          "noun": "secondary socket",
+          "text": "The secondary socket access code is candle."
+        },
+        {
+          "noun": "secondary socket2",
+          "text": "The secondary socket2 access code is silver."
+        },
+        {
+          "noun": "secondary dossier",
+          "text": "The secondary dossier access code is garden."
+        }
+      ]
+    },
+    {
+      "qid": "q009",
+      "template_id": 0,
+      "noun": "media",
+      "question": "What is the media access code?",
+      "gold_answer": "harbor",
+      "gold_fact": "The media access code is harbor.",
+      "decoys": [
+        {
+          "noun": "secondary manifest",
+          "text": "The secondary manifest access code is apple."
+        },
+        {
+          "noun": "secondary catalog",
+          "text": "The secondary catalog access code is river."
+        },
+        {
+          "noun": "secondary index",
+          "text": "The secondary index access code is tiger."
+        },
+        {
+          "noun": "secondary cache",
+          "text": "The secondary cache access code is cloud."
+        },
+        {
+          "noun": "secondary journal",
+          "text": "The secondary journal access code is stone."
+        },
+        {
+          "noun": "secondary archive2",
+          "text": "The secondary archive2 access code is candle."
+        },
+        {
+          "noun": "secondary vault2",
+          "text": "The secondary vault2 access code is silver."
+        },
+        {
+          "noun": "secondary storage2",
+          "text": "The secondary storage2 access code is garden."
+        }
+      ]
+    },
+    {
+      "qid": "q010",
+      "template_id": 0,
+      "noun": "portal",
+      "question": "What is the portal access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The portal access code is tiger.",
+      "decoys": [
+        {
+          "noun": "backup vault",
+          "text": "The backup vault access code is apple."
+        },
+        {
+          "noun": "backup storage",
+          "text": "The backup storage access code is river."
+        },
+        {
+          "noun": "backup archive",
+          "text": "The backup archive access code is cloud."
+        },
+        {
+          "noun": "backup gateway",
+          "text": "The backup gateway access code is stone."
+        },
+        {
+          "noun": "backup mailbox",
+          "text": "The backup mailbox access code is candle."
+        },
+        {
+          "noun": "backup intranet",
+          "text": "The backup intranet access code is silver."
+        },
+        {
+          "noun": "backup admin",
+          "text": "The backup admin access code is garden."
+        },
+        {
+          "noun": "backup backup",
+          "text": "The backup backup access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q011",
+      "template_id": 0,
+      "noun": "ledger",
+      "question": "What is the ledger access code?",
+      "gold_answer": "garden",
+      "gold_fact": "The ledger access code is garden.",
+      "decoys": [
+        {
+          "noun": "backup guest",
+          "text": "The backup guest access code is apple."
+        },
+        {
+          "noun": "backup media",
+          "text": "The backup media access code is river."
+        },
+        {
+          "noun": "backup portal",
+          "text": "The backup portal access code is tiger."
+        },
+        {
+          "noun": "backup ledger",
+          "text": "The backup ledger access code is cloud."
+        },
+        {
+          "noun": "backup registry",
+          "text": "The backup registry access code is stone."
+        },
+        {
+          "noun": "backup cabinet",
+          "text": "The backup cabinet access code is candle."
+        },
+        {
+          "noun": "backup locker",
+          "text": "The backup locker access code is silver."
+        },
+        {
+          "noun": "backup terminal",
+          "text": "The backup terminal access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q012",
+      "template_id": 0,
+      "noun": "registry",
+      "question": "What is the registry access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The registry access code is tiger.",
+      "decoys": [
+        {
+          "noun": "backup beacon",
+          "text": "The backup beacon access code is apple."
+        },
+        {
+          "noun": "backup sensor",
+          "text": "The backup sensor access code is river."
+        },
+        {
+          "noun": "backup relay",
+          "text": "The backup relay access code is cloud."
+        },
+        {
+          "noun": "backup tunnel",
+          "text": "The backup tunnel access code is stone."
+        },
+        {
+          "noun": "backup channel",
+          "text": "The backup channel access code is candle."
+        },
+        {
+          "noun": "backup matrix",
+          "text": "The backup matrix access code is silver."
+        },
+        {
+          "noun": "backup cluster",
+          "text": "The backup cluster access code is garden."
+        },
+        {
+          "noun": "backup keyring",
+          "text": "The backup keyring access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q013",
+      "template_id": 0,
+      "noun": "cabinet",
+      "question": "What is the cabinet access code?",
+      "gold_answer": "silver",
+      "gold_fact": "The cabinet access code is silver.",
+      "decoys": [
+        {
+          "noun": "backup keystone",
+          "text": "The backup keystone access code is apple."
+        },
+        {
+          "noun": "backup quorum",
+          "text": "The backup quorum access code is river."
+        },
+        {
+          "noun": "backup shard",
+          "text": "The backup shard access code is tiger."
+        },
+        {
+          "noun": "backup bucket",
+          "text": "The backup bucket access code is cloud."
+        },
+        {
+          "noun": "backup buffer",
+          "text": "The backup buffer access code is stone."
+        },
+        {
+          "noun": "backup socket",
+          "text": "The backup socket access code is candle."
+        },
+        {
+          "noun": "backup socket2",
+          "text": "The backup socket2 access code is garden."
+        },
+        {
+          "noun": "backup dossier",
+          "text": "The backup dossier access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q014",
+      "template_id": 0,
+      "noun": "locker",
+      "question": "What is the locker access code?",
+      "gold_answer": "forest",
+      "gold_fact": "The locker access code is forest.",
+      "decoys": [
+        {
+          "noun": "backup manifest",
+          "text": "The backup manifest access code is apple."
+        },
+        {
+          "noun": "backup catalog",
+          "text": "The backup catalog access code is river."
+        },
+        {
+          "noun": "backup index",
+          "text": "The backup index access code is tiger."
+        },
+        {
+          "noun": "backup cache",
+          "text": "The backup cache access code is cloud."
+        },
+        {
+          "noun": "backup journal",
+          "text": "The backup journal access code is stone."
+        },
+        {
+          "noun": "backup archive2",
+          "text": "The backup archive2 access code is candle."
+        },
+        {
+          "noun": "backup vault2",
+          "text": "The backup vault2 access code is silver."
+        },
+        {
+          "noun": "backup storage2",
+          "text": "The backup storage2 access code is garden."
+        }
+      ]
+    },
+    {
+      "qid": "q015",
+      "template_id": 0,
+      "noun": "terminal",
+      "question": "What is the terminal access code?",
+      "gold_answer": "candle",
+      "gold_fact": "The terminal access code is candle.",
+      "decoys": [
+        {
+          "noun": "auxiliary vault",
+          "text": "The auxiliary vault access code is apple."
+        },
+        {
+          "noun": "auxiliary storage",
+          "text": "The auxiliary storage access code is river."
+        },
+        {
+          "noun": "auxiliary archive",
+          "text": "The auxiliary archive access code is tiger."
+        },
+        {
+          "noun": "auxiliary gateway",
+          "text": "The auxiliary gateway access code is cloud."
+        },
+        {
+          "noun": "auxiliary mailbox",
+          "text": "The auxiliary mailbox access code is stone."
+        },
+        {
+          "noun": "auxiliary intranet",
+          "text": "The auxiliary intranet access code is silver."
+        },
+        {
+          "noun": "auxiliary admin",
+          "text": "The auxiliary admin access code is garden."
+        },
+        {
+          "noun": "auxiliary backup",
+          "text": "The auxiliary backup access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q016",
+      "template_id": 0,
+      "noun": "beacon",
+      "question": "What is the beacon access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The beacon access code is cloud.",
+      "decoys": [
+        {
+          "noun": "auxiliary guest",
+          "text": "The auxiliary guest access code is apple."
+        },
+        {
+          "noun": "auxiliary media",
+          "text": "The auxiliary media access code is river."
+        },
+        {
+          "noun": "auxiliary portal",
+          "text": "The auxiliary portal access code is tiger."
+        },
+        {
+          "noun": "auxiliary ledger",
+          "text": "The auxiliary ledger access code is stone."
+        },
+        {
+          "noun": "auxiliary registry",
+          "text": "The auxiliary registry access code is candle."
+        },
+        {
+          "noun": "auxiliary cabinet",
+          "text": "The auxiliary cabinet access code is silver."
+        },
+        {
+          "noun": "auxiliary locker",
+          "text": "The auxiliary locker access code is garden."
+        },
+        {
+          "noun": "auxiliary terminal",
+          "text": "The auxiliary terminal access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q017",
+      "template_id": 0,
+      "noun": "sensor",
+      "question": "What is the sensor access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The sensor access code is cloud.",
+      "decoys": [
+        {
+          "noun": "auxiliary beacon",
+          "text": "The auxiliary beacon access code is apple."
+        },
+        {
+          "noun": "auxiliary sensor",
+          "text": "The auxiliary sensor access code is river."
+        },
+        {
+          "noun": "auxiliary relay",
+          "text": "The auxiliary relay access code is tiger."
+        },
+        {
+          "noun": "auxiliary tunnel",
+          "text": "The auxiliary tunnel access code is stone."
+        },
+        {
+          "noun": "auxiliary channel",
+          "text": "The auxiliary channel access code is candle."
+        },
+        {
+          "noun": "auxiliary matrix",
+          "text": "The auxiliary matrix access code is silver."
+        },
+        {
+          "noun": "auxiliary cluster",
+          "text": "The auxiliary cluster access code is garden."
+        },
+        {
+          "noun": "auxiliary keyring",
+          "text": "The auxiliary keyring access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q018",
+      "template_id": 0,
+      "noun": "relay",
+      "question": "What is the relay access code?",
+      "gold_answer": "river",
+      "gold_fact": "The relay access code is river.",
+      "decoys": [
+        {
+          "noun": "auxiliary keystone",
+          "text": "The auxiliary keystone access code is apple."
+        },
+        {
+          "noun": "auxiliary quorum",
+          "text": "The auxiliary quorum access code is tiger."
+        },
+        {
+          "noun": "auxiliary shard",
+          "text": "The auxiliary shard access code is cloud."
+        },
+        {
+          "noun": "auxiliary bucket",
+          "text": "The auxiliary bucket access code is stone."
+        },
+        {
+          "noun": "auxiliary buffer",
+          "text": "The auxiliary buffer access code is candle."
+        },
+        {
+          "noun": "auxiliary socket",
+          "text": "The auxiliary socket access code is silver."
+        },
+        {
+          "noun": "auxiliary socket2",
+          "text": "The auxiliary socket2 access code is garden."
+        },
+        {
+          "noun": "auxiliary dossier",
+          "text": "The auxiliary dossier access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q019",
+      "template_id": 0,
+      "noun": "tunnel",
+      "question": "What is the tunnel access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The tunnel access code is cloud.",
+      "decoys": [
+        {
+          "noun": "auxiliary manifest",
+          "text": "The auxiliary manifest access code is apple."
+        },
+        {
+          "noun": "auxiliary catalog",
+          "text": "The auxiliary catalog access code is river."
+        },
+        {
+          "noun": "auxiliary index",
+          "text": "The auxiliary index access code is tiger."
+        },
+        {
+          "noun": "auxiliary cache",
+          "text": "The auxiliary cache access code is stone."
+        },
+        {
+          "noun": "auxiliary journal",
+          "text": "The auxiliary journal access code is candle."
+        },
+        {
+          "noun": "auxiliary archive2",
+          "text": "The auxiliary archive2 access code is silver."
+        },
+        {
+          "noun": "auxiliary vault2",
+          "text": "The auxiliary vault2 access code is garden."
+        },
+        {
+          "noun": "auxiliary storage2",
+          "text": "The auxiliary storage2 access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q020",
+      "template_id": 0,
+      "noun": "channel",
+      "question": "What is the channel access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The channel access code is tiger.",
+      "decoys": [
+        {
+          "noun": "internal vault",
+          "text": "The internal vault access code is apple."
+        },
+        {
+          "noun": "internal storage",
+          "text": "The internal storage access code is river."
+        },
+        {
+          "noun": "internal archive",
+          "text": "The internal archive access code is cloud."
+        },
+        {
+          "noun": "internal gateway",
+          "text": "The internal gateway access code is stone."
+        },
+        {
+          "noun": "internal mailbox",
+          "text": "The internal mailbox access code is candle."
+        },
+        {
+          "noun": "internal intranet",
+          "text": "The internal intranet access code is silver."
+        },
+        {
+          "noun": "internal admin",
+          "text": "The internal admin access code is garden."
+        },
+        {
+          "noun": "internal backup",
+          "text": "The internal backup access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q021",
+      "template_id": 0,
+      "noun": "matrix",
+      "question": "What is the matrix access code?",
+      "gold_answer": "stone",
+      "gold_fact": "The matrix access code is stone.",
+      "decoys": [
+        {
+          "noun": "internal guest",
+          "text": "The internal guest access code is apple."
+        },
+        {
+          "noun": "internal media",
+          "text": "The internal media access code is river."
+        },
+        {
+          "noun": "internal portal",
+          "text": "The internal portal access code is tiger."
+        },
+        {
+          "noun": "internal ledger",
+          "text": "The internal ledger access code is cloud."
+        },
+        {
+          "noun": "internal registry",
+          "text": "The internal registry access code is candle."
+        },
+        {
+          "noun": "internal cabinet",
+          "text": "The internal cabinet access code is silver."
+        },
+        {
+          "noun": "internal locker",
+          "text": "The internal locker access code is garden."
+        },
+        {
+          "noun": "internal terminal",
+          "text": "The internal terminal access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q022",
+      "template_id": 0,
+      "noun": "cluster",
+      "question": "What is the cluster access code?",
+      "gold_answer": "silver",
+      "gold_fact": "The cluster access code is silver.",
+      "decoys": [
+        {
+          "noun": "internal beacon",
+          "text": "The internal beacon access code is apple."
+        },
+        {
+          "noun": "internal sensor",
+          "text": "The internal sensor access code is river."
+        },
+        {
+          "noun": "internal relay",
+          "text": "The internal relay access code is tiger."
+        },
+        {
+          "noun": "internal tunnel",
+          "text": "The internal tunnel access code is cloud."
+        },
+        {
+          "noun": "internal channel",
+          "text": "The internal channel access code is stone."
+        },
+        {
+          "noun": "internal matrix",
+          "text": "The internal matrix access code is candle."
+        },
+        {
+          "noun": "internal cluster",
+          "text": "The internal cluster access code is garden."
+        },
+        {
+          "noun": "internal keyring",
+          "text": "The internal keyring access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q023",
+      "template_id": 0,
+      "noun": "keyring",
+      "question": "What is the keyring access code?",
+      "gold_answer": "stone",
+      "gold_fact": "The keyring access code is stone.",
+      "decoys": [
+        {
+          "noun": "internal keystone",
+          "text": "The internal keystone access code is apple."
+        },
+        {
+          "noun": "internal quorum",
+          "text": "The internal quorum access code is river."
+        },
+        {
+          "noun": "internal shard",
+          "text": "The internal shard access code is tiger."
+        },
+        {
+          "noun": "internal bucket",
+          "text": "The internal bucket access code is cloud."
+        },
+        {
+          "noun": "internal buffer",
+          "text": "The internal buffer access code is candle."
+        },
+        {
+          "noun": "internal socket",
+          "text": "The internal socket access code is silver."
+        },
+        {
+          "noun": "internal socket2",
+          "text": "The internal socket2 access code is garden."
+        },
+        {
+          "noun": "internal dossier",
+          "text": "The internal dossier access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q024",
+      "template_id": 0,
+      "noun": "keystone",
+      "question": "What is the keystone access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The keystone access code is cloud.",
+      "decoys": [
+        {
+          "noun": "internal manifest",
+          "text": "The internal manifest access code is apple."
+        },
+        {
+          "noun": "internal catalog",
+          "text": "The internal catalog access code is river."
+        },
+        {
+          "noun": "internal index",
+          "text": "The internal index access code is tiger."
+        },
+        {
+          "noun": "internal cache",
+          "text": "The internal cache access code is stone."
+        },
+        {
+          "noun": "internal journal",
+          "text": "The internal journal access code is candle."
+        },
+        {
+          "noun": "internal archive2",
+          "text": "The internal archive2 access code is silver."
+        },
+        {
+          "noun": "internal vault2",
+          "text": "The internal vault2 access code is garden."
+        },
+        {
+          "noun": "internal storage2",
+          "text": "The internal storage2 access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q025",
+      "template_id": 0,
+      "noun": "quorum",
+      "question": "What is the quorum access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The quorum access code is tiger.",
+      "decoys": [
+        {
+          "noun": "external vault",
+          "text": "The external vault access code is apple."
+        },
+        {
+          "noun": "external storage",
+          "text": "The external storage access code is river."
+        },
+        {
+          "noun": "external archive",
+          "text": "The external archive access code is cloud."
+        },
+        {
+          "noun": "external gateway",
+          "text": "The external gateway access code is stone."
+        },
+        {
+          "noun": "external mailbox",
+          "text": "The external mailbox access code is candle."
+        },
+        {
+          "noun": "external intranet",
+          "text": "The external intranet access code is silver."
+        },
+        {
+          "noun": "external admin",
+          "text": "The external admin access code is garden."
+        },
+        {
+          "noun": "external backup",
+          "text": "The external backup access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q026",
+      "template_id": 0,
+      "noun": "shard",
+      "question": "What is the shard access code?",
+      "gold_answer": "harbor",
+      "gold_fact": "The shard access code is harbor.",
+      "decoys": [
+        {
+          "noun": "external guest",
+          "text": "The external guest access code is apple."
+        },
+        {
+          "noun": "external media",
+          "text": "The external media access code is river."
+        },
+        {
+          "noun": "external portal",
+          "text": "The external portal access code is tiger."
+        },
+        {
+          "noun": "external ledger",
+          "text": "The external ledger access code is cloud."
+        },
+        {
+          "noun": "external registry",
+          "text": "The external registry access code is stone."
+        },
+        {
+          "noun": "external cabinet",
+          "text": "The external cabinet access code is candle."
+        },
+        {
+          "noun": "external locker",
+          "text": "The external locker access code is silver."
+        },
+        {
+          "noun": "external terminal",
+          "text": "The external terminal access code is garden."
+        }
+      ]
+    },
+    {
+      "qid": "q027",
+      "template_id": 0,
+      "noun": "bucket",
+      "question": "What is the bucket access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The bucket access code is cloud.",
+      "decoys": [
+        {
+          "noun": "external beacon",
+          "text": "The external beacon access code is apple."
+        },
+        {
+          "noun": "external sensor",
+          "text": "The external sensor access code is river."
+        },
+        {
+          "noun": "external relay",
+          "text": "The external relay access code is tiger."
+        },
+        {
+          "noun": "external tunnel",
+          "text": "The external tunnel access code is stone."
+        },
+        {
+          "noun": "external channel",
+          "text": "The external channel access code is candle."
+        },
+        {
+          "noun": "external matrix",
+          "text": "The external matrix access code is silver."
+        },
+        {
+          "noun": "external cluster",
+          "text": "The external cluster access code is garden."
+        },
+        {
+          "noun": "external keyring",
+          "text": "The external keyring access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q028",
+      "template_id": 0,
+      "noun": "buffer",
+      "question": "What is the buffer access code?",
+      "gold_answer": "river",
+      "gold_fact": "The buffer access code is river.",
+      "decoys": [
+        {
+          "noun": "external keystone",
+          "text": "The external keystone access code is apple."
+        },
+        {
+          "noun": "external quorum",
+          "text": "The external quorum access code is tiger."
+        },
+        {
+          "noun": "external shard",
+          "text": "The external shard access code is cloud."
+        },
+        {
+          "noun": "external bucket",
+          "text": "The external bucket access code is stone."
+        },
+        {
+          "noun": "external buffer",
+          "text": "The external buffer access code is candle."
+        },
+        {
+          "noun": "external socket",
+          "text": "The external socket access code is silver."
+        },
+        {
+          "noun": "external socket2",
+          "text": "The external socket2 access code is garden."
+        },
+        {
+          "noun": "external dossier",
+          "text": "The external dossier access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q029",
+      "template_id": 0,
+      "noun": "socket",
+      "question": "What is the socket access code?",
+      "gold_answer": "tiger",
+      "gold_fact": "The socket access code is tiger.",
+      "decoys": [
+        {
+          "noun": "external manifest",
+          "text": "The external manifest access code is apple."
+        },
+        {
+          "noun": "external catalog",
+          "text": "The external catalog access code is river."
+        },
+        {
+          "noun": "external index",
+          "text": "The external index access code is cloud."
+        },
+        {
+          "noun": "external cache",
+          "text": "The external cache access code is stone."
+        },
+        {
+          "noun": "external journal",
+          "text": "The external journal access code is candle."
+        },
+        {
+          "noun": "external archive2",
+          "text": "The external archive2 access code is silver."
+        },
+        {
+          "noun": "external vault2",
+          "text": "The external vault2 access code is garden."
+        },
+        {
+          "noun": "external storage2",
+          "text": "The external storage2 access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q030",
+      "template_id": 0,
+      "noun": "socket2",
+      "question": "What is the socket2 access code?",
+      "gold_answer": "silver",
+      "gold_fact": "The socket2 access code is silver.",
+      "decoys": [
+        {
+          "noun": "legacy vault",
+          "text": "The legacy vault access code is apple."
+        },
+        {
+          "noun": "legacy storage",
+          "text": "The legacy storage access code is river."
+        },
+        {
+          "noun": "legacy archive",
+          "text": "The legacy archive access code is tiger."
+        },
+        {
+          "noun": "legacy gateway",
+          "text": "The legacy gateway access code is cloud."
+        },
+        {
+          "noun": "legacy mailbox",
+          "text": "The legacy mailbox access code is stone."
+        },
+        {
+          "noun": "legacy intranet",
+          "text": "The legacy intranet access code is candle."
+        },
+        {
+          "noun": "legacy admin",
+          "text": "The legacy admin access code is garden."
+        },
+        {
+          "noun": "legacy backup",
+          "text": "The legacy backup access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q031",
+      "template_id": 0,
+      "noun": "dossier",
+      "question": "What is the dossier access code?",
+      "gold_answer": "silver",
+      "gold_fact": "The dossier access code is silver.",
+      "decoys": [
+        {
+          "noun": "legacy guest",
+          "text": "The legacy guest access code is apple."
+        },
+        {
+          "noun": "legacy media",
+          "text": "The legacy media access code is river."
+        },
+        {
+          "noun": "legacy portal",
+          "text": "The legacy portal access code is tiger."
+        },
+        {
+          "noun": "legacy ledger",
+          "text": "The legacy ledger access code is cloud."
+        },
+        {
+          "noun": "legacy registry",
+          "text": "The legacy registry access code is stone."
+        },
+        {
+          "noun": "legacy cabinet",
+          "text": "The legacy cabinet access code is candle."
+        },
+        {
+          "noun": "legacy locker",
+          "text": "The legacy locker access code is garden."
+        },
+        {
+          "noun": "legacy terminal",
+          "text": "The legacy terminal access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q032",
+      "template_id": 0,
+      "noun": "manifest",
+      "question": "What is the manifest access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The manifest access code is cloud.",
+      "decoys": [
+        {
+          "noun": "legacy beacon",
+          "text": "The legacy beacon access code is apple."
+        },
+        {
+          "noun": "legacy sensor",
+          "text": "The legacy sensor access code is river."
+        },
+        {
+          "noun": "legacy relay",
+          "text": "The legacy relay access code is tiger."
+        },
+        {
+          "noun": "legacy tunnel",
+          "text": "The legacy tunnel access code is stone."
+        },
+        {
+          "noun": "legacy channel",
+          "text": "The legacy channel access code is candle."
+        },
+        {
+          "noun": "legacy matrix",
+          "text": "The legacy matrix access code is silver."
+        },
+        {
+          "noun": "legacy cluster",
+          "text": "The legacy cluster access code is garden."
+        },
+        {
+          "noun": "legacy keyring",
+          "text": "The legacy keyring access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q033",
+      "template_id": 0,
+      "noun": "catalog",
+      "question": "What is the catalog access code?",
+      "gold_answer": "candle",
+      "gold_fact": "The catalog access code is candle.",
+      "decoys": [
+        {
+          "noun": "legacy keystone",
+          "text": "The legacy keystone access code is apple."
+        },
+        {
+          "noun": "legacy quorum",
+          "text": "The legacy quorum access code is river."
+        },
+        {
+          "noun": "legacy shard",
+          "text": "The legacy shard access code is tiger."
+        },
+        {
+          "noun": "legacy bucket",
+          "text": "The legacy bucket access code is cloud."
+        },
+        {
+          "noun": "legacy buffer",
+          "text": "The legacy buffer access code is stone."
+        },
+        {
+          "noun": "legacy socket",
+          "text": "The legacy socket access code is silver."
+        },
+        {
+          "noun": "legacy socket2",
+          "text": "The legacy socket2 access code is garden."
+        },
+        {
+          "noun": "legacy dossier",
+          "text": "The legacy dossier access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q034",
+      "template_id": 0,
+      "noun": "index",
+      "question": "What is the index access code?",
+      "gold_answer": "apple",
+      "gold_fact": "The index access code is apple.",
+      "decoys": [
+        {
+          "noun": "legacy manifest",
+          "text": "The legacy manifest access code is river."
+        },
+        {
+          "noun": "legacy catalog",
+          "text": "The legacy catalog access code is tiger."
+        },
+        {
+          "noun": "legacy index",
+          "text": "The legacy index access code is cloud."
+        },
+        {
+          "noun": "legacy cache",
+          "text": "The legacy cache access code is stone."
+        },
+        {
+          "noun": "legacy journal",
+          "text": "The legacy journal access code is candle."
+        },
+        {
+          "noun": "legacy archive2",
+          "text": "The legacy archive2 access code is silver."
+        },
+        {
+          "noun": "legacy vault2",
+          "text": "The legacy vault2 access code is garden."
+        },
+        {
+          "noun": "legacy storage2",
+          "text": "The legacy storage2 access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q035",
+      "template_id": 0,
+      "noun": "cache",
+      "question": "What is the cache access code?",
+      "gold_answer": "cloud",
+      "gold_fact": "The cache access code is cloud.",
+      "decoys": [
+        {
+          "noun": "shadow vault",
+          "text": "The shadow vault access code is apple."
+        },
+        {
+          "noun": "shadow storage",
+          "text": "The shadow storage access code is river."
+        },
+        {
+          "noun": "shadow archive",
+          "text": "The shadow archive access code is tiger."
+        },
+        {
+          "noun": "shadow gateway",
+          "text": "The shadow gateway access code is stone."
+        },
+        {
+          "noun": "shadow mailbox",
+          "text": "The shadow mailbox access code is candle."
+        },
+        {
+          "noun": "shadow intranet",
+          "text": "The shadow intranet access code is silver."
+        },
+        {
+          "noun": "shadow admin",
+          "text": "The shadow admin access code is garden."
+        },
+        {
+          "noun": "shadow backup",
+          "text": "The shadow backup access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q036",
+      "template_id": 0,
+      "noun": "journal",
+      "question": "What is the journal access code?",
+      "gold_answer": "stone",
+      "gold_fact": "The journal access code is stone.",
+      "decoys": [
+        {
+          "noun": "shadow guest",
+          "text": "The shadow guest access code is apple."
+        },
+        {
+          "noun": "shadow media",
+          "text": "The shadow media access code is river."
+        },
+        {
+          "noun": "shadow portal",
+          "text": "The shadow portal access code is tiger."
+        },
+        {
+          "noun": "shadow ledger",
+          "text": "The shadow ledger access code is cloud."
+        },
+        {
+          "noun": "shadow registry",
+          "text": "The shadow registry access code is candle."
+        },
+        {
+          "noun": "shadow cabinet",
+          "text": "The shadow cabinet access code is silver."
+        },
+        {
+          "noun": "shadow locker",
+          "text": "The shadow locker access code is garden."
+        },
+        {
+          "noun": "shadow terminal",
+          "text": "The shadow terminal access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q037",
+      "template_id": 0,
+      "noun": "archive2",
+      "question": "What is the archive2 access code?",
+      "gold_answer": "lantern",
+      "gold_fact": "The archive2 access code is lantern.",
+      "decoys": [
+        {
+          "noun": "shadow beacon",
+          "text": "The shadow beacon access code is apple."
+        },
+        {
+          "noun": "shadow sensor",
+          "text": "The shadow sensor access code is river."
+        },
+        {
+          "noun": "shadow relay",
+          "text": "The shadow relay access code is tiger."
+        },
+        {
+          "noun": "shadow tunnel",
+          "text": "The shadow tunnel access code is cloud."
+        },
+        {
+          "noun": "shadow channel",
+          "text": "The shadow channel access code is stone."
+        },
+        {
+          "noun": "shadow matrix",
+          "text": "The shadow matrix access code is candle."
+        },
+        {
+          "noun": "shadow cluster",
+          "text": "The shadow cluster access code is silver."
+        },
+        {
+          "noun": "shadow keyring",
+          "text": "The shadow keyring access code is garden."
+        }
+      ]
+    },
+    {
+      "qid": "q038",
+      "template_id": 0,
+      "noun": "vault2",
+      "question": "What is the vault2 access code?",
+      "gold_answer": "silver",
+      "gold_fact": "The vault2 access code is silver.",
+      "decoys": [
+        {
+          "noun": "shadow keystone",
+          "text": "The shadow keystone access code is apple."
+        },
+        {
+          "noun": "shadow quorum",
+          "text": "The shadow quorum access code is river."
+        },
+        {
+          "noun": "shadow shard",
+          "text": "The shadow shard access code is tiger."
+        },
+        {
+          "noun": "shadow bucket",
+          "text": "The shadow bucket access code is cloud."
+        },
+        {
+          "noun": "shadow buffer",
+          "text": "The shadow buffer access code is stone."
+        },
+        {
+          "noun": "shadow socket",
+          "text": "The shadow socket access code is candle."
+        },
+        {
+          "noun": "shadow socket2",
+          "text": "The shadow socket2 access code is garden."
+        },
+        {
+          "noun": "shadow dossier",
+          "text": "The shadow dossier access code is planet."
+        }
+      ]
+    },
+    {
+      "qid": "q039",
+      "template_id": 0,
+      "noun": "storage2",
+      "question": "What is the storage2 access code?",
+      "gold_answer": "lantern",
+      "gold_fact": "The storage2 access code is lantern.",
+      "decoys": [
+        {
+          "noun": "shadow manifest",
+          "text": "The shadow manifest access code is apple."
+        },
+        {
+          "noun": "shadow catalog",
+          "text": "The shadow catalog access code is river."
+        },
+        {
+          "noun": "shadow index",
+          "text": "The shadow index access code is tiger."
+        },
+        {
+          "noun": "shadow cache",
+          "text": "The shadow cache access code is cloud."
+        },
+        {
+          "noun": "shadow journal",
+          "text": "The shadow journal access code is stone."
+        },
+        {
+          "noun": "shadow archive2",
+          "text": "The shadow archive2 access code is candle."
+        },
+        {
+          "noun": "shadow vault2",
+          "text": "The shadow vault2 access code is silver."
+        },
+        {
+          "noun": "shadow storage2",
+          "text": "The shadow storage2 access code is garden."
+        }
+      ]
+    }
+  ]
+}

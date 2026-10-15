@@ -1,0 +1,43 @@
+building retriever over C:\Users\LENOVO\Desktop\New folder (5)\data\wiki_train.txt (+400 injected facts)
+corpus chunks = 20400
+[rag] q000 gold=tiger n_rm=7 elapsed=3s
+[rag] q001 gold=apple n_rm=0 elapsed=6s
+[rag] q002 gold=stone n_rm=0 elapsed=10s
+[rag] q003 gold=silver n_rm=0 elapsed=14s
+[rag] q004 gold=stone n_rm=0 elapsed=18s
+[rag] q005 gold=planet n_rm=0 elapsed=24s
+[rag] q006 gold=cloud n_rm=0 elapsed=28s
+[rag] q007 gold=lantern n_rm=0 elapsed=32s
+[rag] q008 gold=lantern n_rm=0 elapsed=36s
+[rag] q009 gold=harbor n_rm=0 elapsed=40s
+[rag] q010 gold=tiger n_rm=0 elapsed=44s
+[rag] q011 gold=garden n_rm=0 elapsed=48s
+[rag] q012 gold=tiger n_rm=0 elapsed=52s
+[rag] q013 gold=silver n_rm=0 elapsed=56s
+[rag] q014 gold=forest n_rm=0 elapsed=60s
+[rag] q015 gold=candle n_rm=0 elapsed=65s
+[rag] q016 gold=cloud n_rm=0 elapsed=69s
+[rag] q017 gold=cloud n_rm=0 elapsed=73s
+[rag] q018 gold=river n_rm=0 elapsed=77s
+[rag] q019 gold=cloud n_rm=0 elapsed=81s
+[rag] q020 gold=tiger n_rm=7 elapsed=84s
+[rag] q021 gold=stone n_rm=0 elapsed=88s
+[rag] q022 gold=silver n_rm=0 elapsed=92s
+[rag] q023 gold=stone n_rm=0 elapsed=96s
+[rag] q024 gold=cloud n_rm=0 elapsed=100s
+[rag] q025 gold=tiger n_rm=0 elapsed=106s
+[rag] q026 gold=harbor n_rm=0 elapsed=109s
+[rag] q027 gold=cloud n_rm=0 elapsed=115s
+[rag] q028 gold=river n_rm=0 elapsed=120s
+[rag] q029 gold=tiger n_rm=0 elapsed=125s
+[rag] q030 gold=silver n_rm=0 elapsed=131s
+[rag] q031 gold=silver n_rm=0 elapsed=136s
+[rag] q032 gold=cloud n_rm=0 elapsed=140s
+[rag] q033 gold=candle n_rm=0 elapsed=144s
+[rag] q034 gold=apple n_rm=0 elapsed=148s
+[rag] q035 gold=cloud n_rm=0 elapsed=154s
+[rag] q036 gold=stone n_rm=0 elapsed=159s
+[rag] q037 gold=lantern n_rm=0 elapsed=164s
+[rag] q038 gold=silver n_rm=0 elapsed=168s
+[rag] q039 gold=lantern n_rm=0 elapsed=172s
+ALL DONE in 172s

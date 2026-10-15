@@ -1,0 +1,6 @@
+id,a,b,metric,delta,ci_low,ci_high,sig,n
+A1,CONTEXTLAB,RANDOM,accuracy,0.25,0.05,0.425,SIG,40
+A2,CONTEXTLAB,RANDOM,gold_survival,0.225,0.1,0.35,SIG,40
+A3,CONTEXTLAB,BASELINE,accuracy,0.3,0.15,0.45,SIG,40
+A4,CONTEXTLAB,BASELINE,ctx_tokens,-38.0,-38.6,-37.4,SIG,40
+A5,RANDOM,BASELINE,accuracy,0.05,-0.125,0.2006,ns,40

@@ -1,0 +1,10 @@
+[2026-10-08 11:47:05] START model=Qwen/Qwen2.5-0.5B expected=180 existing=112 seed_offset=+5 (true t=[5,25))
+[2026-10-08 11:47:54] model=Qwen/Qwen2.5-0.5B filler=prose size=345590 path=data/wiki_train.txt max_context=8192
+[2026-10-08 11:47:54] BATCH L=2048 done in 0s (cumulative rows=112/180)
+[2026-10-08 11:59:24] [phase12b_confirm] L=  4096 pos=0.5   d=8   s=medium acc=0.75 cell=689.7s (t=(5,25))
+[2026-10-08 11:59:24] BATCH L=4096 done in 690s (cumulative rows=120/180)
+[2026-10-08 13:09:58] [phase12b_confirm] L=  8192 pos=0.5   d=0   s=medium acc=1.00 cell=4234.3s (t=(5,25))
+[2026-10-08 14:08:44] [phase12b_confirm] L=  8192 pos=0.5   d=4   s=medium acc=0.40 cell=3525.5s (t=(5,25))
+[2026-10-08 14:54:20] [phase12b_confirm] L=  8192 pos=0.5   d=8   s=medium acc=0.20 cell=2735.7s (t=(5,25))
+[2026-10-08 14:54:20] BATCH L=8192 done in 10496s (cumulative rows=180/180)
+[2026-10-08 14:54:20] ALL DONE rows=180/180 in 11238s (verified)

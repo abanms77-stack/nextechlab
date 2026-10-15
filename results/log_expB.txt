@@ -1,0 +1,15 @@
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<03:27,  1.39it/s]Loading weights:  67%|######7   | 195/290 [00:00<00:00, 310.25it/s]Loading weights:  99%|#########9| 288/290 [00:01<00:00, 287.86it/s]Loading weights: 100%|##########| 290/290 [00:01<00:00, 241.54it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (345711 > 131072). Running this sequence through the model will result in indexing errors
+model=Qwen/Qwen2.5-0.5B filler=prose tokens=345590
+[expB_d] L=   256 pos=0.5   d=0   s=medium acc=1.00 cell=188.1s elapsed=188s
+[expB_d] L=   256 pos=0.5   d=1   s=medium acc=0.90 cell=226.7s elapsed=227s
+[expB_d] L=   256 pos=0.5   d=2   s=medium acc=0.80 cell=197.3s elapsed=197s
+[expB_d] L=   256 pos=0.5   d=3   s=medium acc=0.75 cell=210.4s elapsed=210s
+[expB_d] L=   256 pos=0.5   d=4   s=medium acc=0.65 cell=206.2s elapsed=206s
+[expB_d] L=   256 pos=0.5   d=5   s=medium acc=0.45 cell=190.8s elapsed=191s
+[expB_d] L=   256 pos=0.5   d=6   s=medium acc=0.60 cell=227.1s elapsed=227s
+[expB_d] L=   256 pos=0.5   d=8   s=medium acc=0.50 cell=211.4s elapsed=211s
+[expB_d] L=   256 pos=0.5   d=10  s=medium acc=0.40 cell=112.9s elapsed=113s
+[expB_d] L=   256 pos=0.5   d=12  s=medium acc=0.25 cell=193.3s elapsed=193s
+[expB_d] L=   256 pos=0.5   d=16  s=medium acc=0.15 cell=123.8s elapsed=124s
+ALL DONE in 2123s

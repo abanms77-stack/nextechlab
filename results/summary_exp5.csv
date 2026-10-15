@@ -1,0 +1,4 @@
+similarity,n_distractors,n,accuracy,p_correct
+low,4,6,1.0,0.9980601666666665
+medium,4,6,0.5,0.38009716666666665
+high,4,6,0.0,0.025974833333333336

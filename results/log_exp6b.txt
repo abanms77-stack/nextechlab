@@ -1,0 +1,7 @@
+filler=prose tokens=345590
+[exp6] L=  1024 pos=0.5   d=2   s=high   acc=0.55 cell=98.6s elapsed=99s
+[exp6] L=   256 pos=0.5   d=4   s=high   acc=0.15 cell=53.6s elapsed=54s
+[exp6] L=  1024 pos=0.5   d=4   s=high   acc=0.30 cell=187.7s elapsed=241s
+[exp6] L=   256 pos=0.5   d=8   s=high   acc=0.05 cell=49.7s elapsed=50s
+[exp6] L=  1024 pos=0.5   d=8   s=high   acc=0.00 cell=197.9s elapsed=248s
+ALL DONE in 623s

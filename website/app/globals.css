@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+  --bg: #ffffff;
+  --fg: #0e1116;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--fg);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  ::selection {
+    background: rgba(47, 107, 240, 0.18);
+  }
+  * {
+    @apply border-ink-200;
+  }
+}
+
+@layer components {
+  .container-tight {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .mono {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum" 1;
+  }
+  .eyebrow {
+    @apply mono text-[11px] uppercase tracking-[0.18em] text-ink-500;
+  }
+  .h1 {
+    @apply text-4xl font-semibold leading-[1.08] tracking-tight text-ink-900 sm:text-5xl;
+  }
+  .h2 {
+    @apply text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl;
+  }
+  .lead {
+    @apply text-[17px] leading-relaxed text-ink-600;
+  }
+  .card {
+    @apply rounded-xl border border-ink-200 bg-white shadow-panel;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition;
+  }
+  .btn-primary {
+    @apply btn bg-ink-900 text-white hover:bg-ink-800;
+  }
+  .btn-ghost {
+    @apply btn border border-ink-200 bg-white text-ink-800 hover:bg-ink-50;
+  }
+  .tag {
+    @apply mono inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-ink-50 px-2.5 py-1 text-[11px] uppercase tracking-wider text-ink-600;
+  }
+  .divider {
+    @apply h-px w-full bg-ink-200;
+  }
+}
